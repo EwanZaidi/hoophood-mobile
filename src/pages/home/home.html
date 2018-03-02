@@ -1,17 +1,39 @@
 <ion-header>
   <ion-navbar>
-    <ion-title>Home</ion-title>
+    <ion-title text-center><i class="titlestyle">Home</i></ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-  <h2>Welcome to Ionic!</h2>
-  <p>
-    This starter project comes with simple tabs-based layout for apps
-    that are going to primarily use a Tabbed UI.
-  </p>
-  <p>
-    Take a look at the <code>src/pages/</code> directory to add or change tabs,
-    update any existing page or create new pages.
-  </p>
+  <ion-row>
+    <ion-col col-12>
+      <img src="assets/imgs/banner.jpg" />
+    </ion-col>
+  </ion-row>
+  
+  <div>
+    <p text-justify>
+      Basketball games are actually the second largest sport in the world after the football game. However, the game is better
+      known among the Chinese community in Malaysia.
+    </p>
+    <p text-justify>
+      However, basketball games have actually been ranked amongst other races in Malaysia as it is considered not a game for one
+      race only.
+    </p>
+    <p text-justify>
+      Basketball games have been contested among the Sekolah Berasrama Penuh (SBP) since 1974 by offering the Piala Tun Hamdan
+      Sheikh Tahir for the men's category and Toh Puan Siti Zainab for the women category.
+    </p>
+  
+    <ion-col col-12>
+      <a href="https://gethyred.com.my/assets/pdf/hksbp_rule_book_v2.pdf">
+        <ion-buttons>
+          <button class="customBtn" ion-button icon-start>
+            <ion-icon md="ios-book-outline"></ion-icon>
+            Rules
+          </button>
+        </ion-buttons>
+      </a>
+    </ion-col>
+  </div>
 </ion-content>

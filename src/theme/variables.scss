@@ -37,8 +37,9 @@ $colors: (
   primary:    #488aff,
   secondary:  #32db64,
   danger:     #f53d3d,
-  light:      #f4f4f4,
-  dark:       #222
+  light:      #fff,
+  dark:       #222,
+  main:       #ff5100,
 );
 
 
@@ -52,7 +53,10 @@ $colors: (
 // App Material Design Variables
 // --------------------------------------------------
 // Material Design only Sass variables can go here
-
+$toolbar-md-title-text-color: #ff5100;
+$toolbar-md-title-font-size: 1.5rem;
+$tabs-md-tab-icon-color-active: #ff5100;
+$tabs-md-tab-text-color-active: #ff5100;
 
 
 
@@ -70,7 +74,7 @@ $colors: (
 // so that the above variables are used and Ionic's
 // default are overridden.
 
-@import "ionic.theme.default";
+@import "ionic.theme.dark";
 
 
 // Ionicons

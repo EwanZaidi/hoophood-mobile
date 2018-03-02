@@ -1,0 +1,105 @@
+<!--
+  Generated template for the GameDetailsPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>{{data?.team1_name}} vs {{data?.team2_name}}</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+  <ion-card>
+    <ion-card-header color="light" text-center>
+      Result
+    </ion-card-header>
+  </ion-card>
+  <ion-card>
+    <ion-card-content>
+      <ion-row>
+        <ion-col col-2 class="cc2">
+          FT
+        </ion-col>
+        <ion-col col-10>
+          <ion-row>
+            <ion-col col-10>
+              {{data?.team1_name}}
+            </ion-col>
+            <ion-col col-2>
+              {{data?.team1_score}}
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col col-10>
+              {{data?.team2_name}}
+            </ion-col>
+            <ion-col col-2>
+              {{data?.team2_score}}
+            </ion-col>
+          </ion-row>
+        </ion-col>
+      </ion-row>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card>
+    <ion-card-header color="light" text-center>
+      Details
+    </ion-card-header>
+  </ion-card>
+  <ion-card>
+    <ion-card-content>
+      <ion-row>
+        <ion-col col-4>
+          Date
+        </ion-col>
+        <ion-col col-1>
+          :
+        </ion-col>
+        <ion-col col-7>
+          {{data?.datetime | date: 'dd MMM yyyy'}},
+          <br>
+          ({{data?.datetime | date: 'hh:mm a'}})
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col col-4>
+          Venue
+        </ion-col>
+        <ion-col col-1>
+          :
+        </ion-col>
+        <ion-col col-7>
+          {{data?.venue}}
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col col-4>
+          Stage
+        </ion-col>
+        <ion-col col-1>
+          :
+        </ion-col>
+        <ion-col col-7>
+          {{data?.description}}
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col col-4>
+          Category
+        </ion-col>
+        <ion-col col-1>
+          :
+        </ion-col>
+        <ion-col col-7>
+          {{data?.category}}
+        </ion-col>
+      </ion-row>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

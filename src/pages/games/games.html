@@ -1,0 +1,49 @@
+<ion-header>
+
+  <ion-navbar>
+      <ion-title text-center><i class="titlestyle">Games</i></ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+  <ion-item>
+    <ion-label>Zone</ion-label>
+    <ion-select interface="action-sheet" (ionChange)="zonechanged($event)">
+      <ion-option value="Tengah">Tengah / Central</ion-option>
+      <ion-option value="Selatan">Selatan / South</ion-option>
+      <ion-option value="Timur">Timur / East</ion-option>
+    </ion-select>
+  </ion-item>
+
+  <ion-card  *ngIf="show" >
+    <ion-card-header color="light" text-center>
+      Matches & Result
+    </ion-card-header>
+  </ion-card>
+
+  <ion-card *ngFor="let m of match | async; let i = index">
+    <ion-card-content (click)="navigate(m)">
+      <ion-row>
+        <ion-col col-10>
+          <!-- <img *ngIf="(m.pic_home | async) as z" src="{{z.data.pic}}" style="width:50%"> -->
+          <p class="light">{{m.data.team1_name}}</p>
+        </ion-col>
+        <ion-col col-2>
+          <p class="light">{{m.data.team1_score}}</p>
+        </ion-col>
+      </ion-row>
+      <hr class="light-hr">
+      <ion-row>
+        <ion-col col-10>
+            <!-- <img *ngIf="(m.pic_away | async) as z" src="{{z.data.pic}}" style="width:50%"> -->
+          <p class="light">{{m.data.team2_name}}</p>
+        </ion-col>
+        <ion-col col-2>
+          <p class="light">{{m.data.team2_score}}</p>
+        </ion-col>
+      </ion-row>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

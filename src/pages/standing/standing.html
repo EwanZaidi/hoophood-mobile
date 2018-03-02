@@ -1,0 +1,89 @@
+<!--
+  Generated template for the StandingPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title text-center><i class="titlestyle">Standing</i></ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+    <ion-item>
+        <ion-label>Zone</ion-label>
+        <ion-select interface="action-sheet" (ionChange)="zonechanged($event)">
+          <ion-option value="Tengah">Tengah / Central</ion-option>
+          <ion-option value="Selatan">Selatan / South</ion-option>
+          <ion-option value="Timur">Timur / East</ion-option>
+        </ion-select>
+    </ion-item>
+
+    <ion-card *ngIf="show" class="bgc">
+      <ion-card-header text-center color="light">
+        Lelaki
+      </ion-card-header>
+    </ion-card>
+
+    <div *ngFor="let g of groupL | async; let i=index">
+      <ion-card class="bgc">
+        <ion-card-header color="light">
+          {{g.data.group_name}}
+        </ion-card-header>
+      </ion-card>
+
+      <ion-row>
+        <ion-col col-1 text-center>#</ion-col>
+        <ion-col col-6 text-center>Name</ion-col>
+        <ion-col col-1 text-center>P</ion-col>
+        <ion-col col-1 text-center>W</ion-col>
+        <ion-col col-1 text-center>L</ion-col>
+        <ion-col col-2 text-center>Pts</ion-col>
+      </ion-row>
+      <hr class="light-hr">
+      <ion-row *ngFor="let tl of g.teamList | async; let i=index">
+        <ion-col col-1 text-center>{{i+1}}</ion-col>
+        <ion-col col-6 text-center>{{tl.data.team_name}}</ion-col>
+        <ion-col col-1 text-center>{{tl.data.played}}</ion-col>
+        <ion-col col-1 text-center>{{tl.data.win}}</ion-col>
+        <ion-col col-1 text-center>{{tl.data.lost}}</ion-col>
+        <ion-col col-2 text-center>{{tl.data.points}}</ion-col>
+      </ion-row>
+    </div>
+
+    <ion-card *ngIf="show" class="bgc">
+      <ion-card-header text-center color="light">
+        Perempuan
+      </ion-card-header>
+    </ion-card>
+
+    <div *ngFor="let g of groupP | async; let i=index">
+      <ion-card class="bgc">
+        <ion-card-header color="light">
+          {{g.data.group_name}}
+        </ion-card-header>
+      </ion-card>
+
+      <ion-row>
+        <ion-col col-1 text-center>#</ion-col>
+        <ion-col col-6 text-center>Name</ion-col>
+        <ion-col col-1 text-center>P</ion-col>
+        <ion-col col-1 text-center>W</ion-col>
+        <ion-col col-1 text-center>L</ion-col>
+        <ion-col col-2 text-center>Pts</ion-col>
+      </ion-row>
+      <hr class="light-hr">
+      <ion-row *ngFor="let tl of g.teamList | async; let i=index">
+        <ion-col col-1 text-center>{{i+1}}</ion-col>
+        <ion-col col-6 text-center>{{tl.data.team_name}}</ion-col>
+        <ion-col col-1 text-center>{{tl.data.played}}</ion-col>
+        <ion-col col-1 text-center>{{tl.data.win}}</ion-col>
+        <ion-col col-1 text-center>{{tl.data.lost}}</ion-col>
+        <ion-col col-2 text-center>{{tl.data.points}}</ion-col>
+      </ion-row>
+    </div>
+</ion-content>

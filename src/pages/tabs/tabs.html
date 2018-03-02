@@ -1,5 +1,14 @@
-<ion-tabs>
+<!-- <ion-tabs>
   <ion-tab [root]="tab1Root" tabTitle="Home" tabIcon="home"></ion-tab>
-  <ion-tab [root]="tab2Root" tabTitle="About" tabIcon="information-circle"></ion-tab>
-  <ion-tab [root]="tab3Root" tabTitle="Contact" tabIcon="contacts"></ion-tab>
-</ion-tabs>
+  <ion-tab [root]="tab2Root" tabTitle="Games" tabIcon="basketball"></ion-tab>
+  <ion-tab [root]="tab3Root" tabTitle="Standing" tabIcon="podium"></ion-tab>
+  <ion-tab [root]="tab4Root" tabTitle="Team" tabIcon="contacts"></ion-tab>
+  <ion-tab [root]="tab5Root" tabTitle="Statistics" tabIcon="stats"></ion-tab>
+</ion-tabs> -->
+
+<super-tabs tabsPlacement="bottom" indicatorColor="main" toolbarColor="main">
+  <super-tab [root]="tab1Root" title="Home" icon="home"></super-tab>
+  <super-tab [root]="tab2Root" title="Games" icon="basketball"></super-tab>
+  <super-tab [root]="tab3Root" title="Standing" icon="podium"></super-tab>
+  <super-tab [root]="tab4Root" title="Team" icon="contacts"></super-tab>
+</super-tabs>
