@@ -1,47 +1,37 @@
 <ion-header>
-
-  <ion-navbar>
-      <ion-title text-center><i class="titlestyle">Games</i></ion-title>
+  <ion-navbar color="header">
+    <ion-title text-center>MATCHES</ion-title>
   </ion-navbar>
-
+  <ion-toolbar color="zone">
+    <ion-item color="zone">
+      <ion-label color="light">Zone</ion-label>
+      <ion-select interface="action-sheet" (ionChange)="zonechanged($event)">
+        <ion-option value="Tengah">Tengah / Central</ion-option>
+        <ion-option value="Selatan">Selatan / South</ion-option>
+        <ion-option value="Timur">Timur / East</ion-option>
+      </ion-select>
+    </ion-item>
+  </ion-toolbar>
 </ion-header>
 
 
-<ion-content>
-  <ion-item>
-    <ion-label>Zone</ion-label>
-    <ion-select interface="action-sheet" (ionChange)="zonechanged($event)">
-      <ion-option value="Tengah">Tengah / Central</ion-option>
-      <ion-option value="Selatan">Selatan / South</ion-option>
-      <ion-option value="Timur">Timur / East</ion-option>
-    </ion-select>
-  </ion-item>
+<ion-content class="content">
 
-  <ion-card  *ngIf="show" >
-    <ion-card-header color="light" text-center>
-      Matches & Result
-    </ion-card-header>
-  </ion-card>
-
-  <ion-card *ngFor="let m of match | async; let i = index">
-    <ion-card-content (click)="navigate(m)">
-      <ion-row>
-        <ion-col col-10>
-          <!-- <img *ngIf="(m.pic_home | async) as z" src="{{z.data.pic}}" style="width:50%"> -->
-          <p class="light">{{m.data.team1_name}}</p>
+  <h3 *ngIf="nozone" class="gray" text-center>Choose zone</h3>
+  
+  <ion-card *ngFor="let m of match | async; let i = index" class="game-card">
+    <ion-card-content (click)="navigate(m)" class="card-row">
+      <ion-row class="card-row" align-items-center>
+        <ion-col col-4 text-center>
+          <p class="orange"><strong>{{m.data.team1_name}}</strong></p>
         </ion-col>
-        <ion-col col-2>
-          <p class="light">{{m.data.team1_score}}</p>
+        <ion-col col-4 text-center>
+          <p class="font-besar"><strong>{{m.data.datetime | date : 'h:mm'}} </strong><span class="font-kecik"><strong>{{m.data.datetime | date: 'a'}}</strong></span></p>
+          <p class="font-kecik">{{m.data.datetime | date : 'E'}}, {{m.data.datetime | date : 'd/M'}}</p>
+          <p class="font-kecik">{{m.data.category}}</p>
         </ion-col>
-      </ion-row>
-      <hr class="light-hr">
-      <ion-row>
-        <ion-col col-10>
-            <!-- <img *ngIf="(m.pic_away | async) as z" src="{{z.data.pic}}" style="width:50%"> -->
-          <p class="light">{{m.data.team2_name}}</p>
-        </ion-col>
-        <ion-col col-2>
-          <p class="light">{{m.data.team2_score}}</p>
+        <ion-col col-4 text-center>
+          <p class="orange"><strong>{{m.data.team2_name}}</strong></p>
         </ion-col>
       </ion-row>
     </ion-card-content>

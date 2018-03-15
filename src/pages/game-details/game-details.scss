@@ -1,7 +1,14 @@
-.card-header-md{
-    padding:4px !important;
-}
+page-game-details{
+    .card-header-md{
+        padding:4px !important;
+    }
 
-.cc2{
-    padding-top: 25px !important;
+    .cc2{
+        padding-top: 25px !important;
+    }
+
+    .card-ios{
+        margin-left:0;
+        width: 100%;
+    }
 }

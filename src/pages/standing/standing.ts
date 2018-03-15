@@ -22,6 +22,7 @@ export class StandingPage {
   groupP: Observable<any>;
 
   show : Boolean = false;
+  nozone : Boolean = true;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private fs : AngularFirestore) {
   }
@@ -31,12 +32,13 @@ export class StandingPage {
   }
 
   zonechanged(event){
+    this.nozone = false;
     this.groupsL = this.fs.collection('groups', ref => ref.where('category', '==', 'Lelaki').where('zone', '==', event));
     this.groupL = this.groupsL.snapshotChanges().map(g => {
       return g.map(z => {
         const data = z.payload.doc.data();
         const id = z.payload.doc.id;
-        let teamList = this.fs.collection('groups/'+id+'/team_list', ref => {return ref.orderBy('pos').orderBy('points', 'desc')}).snapshotChanges().map(x=> {
+        let teamList = this.fs.collection('groups/'+id+'/team_list', ref => {return ref.orderBy('points', 'desc')}).snapshotChanges().map(x=> {
           return x.map(c=> {
             const data = c.payload.doc.data();
             const id = c.payload.doc.id;
@@ -54,7 +56,7 @@ export class StandingPage {
       return g.map(z => {
         const data = z.payload.doc.data();
         const id = z.payload.doc.id;
-        let teamList = this.fs.collection('groups/'+id+'/team_list', ref => {return ref.orderBy('pos').orderBy('points', 'desc')}).snapshotChanges().map(x=> {
+        let teamList = this.fs.collection('groups/'+id+'/team_list', ref => {return ref.orderBy('points', 'desc')}).snapshotChanges().map(x=> {
           return x.map(c=> {
             const data = c.payload.doc.data();
             const id = c.payload.doc.id;

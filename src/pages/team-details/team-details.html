@@ -14,11 +14,9 @@
 
 
 <ion-content>
-  <ion-card>
-    <ion-card-header text center class="bgc">
-      Staffs
-    </ion-card-header>
-  </ion-card>
+  <div padding class="category">
+    STAFFS
+  </div>
   <ion-card>
     <ion-card-content>
       <ion-row>
@@ -57,25 +55,22 @@
     </ion-card-content>
   </ion-card>
 
-  <ion-card>
-    <ion-card-header text center class="bgc">
-      Players
-    </ion-card-header>
-  </ion-card>
+  <div padding class="category">
+    ROSTER
+  </div>
   <ion-card>
     <ion-card-content>
       <div *ngFor="let t of team | async; let i=index">
-        <hr class="light-hr">
         <ion-row>
-          <ion-col col-2>
-            {{t.player_jersey}}
+          <ion-col padding col-10>
+            <p class="orange">{{t.player_name}}</p>
           </ion-col>
-          <ion-col col-10>
-            {{t.player_name}}
+          <ion-col padding col-2>
+            <p class="gray"><i>#{{t.player_jersey}}</i></p>
           </ion-col>
         </ion-row>
+        <hr class="hr100">
       </div>
-      <hr class="light-hr">
     </ion-card-content>
   </ion-card>
 

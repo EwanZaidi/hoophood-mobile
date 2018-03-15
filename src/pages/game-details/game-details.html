@@ -6,26 +6,18 @@
 -->
 <ion-header>
 
-  <ion-navbar>
-    <ion-title>{{data?.team1_name}} vs {{data?.team2_name}}</ion-title>
+  <ion-navbar color="header">
+    <ion-title text-center>{{data?.team1_name}} @ {{data?.team2_name}}</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
-<ion-content>
-  <ion-card>
-    <ion-card-header color="light" text-center>
-      Result
-    </ion-card-header>
-  </ion-card>
+<ion-content class="content">
   <ion-card>
     <ion-card-content>
       <ion-row>
-        <ion-col col-2 class="cc2">
-          FT
-        </ion-col>
-        <ion-col col-10>
+        <ion-col col-12>
           <ion-row>
             <ion-col col-10>
               {{data?.team1_name}}
@@ -46,25 +38,17 @@
       </ion-row>
     </ion-card-content>
   </ion-card>
-
-  <ion-card>
-    <ion-card-header color="light" text-center>
-      Details
-    </ion-card-header>
-  </ion-card>
   <ion-card>
     <ion-card-content>
       <ion-row>
         <ion-col col-4>
-          Date
+          Date & Day
         </ion-col>
         <ion-col col-1>
           :
         </ion-col>
         <ion-col col-7>
-          {{data?.datetime | date: 'dd MMM yyyy'}},
-          <br>
-          ({{data?.datetime | date: 'hh:mm a'}})
+          {{data?.datetime | date: 'EEEE, d/M'}} ({{data?.datetime | date: 'h:mm a'}})
         </ion-col>
       </ion-row>
       <ion-row>

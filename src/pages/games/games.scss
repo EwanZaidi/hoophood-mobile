@@ -1,11 +1,38 @@
-.light {
-    color: #fff !important;
-}
+page-games{
+    .light {
+        color: #fff !important;
+    }
 
-.light-hr{
-    background-color: #ff5100 !important;
-}
+    .light-hr{
+        background-color: #ff5100 !important;
+    }
 
-ion-card {
-    border: 1px solid #ff5100;
- }
+    .game-card {
+        height: 100px;
+    }
+
+    .card-row{
+        height: 100%;
+    }
+
+    .font-kecik{
+        font-size: 1.0rem !important;
+    }
+
+    .font-besar{
+        font-size: 2.0rem !important;
+    }
+
+    .orange{
+        color: #e05114;
+    }
+
+    .card-ios{
+        margin-left:0;
+        width: 100%;
+    }
+
+    .gray{
+        color: #A4ACB0;
+    }
+}

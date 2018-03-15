@@ -1,16 +1,27 @@
-.light-hr{
-    background-color: #ff5100 !important;
+page-standing{
+    .category{
+        color: #969798;
+    }
+
+    .light-hr{
+        background-color: #ff5100 !important;
+    }
+    
+    .bgc{
+        background-color: #ff5100 !important;
+    }
+
+    .bgc2{
+        background-color: #ff4100 !important;
+    }
+    
+    .light {
+        color: #fff !important;
+    }
+
+    .card-ios{
+        margin-left:0;
+        width: 100%;
+    }
 }
 
-.bgc{
-    // border: 1px solid #ff5100;
-    background-color: #ff5100 !important;
-}
-
-.light {
-    color: #fff !important;
-}
-
-ion-card {
-    border: 1px solid #ff5100;
- }

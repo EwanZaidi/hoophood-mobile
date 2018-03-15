@@ -6,63 +6,55 @@
 -->
 <ion-header>
 
-  <ion-navbar>
-    <ion-title text-center><i>Team</i></ion-title>
+  <ion-navbar color="header">
+    <ion-title text-center>TEAM</ion-title>
   </ion-navbar>
-
-</ion-header>
-
-
-<ion-content>
-  <ion-item>
-      <ion-label>Zone</ion-label>
+  <ion-toolbar color="zone">
+    <ion-item color="zone">
+      <ion-label color="light">Zone</ion-label>
       <ion-select interface="action-sheet" (ionChange)="zonechanged($event)">
         <ion-option value="Tengah">Tengah / Central</ion-option>
         <ion-option value="Selatan">Selatan / South</ion-option>
         <ion-option value="Timur">Timur / East</ion-option>
       </ion-select>
-  </ion-item>
+    </ion-item>
+  </ion-toolbar>
 
-  <ion-card *ngIf="show" class="bgc">
-    <ion-card-header text-center color="light">
-      Lelaki
-    </ion-card-header>
-  </ion-card>
+</ion-header>
+
+
+<ion-content>
+
+  <h3 *ngIf="!show" class="gray" text-center>Choose zone</h3>
+
+  <div padding *ngIf="show" class="category">
+    LELAKI
+  </div>
 
   <ion-card *ngIf="show">
     <ion-card-content>
-      <ion-row>
-        <ion-col col-2 text-center>#</ion-col>
-        <ion-col col-10 text-center>Team</ion-col>
-      </ion-row>
-      <hr class="light-hr">
       <div *ngFor="let t of teamL | async; let i = index">
         <ion-row (click)="selectteam(t)">
-          <ion-col col-2 text-center >{{i+1}}</ion-col>
-          <ion-col col-10 text-center>{{t.data.team_name}}</ion-col>
+          <ion-col col-2 text-center class="gray">{{i+1}}</ion-col>
+          <ion-col col-10 text-left class="orange">{{t.data.team_name}}</ion-col>
         </ion-row>
+        <hr class="hr100">
       </div>
     </ion-card-content>
   </ion-card>
 
-  <ion-card *ngIf="show" class="bgc">
-    <ion-card-header text-center color="light">
-      Perempuan
-    </ion-card-header>
-  </ion-card>
+  <div padding *ngIf="show" class="category">
+    PEREMPUAN
+  </div>
 
   <ion-card *ngIf="show">
     <ion-card-content>
-      <ion-row>
-        <ion-col col-2 text-center>#</ion-col>
-        <ion-col col-10 text-center>Team</ion-col>
-      </ion-row>
-      <hr class="light-hr">
       <div *ngFor="let t of teamP | async; let i = index">
         <ion-row (click)="selectteam(t)">
-          <ion-col col-2 text-center >{{i+1}}</ion-col>
-          <ion-col col-10 text-center>{{t.data.team_name}}</ion-col>
+          <ion-col col-2 text-center class="gray">{{i+1}}</ion-col>
+          <ion-col col-10 text-left class="orange">{{t.data.team_name}}</ion-col>
         </ion-row>
+        <hr class="hr100">
       </div>
     </ion-card-content>
   </ion-card>
