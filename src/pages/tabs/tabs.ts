@@ -5,6 +5,8 @@ import { StandingPage } from '../standing/standing';
 import { GamesPage } from '../games/games';
 import { TeamPage } from '../team/team';
 import { HomePage } from '../home/home';
+import { BracketPage } from '../bracket/bracket';
+
 
 
 @Component({
@@ -15,8 +17,8 @@ export class TabsPage {
   tab1Root = HomePage;
   tab2Root = GamesPage;
   tab3Root = StandingPage;
-  tab4Root = TeamPage;
-  tab5Root = StatisticsPage;
+  tab4Root = BracketPage;
+  tab5Root = TeamPage;
 
   constructor() {
 

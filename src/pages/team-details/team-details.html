@@ -62,10 +62,10 @@
     <ion-card-content>
       <div *ngFor="let t of team | async; let i=index">
         <ion-row>
-          <ion-col padding col-10>
+          <ion-col padding col-9>
             <p class="orange">{{t.player_name}}</p>
           </ion-col>
-          <ion-col padding col-2>
+          <ion-col padding col-3 text-right>
             <p class="gray"><i>#{{t.player_jersey}}</i></p>
           </ion-col>
         </ion-row>
