@@ -21,6 +21,7 @@ import { AngularFireModule} from 'angularfire2';
 import { FIREBASE_CONFIG } from './firebase.credentials';
 
 import { SuperTabsModule } from 'ionic2-super-tabs';
+import { BracketPage } from '../pages/bracket/bracket';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { SuperTabsModule } from 'ionic2-super-tabs';
     StandingPage,
     StatisticsPage,
     TeamDetailsPage,
-    GameDetailsPage
+    GameDetailsPage,
+    BracketPage
   ],
   imports: [
     BrowserModule,
@@ -52,7 +54,8 @@ import { SuperTabsModule } from 'ionic2-super-tabs';
     StandingPage,
     StatisticsPage,
     TeamDetailsPage,
-    GameDetailsPage
+    GameDetailsPage,
+    BracketPage
   ],
   providers: [
     StatusBar,

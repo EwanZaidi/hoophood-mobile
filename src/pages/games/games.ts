@@ -41,11 +41,11 @@ export class GamesPage {
   
     setTimeout(() => {
       this.navCtrl.push(GameDetailsPage, {id: details.id, data: details.data});
-    }, 3000);
+    }, 2000);
   
     setTimeout(() => {
       loading.dismiss();
-    }, 4000);
+    }, 2000);
   }
 
   zonechanged(event){

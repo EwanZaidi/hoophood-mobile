@@ -51,6 +51,8 @@ $colors: (
 // App iOS Variables
 // --------------------------------------------------
 // iOS only Sass variables can go here
+$toolbar-ios-active-color: #ff5100;
+$segment-button-ios-border-color-activated: #ff5100;
 
 
 
@@ -70,6 +72,8 @@ $tabs-md-tab-icon-transform-y-active: 0;
 $tabs-md-tab-icon-right-transform-x-active: 0;
 $loading-md-spinner-color: color($colors, main);
 $loading-md-background: #f0f0f0;
+$toolbar-md-active-color: #ff5100;
+$segment-button-md-border-color-activated: #ff5100;
 
 
 
