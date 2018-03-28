@@ -23,6 +23,10 @@ export class GamesPage {
   show : Boolean = false;
   nozone : Boolean = true;
 
+  a : Boolean[] = new Array();
+
+
+
   zone = [{id : 'Central'}, {id : 'South'}, {id : 'North'}, {id : 'East'}];
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private fs : AngularFirestore, public load: LoadingController) {
@@ -49,17 +53,26 @@ export class GamesPage {
   }
 
   zonechanged(event){
+    const date = new Date();
+
     this.nozone = false;
     this.matches = this.fs.collection('matches', ref => ref.orderBy('match_no').where('zone', '==', event));
     this.match = this.matches.snapshotChanges().map(m => {
+      m.forEach(mt => {
+        let i = mt.payload.newIndex;
+        let a = mt.payload.doc.data();
+        if(date > a.datetime){
+          this.a[i] = true;
+        }else{
+          this.a[i] = false;
+        }
+      })
       return m.map(x => {
         const data = x.payload.doc.data();
         const id = x.payload.doc.id;
         return {data,id};
       })
     })
-
-    this.show = true;
   }
 
 }

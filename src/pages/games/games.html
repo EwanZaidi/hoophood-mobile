@@ -23,14 +23,17 @@
     <ion-card-content (click)="navigate(m)" class="card-row">
       <ion-row class="card-row" align-items-center>
         <ion-col col-4 text-center>
+          <p *ngIf="a[i]" class="orange"><strong>{{m.data.team1_score}}</strong></p>
           <p class="orange"><strong>{{m.data.team1_name}}</strong></p>
         </ion-col>
         <ion-col col-4 text-center>
-          <p class="font-besar"><strong>{{m.data.datetime | date : 'h:mm'}} </strong><span class="font-kecik"><strong>{{m.data.datetime | date: 'a'}}</strong></span></p>
+          <p *ngIf="!a[i]" class="font-besar"><strong>{{m.data.datetime | date : 'h:mm'}} </strong><span class="font-kecik"><strong>{{m.data.datetime | date: 'a'}}</strong></span></p>
+          <p *ngIf="a[i]" class="font-besar-2"><strong>FULL TIME</strong></p>
           <p class="font-kecik">{{m.data.datetime | date : 'E'}}, {{m.data.datetime | date : 'd/M'}}</p>
           <p class="font-kecik">{{m.data.category}}</p>
         </ion-col>
         <ion-col col-4 text-center>
+          <p *ngIf="a[i]" class="orange"><strong>{{m.data.team2_score}}</strong></p>
           <p class="orange"><strong>{{m.data.team2_name}}</strong></p>
         </ion-col>
       </ion-row>

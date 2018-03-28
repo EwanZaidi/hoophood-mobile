@@ -10,20 +10,38 @@ page-bracket {
         padding-bottom:8px;
     }
 
+    .card-ios {
+        width: 100%;
+        font-size: 1.4rem;
+        margin-left:0;
+    }
+
+    .card-content-ios{
+        padding-left:0;
+        padding-right:0;
+        padding-top:8px;
+        padding-bottom:8px;
+    }
+
     .category{
         color: #969798;
+        text-align: center;
     }
 
     .quarter{
         left: 5px;
     }
 
+    .content-ios hr{
+        height: 1px;
+    }
+
     .semi{
-        margin-top:125px;
+        margin-top:65px;
     }
 
     .semi2{
-        margin-top:170px;
+        margin-top:130px;
     }
 
     .final{
@@ -32,6 +50,10 @@ page-bracket {
 
     .gray{
         color: #A4ACB0;
+    }
+
+    .fcolor{
+        color:#ff5100;
     }
 
 }

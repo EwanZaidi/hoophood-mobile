@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="com.hyred.sweetsixteen" version="1.0.3" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+<widget id="com.hyred.sweetsixteen" version="1.0.4" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <name>Hoop Hood - SBP</name>
     <description>An awesome Ionic/Cordova app.</description>
     <author email="ridhwan@gethyred" href="http://gethyred.com.my/">Hyred Developer Team</author>
@@ -85,4 +85,5 @@
     <plugin name="cordova-plugin-ionic-keyboard" spec="^2.0.5" />
     <preference name="SplashScreen" value="screen" />
     <engine name="android" spec="7.0.0" />
+    <allow-navigation href="http://192.168.0.101:8100" />
 </widget>

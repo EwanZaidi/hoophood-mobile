@@ -41,19 +41,21 @@
 
       <ion-row>
         <ion-col col-1 text-center>#</ion-col>
-        <ion-col col-6 text-center>Name</ion-col>
+        <ion-col col-4 text-center>Name</ion-col>
         <ion-col col-1 text-center>P</ion-col>
         <ion-col col-1 text-center>W</ion-col>
         <ion-col col-1 text-center>L</ion-col>
+        <ion-col col-2 text-center>GD</ion-col>
         <ion-col col-2 text-center>Pts</ion-col>
       </ion-row>
       <hr class="light-hr">
       <ion-row *ngFor="let tl of g.teamList | async; let i=index">
         <ion-col col-1 text-center>{{i+1}}</ion-col>
-        <ion-col col-6 text-center>{{tl.data.team_name}}</ion-col>
+        <ion-col col-4 text-center>{{tl.data.team_name}}</ion-col>
         <ion-col col-1 text-center>{{tl.data.played}}</ion-col>
         <ion-col col-1 text-center>{{tl.data.win}}</ion-col>
         <ion-col col-1 text-center>{{tl.data.lost}}</ion-col>
+        <ion-col col-2 text-center>{{tl.data.gd}}</ion-col>
         <ion-col col-2 text-center>{{tl.data.points}}</ion-col>
       </ion-row>
     </div>
@@ -74,19 +76,21 @@
 
       <ion-row>
         <ion-col col-1 text-center>#</ion-col>
-        <ion-col col-6 text-center>Name</ion-col>
+        <ion-col col-4 text-center>Name</ion-col>
         <ion-col col-1 text-center>P</ion-col>
         <ion-col col-1 text-center>W</ion-col>
         <ion-col col-1 text-center>L</ion-col>
+        <ion-col col-2 text-center>GD</ion-col>
         <ion-col col-2 text-center>Pts</ion-col>
       </ion-row>
       <hr class="light-hr">
       <ion-row *ngFor="let tl of g.teamList | async; let i=index">
         <ion-col col-1 text-center>{{i+1}}</ion-col>
-        <ion-col col-6 text-center>{{tl.data.team_name}}</ion-col>
+        <ion-col col-4 text-center>{{tl.data.team_name}}</ion-col>
         <ion-col col-1 text-center>{{tl.data.played}}</ion-col>
         <ion-col col-1 text-center>{{tl.data.win}}</ion-col>
         <ion-col col-1 text-center>{{tl.data.lost}}</ion-col>
+        <ion-col col-2 text-center>{{tl.data.gd}}</ion-col>
         <ion-col col-2 text-center>{{tl.data.points}}</ion-col>
       </ion-row>
     </div>

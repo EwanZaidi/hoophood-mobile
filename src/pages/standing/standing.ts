@@ -2,6 +2,7 @@ import { Observable } from 'rxjs/Observable';
 import { AngularFirestore,AngularFirestoreCollection } from 'angularfire2/firestore';
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
+import { GroupDetailsPage } from '../group-details/group-details';
 /**
  * Generated class for the StandingPage page.
  *
@@ -29,6 +30,10 @@ export class StandingPage {
 
   ionViewDidLoad() {
     
+  }
+
+  detail(group){
+    this.navCtrl.push(GroupDetailsPage, {id:group.id, data:group.data});
   }
 
   zonechanged(event){

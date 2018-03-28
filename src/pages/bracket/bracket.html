@@ -34,193 +34,361 @@
 
 
 <ion-content [ngSwitch]="category">
-  <h3 *ngIf="nozone" class="gray" text-center>Choose zone</h3>
+  <h3 *ngIf="!nodata" class="gray" text-center>Choose zone</h3>
   <div *ngSwitchCase = "'Lelaki'">
-    <ion-row>
+    <ion-row *ngIf="nozone">
       <ion-col col-4>
-        <div *ngFor="let m of matchL | async">
-          <div *ngIf="m.data.description.includes('Quarterfinal')">
-            <div class="category">
-              {{m.data.description}}
-            </div>
-            <ion-card>
-              <ion-card-content>
-                <ion-row>
-                  <ion-col col-8>
-                    <p>{{m.data.team1_name| slice:0:5}}</p>
-                  </ion-col>
-                  <ion-col col-4>
-                    <p>{{m.data.team1_score}}</p>
-                  </ion-col>
-                </ion-row>
-                <hr>
-                <ion-row>
-                  <ion-col col-8>
-                    <p>{{m.data.team2_name| slice:0:5}}</p>
-                  </ion-col>
-                  <ion-col col-4>
-                    <p>{{m.data.team2_score}}</p>
-                  </ion-col>
-                </ion-row>
-              </ion-card-content>
-            </ion-card>
-          </div>
+        <div class="category">
+          {{(MatchLelaki[0].data.description?MatchLelaki[0].data.description:'QuarterFinal 1')}}
         </div>
+        <ion-card>
+          <ion-card-content>
+            <ion-row>
+              <ion-col col-7>
+                <p>{{(MatchLelaki[0].data.team1_name?MatchLelaki[0].data.team1_name.slice(0,4):'')}}<span *ngIf="(MatchLelaki[0].data.team1_name)?.length > 4 ">...</span></p>
+              </ion-col>
+              <ion-col col-5 text-right>
+                <p>{{MatchLelaki[0].data.team1_score}}</p>
+              </ion-col>
+            </ion-row>
+            <hr>
+            <ion-row>
+              <ion-col col-7>
+                <p>{{(MatchLelaki[0].data.team2_name?MatchLelaki[0].data.team2_name.slice(0,4):'')}}<span *ngIf="(MatchLelaki[0].data.team2_name)?.length > 4 ">...</span></p>
+              </ion-col>
+              <ion-col col-5 text-right>
+                <p>{{MatchLelaki[0].data.team2_score}}</p>
+              </ion-col>
+            </ion-row>
+          </ion-card-content>
+        </ion-card>
+        <div class="category">
+          {{(MatchLelaki[1].data.description?MatchLelaki[1].data.description:'QuarterFinal 2')}}
+        </div>
+        <ion-card *ngIf="nozone">
+          <ion-card-content>
+            <ion-row>
+              <ion-col col-7>
+                <p>{{(MatchLelaki[1].data.team1_name?MatchLelaki[1].data.team1_name.slice(0,4):'')}}<span *ngIf="(MatchLelaki[1].data.team1_name)?.length > 4 ">...</span></p>
+              </ion-col>
+              <ion-col col-5 text-right>
+                <p>{{MatchLelaki[1].data.team1_score}}</p>
+              </ion-col>
+            </ion-row>
+            <hr>
+            <ion-row>
+              <ion-col col-7>
+                <p>{{(MatchLelaki[1].data.team2_name?MatchLelaki[1].data.team2_name.slice(0,4):'')}}<span *ngIf="(MatchLelaki[1].data.team2_name)?.length > 4 ">...</span></p>
+              </ion-col>
+              <ion-col col-5 text-right>
+                <p>{{MatchLelaki[1].data.team2_score}}</p>
+              </ion-col>
+            </ion-row>
+          </ion-card-content>
+        </ion-card>
+        <div class="category">
+          {{(MatchLelaki[2].data.description?MatchLelaki[2].data.description:'QuarterFinal 3')}}
+        </div>
+        <ion-card *ngIf="nozone">
+          <ion-card-content>
+            <ion-row>
+              <ion-col col-7>
+                <p>{{(MatchLelaki[2].data.team1_name?MatchLelaki[2].data.team1_name.slice(0,4):'')}}<span *ngIf="(MatchLelaki[2].data.team1_name)?.length > 4 ">...</span></p>
+              </ion-col>
+              <ion-col col-5 text-right>
+                <p>{{MatchLelaki[2].data.team1_score}}</p>
+              </ion-col>
+            </ion-row>
+            <hr>
+            <ion-row>
+              <ion-col col-7>
+                <p>{{(MatchLelaki[2].data.team2_name?MatchLelaki[2].data.team2_name.slice(0,4):'')}}<span *ngIf="(MatchLelaki[2].data.team2_name)?.length > 4 ">...</span></p>
+              </ion-col>
+              <ion-col col-5 text-right>
+                <p>{{MatchLelaki[2].data.team2_score}}</p>
+              </ion-col>
+            </ion-row>
+          </ion-card-content>
+        </ion-card>
+        <div class="category">
+          {{(MatchLelaki[3].data.description?MatchLelaki[3].data.description:'QuarterFinal 4')}}
+        </div>
+        <ion-card *ngIf="nozone">
+          <ion-card-content>
+            <ion-row>
+              <ion-col col-7>
+                <p>{{(MatchLelaki[3].data.team1_name?MatchLelaki[3].data.team1_name.slice(0,4):'')}}<span *ngIf="(MatchLelaki[3].data.team1_name)?.length > 4 ">...</span></p>
+              </ion-col>
+              <ion-col col-5 text-right>
+                <p>{{MatchLelaki[3].data.team1_score}}</p>
+              </ion-col>
+            </ion-row>
+            <hr>
+            <ion-row>
+              <ion-col col-7>
+                <p>{{(MatchLelaki[3].data.team2_name?MatchLelaki[3].data.team2_name.slice(0,4):'')}}<span *ngIf="(MatchLelaki[3].data.team2_name)?.length > 4 ">...</span></p>
+              </ion-col>
+              <ion-col col-5 text-right>
+                <p>{{MatchLelaki[3].data.team2_score}}</p>
+              </ion-col>
+            </ion-row>
+          </ion-card-content>
+        </ion-card>
       </ion-col>
-      <ion-col col-4 class="semi">
-        <div *ngFor="let m of matchL | async">
-          <div *ngIf="m.data.description.includes('Semifinal')">
-            <div class="category">
-              {{m.data.description}}
-            </div>
-            <ion-card>
-              <ion-card-content>
-                <ion-row>
-                  <ion-col col-8>
-                    <p>{{m.data.team1_name | slice:0:5}}</p>
-                  </ion-col>
-                  <ion-col col-4>
-                    <p>{{m.data.team1_score}}</p>
-                  </ion-col>
-                </ion-row>
-                <hr>
-                <ion-row>
-                  <ion-col col-8>
-                    <p>{{m.data.team2_name | slice:0:5}}</p>
-                  </ion-col>
-                  <ion-col col-4>
-                    <p>{{m.data.team2_score}}</p>
-                  </ion-col>
-                </ion-row>
-              </ion-card-content>
-            </ion-card>
-          </div>
+      <ion-col col-4>
+        <div class="category semi">
+          {{(MatchLelaki[4].data.description?MatchLelaki[4].data.description:'SemiFinal 1')}}
         </div>
+        <ion-card *ngIf="nozone">
+          <ion-card-content>
+            <ion-row>
+              <ion-col col-7>
+                <p>{{(MatchLelaki[4].data.team1_name?MatchLelaki[4].data.team1_name.slice(0,4):'')}}<span *ngIf="(MatchLelaki[4].data.team1_name)?.length > 4 ">...</span></p>
+              </ion-col>
+              <ion-col col-5 text-right>
+                <p>{{MatchLelaki[4].data.team1_score}}</p>
+              </ion-col>
+            </ion-row>
+            <hr>
+            <ion-row>
+              <ion-col col-7>
+                <p>{{(MatchLelaki[4].data.team2_name?MatchLelaki[4].data.team2_name.slice(0,4):'')}}<span *ngIf="(MatchLelaki[4].data.team2_name)?.length > 4 ">...</span></p>
+              </ion-col>
+              <ion-col col-5 text-right>
+                <p>{{MatchLelaki[4].data.team2_score}}</p>
+              </ion-col>
+            </ion-row>
+          </ion-card-content>
+        </ion-card>
+        <div class="category semi2">
+          {{(MatchLelaki[5].data.description?MatchLelaki[5].data.description:'SemiFinal 2')}}
+        </div>
+        <ion-card *ngIf="nozone">
+          <ion-card-content>
+            <ion-row>
+              <ion-col col-7>
+                <p>{{(MatchLelaki[5].data.team1_name?MatchLelaki[5].data.team1_name.slice(0,4):'')}}<span *ngIf="(MatchLelaki[5].data.team1_name)?.length > 4 ">...</span></p>
+              </ion-col>
+              <ion-col col-5 text-right>
+                <p>{{MatchLelaki[5].data.team1_score}}</p>
+              </ion-col>
+            </ion-row>
+            <hr>
+            <ion-row>
+              <ion-col col-7>
+                <p>{{(MatchLelaki[5].data.team2_name?MatchLelaki[5].data.team2_name.slice(0,4):'')}}<span *ngIf="(MatchLelaki[5].data.team2_name)?.length > 4 ">...</span></p>
+              </ion-col>
+              <ion-col col-5 text-right>
+                <p>{{MatchLelaki[5].data.team2_score}}</p>
+              </ion-col>
+            </ion-row>
+          </ion-card-content>
+        </ion-card>
       </ion-col>
-      <ion-col col-4 class="final">
-        <div *ngFor="let m of matchL | async">
-          <div *ngIf="m.data.description.includes('Final')">
-            <div class="category">
-              {{m.data.description}}
-            </div>
-            <ion-card>
-              <ion-card-content>
-                <ion-row>
-                  <ion-col col-8>
-                    <p>{{m.data.team1_name| slice:0:5}}</p>
-                  </ion-col>
-                  <ion-col col-4>
-                    <p>{{m.data.team1_score}}</p>
-                  </ion-col>
-                </ion-row>
-                <hr>
-                <ion-row>
-                  <ion-col col-8>
-                    <p>{{m.data.team2_name| slice:0:5}}</p>
-                  </ion-col>
-                  <ion-col col-4>
-                    <p>{{m.data.team2_score}}</p>
-                  </ion-col>
-                </ion-row>
-              </ion-card-content>
-            </ion-card>
-          </div>
+      <ion-col col-4>
+        <div class="category final">
+          {{(MatchLelaki[6].data.description?MatchLelaki[6].data.description:'Final')}}
         </div>
+        <ion-card *ngIf="nozone">
+          <ion-card-content>
+            <ion-row>
+              <ion-col col-7>
+                <p>{{(MatchLelaki[6].data.team1_name?MatchLelaki[6].data.team1_name.slice(0,4):'')}}<span *ngIf="(MatchLelaki[6].data.team1_name)?.length > 4 ">...</span></p>
+              </ion-col>
+              <ion-col col-5 text-right>
+                <p>{{MatchLelaki[6].data.team1_score}}</p>
+              </ion-col>
+            </ion-row>
+            <hr>
+            <ion-row>
+              <ion-col col-7>
+                <p>{{(MatchLelaki[6].data.team2_name?MatchLelaki[6].data.team2_name.slice(0,4):'')}}<span *ngIf="(MatchLelaki[6].data.team2_name)?.length > 4 ">...</span></p>
+              </ion-col>
+              <ion-col col-5 text-right>
+                <p>{{MatchLelaki[6].data.team2_score}}</p>
+              </ion-col>
+            </ion-row>
+          </ion-card-content>
+        </ion-card>
       </ion-col>
     </ion-row>
   </div>
   <div *ngSwitchCase = "'Perempuan'">
     <ion-row>
       <ion-col col-4>
-        <div *ngFor="let m of matchP | async">
-          <div *ngIf="m.data.description.includes('Quarterfinal')">
-            <div class="category">
-              {{m.data.description}}
-            </div>
-            <ion-card>
-              <ion-card-content>
-                <ion-row>
-                  <ion-col col-8>
-                    <p>{{m.data.team1_name| slice:0:5}}</p>
-                  </ion-col>
-                  <ion-col col-4>
-                    <p>{{m.data.team1_score}}</p>
-                  </ion-col>
-                </ion-row>
-                <hr>
-                <ion-row>
-                  <ion-col col-8>
-                    <p>{{m.data.team2_name| slice:0:5}}</p>
-                  </ion-col>
-                  <ion-col col-4>
-                    <p>{{m.data.team2_score}}</p>
-                  </ion-col>
-                </ion-row>
-              </ion-card-content>
-            </ion-card>
-          </div>
-        </div>
-      </ion-col>
-      <ion-col col-4 class="semi">
-        <div *ngFor="let m of matchP | async">
-          <div *ngIf="m.data.description.includes('Semifinal')">
-            <div class="category">
-              {{m.data.description}}
-            </div>
-            <ion-card>
-              <ion-card-content>
-                <ion-row>
-                  <ion-col col-8>
-                    <p>{{m.data.team1_name | slice:0:5}}</p>
-                  </ion-col>
-                  <ion-col col-4>
-                    <p>{{m.data.team1_score}}</p>
-                  </ion-col>
-                </ion-row>
-                <hr>
-                <ion-row>
-                  <ion-col col-8>
-                    <p>{{m.data.team2_name | slice:0:5}}</p>
-                  </ion-col>
-                  <ion-col col-4>
-                    <p>{{m.data.team2_score}}</p>
-                  </ion-col>
-                </ion-row>
-              </ion-card-content>
-            </ion-card>
-          </div>
-        </div>
-      </ion-col>
-      <ion-col col-4 class="final">
-        <div *ngFor="let m of matchP | async">
-          <div *ngIf="m.data.description.includes('Final')">
-            <div class="category">
-              {{m.data.description}}
-            </div>
-            <ion-card>
-              <ion-card-content>
-                <ion-row>
-                  <ion-col col-8>
-                    <p>{{m.data.team1_name| slice:0:5}}</p>
-                  </ion-col>
-                  <ion-col col-4>
-                    <p>{{m.data.team1_score}}</p>
-                  </ion-col>
-                </ion-row>
-                <hr>
-                <ion-row>
-                  <ion-col col-8>
-                    <p>{{m.data.team2_name| slice:0:5}}</p>
-                  </ion-col>
-                  <ion-col col-4>
-                    <p>{{m.data.team2_score}}</p>
-                  </ion-col>
-                </ion-row>
-              </ion-card-content>
-            </ion-card>
-          </div>
-        </div>
-      </ion-col>
+      <div class="category">
+        {{(MatchPerempuan[0].data.description?MatchPerempuan[0].data.description:'QuarterFinal 1')}}
+      </div>
+      <ion-card *ngIf="nozone">
+        <ion-card-content>
+          <ion-row>
+            <ion-col col-7>
+              <p>{{(MatchPerempuan[0].data.team1_name?MatchPerempuan[0].data.team1_name.slice(0,5):'')}}<span *ngIf="(MatchPerempuan[0].data.team1_name)?.length > 4 ">...</span></p>
+            </ion-col>
+            <ion-col col-5 text-right>
+              <p>{{MatchPerempuan[0].data.team1_score}}</p>
+            </ion-col>
+          </ion-row>
+          <hr>
+          <ion-row>
+            <ion-col col-7>
+              <p>{{(MatchPerempuan[0].data.team2_name?MatchPerempuan[0].data.team2_name.slice(0,5):'')}}<span *ngIf="(MatchPerempuan[0].data.team2_name)?.length > 4 ">...</span></p>
+            </ion-col>
+            <ion-col col-5 text-right>
+              <p>{{MatchPerempuan[0].data.team2_score}}</p>
+            </ion-col>
+          </ion-row>
+        </ion-card-content>
+      </ion-card>
+      <div class="category">
+          {{(MatchPerempuan[1].data.description?MatchPerempuan[1].data.description:'QuarterFinal 2')}}
+      </div>
+      <ion-card *ngIf="nozone && !nodata">
+        <ion-card-content>
+          <ion-row>
+            <ion-col col-7>
+              <p>{{(MatchPerempuan[1].data.team1_name?MatchPerempuan[1].data.team1_name.slice(0,5):'')}}<span *ngIf="(MatchPerempuan[1].data.team1_name)?.length > 4 ">...</span></p>
+            </ion-col>
+            <ion-col col-5 text-right>
+              <p>{{MatchPerempuan[1].data.team1_score}}</p>
+            </ion-col>
+          </ion-row>
+          <hr>
+          <ion-row>
+            <ion-col col-7>
+              <p>{{(MatchPerempuan[1].data.team2_name?MatchPerempuan[1].data.team2_name.slice(0,5):'')}}<span *ngIf="(MatchPerempuan[1].data.team2_name)?.length > 4 ">...</span></p>
+            </ion-col>
+            <ion-col col-5 text-right>
+              <p>{{MatchPerempuan[1].data.team2_score}}</p>
+            </ion-col>
+          </ion-row>
+        </ion-card-content>
+      </ion-card>
+      <div class="category">
+        {{(MatchPerempuan[2].data.description?MatchPerempuan[2].data.description:'QuarterFinal 3')}}
+      </div>
+      <ion-card *ngIf="nozone">
+        <ion-card-content>
+          <ion-row>
+            <ion-col col-7>
+              <p>{{(MatchPerempuan[2].data.team1_name?MatchPerempuan[2].data.team1_name.slice(0,5):'')}}<span *ngIf="(MatchPerempuan[2].data.team1_name)?.length > 4 ">...</span></p>
+            </ion-col>
+            <ion-col col-5 text-right>
+              <p>{{MatchPerempuan[2].data.team1_score}}</p>
+            </ion-col>
+          </ion-row>
+          <hr>
+          <ion-row>
+            <ion-col col-7>
+              <p>{{(MatchPerempuan[2].data.team2_name?MatchPerempuan[2].data.team2_name.slice(0,5):'')}}<span *ngIf="(MatchPerempuan[2].data.team2_name)?.length > 4 ">...</span></p>
+            </ion-col>
+            <ion-col col-5 text-right>
+              <p>{{MatchPerempuan[2].data.team2_score}}</p>
+            </ion-col>
+          </ion-row>
+        </ion-card-content>
+      </ion-card>
+      <div class="category">
+        {{(MatchPerempuan[3].data.description?MatchPerempuan[3].data.description:'QuarterFinal 4')}}
+      </div>
+      <ion-card *ngIf="nozone">
+        <ion-card-content>
+          <ion-row>
+            <ion-col col-7>
+              <p>{{(MatchPerempuan[3].data.team1_name?MatchPerempuan[3].data.team1_name.slice(0,5):'')}}<span *ngIf="(MatchPerempuan[3].data.team1_name)?.length > 4 ">...</span></p>
+            </ion-col>
+            <ion-col col-5 text-right>
+              <p>{{MatchPerempuan[3].data.team1_score}}</p>
+            </ion-col>
+          </ion-row>
+          <hr>
+          <ion-row>
+            <ion-col col-7>
+              <p>{{(MatchPerempuan[3].data.team2_name?MatchPerempuan[3].data.team2_name.slice(0,5):'')}}<span *ngIf="(MatchPerempuan[3].data.team2_name)?.length > 4 ">...</span></p>
+            </ion-col>
+            <ion-col col-5 text-right>
+              <p>{{MatchPerempuan[3].data.team2_score}}</p>
+            </ion-col>
+          </ion-row>
+        </ion-card-content>
+      </ion-card>
+    </ion-col>
+    <ion-col col-4>
+      <div class="category semi">
+        {{(MatchPerempuan[4].data.description?MatchPerempuan[4].data.description:'SemiFinal 1')}}
+      </div>
+      <ion-card *ngIf="nozone">
+        <ion-card-content>
+          <ion-row>
+            <ion-col col-7>
+              <p>{{(MatchPerempuan[4].data.team1_name?MatchPerempuan[4].data.team1_name.slice(0,5):'')}}<span *ngIf="(MatchPerempuan[4].data.team1_name)?.length > 4 ">...</span></p>
+            </ion-col>
+            <ion-col col-5 text-right>
+              <p>{{MatchPerempuan[4].data.team1_score}}</p>
+            </ion-col>
+          </ion-row>
+          <hr>
+          <ion-row>
+            <ion-col col-7>
+              <p>{{(MatchPerempuan[4].data.team2_name?MatchPerempuan[4].data.team2_name.slice(0,5):'')}}<span *ngIf="(MatchPerempuan[4].data.team2_name)?.length > 4 ">...</span></p>
+            </ion-col>
+            <ion-col col-5 text-right>
+              <p>{{MatchPerempuan[4].data.team2_score}}</p>
+            </ion-col>
+          </ion-row>
+        </ion-card-content>
+      </ion-card>
+      <div class="category semi2">
+        {{(MatchPerempuan[5].data.description?MatchPerempuan[5].data.description:'SemiFinal 2')}}
+      </div>
+      <ion-card *ngIf="nozone">
+        <ion-card-content>
+          <ion-row>
+            <ion-col col-7>
+              <p>{{(MatchPerempuan[5].data.team1_name?MatchPerempuan[5].data.team1_name.slice(0,5):'')}}<span *ngIf="(MatchPerempuan[5].data.team1_name)?.length > 4 ">...</span></p>
+            </ion-col>
+            <ion-col col-5 text-right>
+              <p>{{MatchPerempuan[5].data.team1_score}}</p>
+            </ion-col>
+          </ion-row>
+          <hr>
+          <ion-row>
+            <ion-col col-7>
+              <p>{{(MatchPerempuan[5].data.team2_name?MatchPerempuan[5].data.team2_name.slice(0,5):'')}}<span *ngIf="(MatchPerempuan[5].data.team2_name)?.length > 4 ">...</span></p>
+            </ion-col>
+            <ion-col col-5 text-right>
+              <p>{{MatchPerempuan[5].data.team2_score}}</p>
+            </ion-col>
+          </ion-row>
+        </ion-card-content>
+      </ion-card>
+    </ion-col>
+    <ion-col col-4>
+      <div class="category final">
+        {{(MatchPerempuan[6].data.description?MatchPerempuan[6].data.description:'Final')}}
+      </div>
+      <ion-card *ngIf="nozone">
+        <ion-card-content>
+          <ion-row>
+            <ion-col col-7>
+              <p>{{(MatchPerempuan[6].data.team1_name?MatchPerempuan[6].data.team1_name.slice(0,5):'')}}<span *ngIf="(MatchPerempuan[6].data.team1_name)?.length > 4 ">...</span></p>
+            </ion-col>
+            <ion-col col-5 text-right>
+              <p>{{MatchPerempuan[6].data.team1_score}}</p>
+            </ion-col>
+          </ion-row>
+          <hr>
+          <ion-row>
+            <ion-col col-7>
+              <p>{{(MatchPerempuan[6].data.team2_name?MatchPerempuan[6].data.team2_name.slice(0,5):'')}}<span *ngIf="(MatchPerempuan[6].data.team2_name)?.length > 4 ">...</span></p>
+            </ion-col>
+            <ion-col col-5 text-right>
+              <p>{{MatchPerempuan[6].data.team2_score}}</p>
+            </ion-col>
+          </ion-row>
+        </ion-card-content>
+      </ion-card>
+    </ion-col>
     </ion-row>
     </div>
 </ion-content>
