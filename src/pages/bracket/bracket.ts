@@ -3,6 +3,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { AngularFirestoreCollection, AngularFirestore } from 'angularfire2/firestore';
 import { Observable } from 'rxjs/Observable';
+import { GameDetailsPage } from '../game-details/game-details';
 
 /**
  * Generated class for the BracketPage page.
@@ -30,7 +31,7 @@ export class BracketPage {
   constructor(public navCtrl: NavController, public navParams: NavParams, private fs:AngularFirestore) {
 
     this.nozone = false;
-    this.nodata = false;
+    this.nodata = true;
     
     for(let i=0;i<this.MatchLelaki.length;i++){
       this.MatchLelaki[i] = new myMatch();
@@ -52,6 +53,7 @@ export class BracketPage {
 
   zonechanged(event){
     this.nozone = true;
+    this.nodata = false;
 
     for(let i=0;i<this.MatchLelaki.length;i++){
       this.MatchLelaki[i] = new myMatch();
@@ -139,6 +141,7 @@ export class BracketPage {
         newMatches[6] = new myMatch();
         newMatches[6].id = '';
         newMatches[6].data = new MatchData();
+        this.nodata = false;
         this.MatchLelaki = newMatches.slice(0);
         return newMatches;
       }
@@ -216,6 +219,7 @@ export class BracketPage {
         newMatches[6] = new myMatch();
         newMatches[6].id = '';
         newMatches[6].data = new MatchData();
+        this.nodata = false;
         this.MatchPerempuan = newMatches.slice(0);
         return newMatches;
       }
@@ -224,6 +228,10 @@ export class BracketPage {
     })
 
     this.matchP.subscribe();
+  }
+
+  details(data){
+    this.navCtrl.push(GameDetailsPage, {id:null,data: data});
   }
 
 }

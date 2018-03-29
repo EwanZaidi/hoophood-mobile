@@ -19,7 +19,7 @@
       </ion-select>
     </ion-item>
   </ion-toolbar>
-  <ion-toolbar *ngIf="nozone">
+  <ion-toolbar>
     <ion-segment [(ngModel)]="category">
       <ion-segment-button value="Lelaki">
         <ion-icon name="man"></ion-icon>
@@ -34,14 +34,14 @@
 
 
 <ion-content [ngSwitch]="category">
-  <h3 *ngIf="!nodata" class="gray" text-center>Choose zone</h3>
+  <h3 *ngIf="nodata" class="gray" text-center>Choose zone</h3>
   <div *ngSwitchCase = "'Lelaki'">
     <ion-row *ngIf="nozone">
       <ion-col col-4>
         <div class="category">
           {{(MatchLelaki[0].data.description?MatchLelaki[0].data.description:'QuarterFinal 1')}}
         </div>
-        <ion-card>
+        <ion-card (click)="details(MatchLelaki[0].data)">
           <ion-card-content>
             <ion-row>
               <ion-col col-7>
@@ -65,7 +65,7 @@
         <div class="category">
           {{(MatchLelaki[1].data.description?MatchLelaki[1].data.description:'QuarterFinal 2')}}
         </div>
-        <ion-card *ngIf="nozone">
+        <ion-card *ngIf="nozone" (click)="details(MatchLelaki[1].data)">
           <ion-card-content>
             <ion-row>
               <ion-col col-7>
@@ -89,7 +89,7 @@
         <div class="category">
           {{(MatchLelaki[2].data.description?MatchLelaki[2].data.description:'QuarterFinal 3')}}
         </div>
-        <ion-card *ngIf="nozone">
+        <ion-card *ngIf="nozone" (click)="details(MatchLelaki[2].data)">
           <ion-card-content>
             <ion-row>
               <ion-col col-7>
@@ -113,7 +113,7 @@
         <div class="category">
           {{(MatchLelaki[3].data.description?MatchLelaki[3].data.description:'QuarterFinal 4')}}
         </div>
-        <ion-card *ngIf="nozone">
+        <ion-card *ngIf="nozone" (click)="details(MatchLelaki[3].data)">
           <ion-card-content>
             <ion-row>
               <ion-col col-7>
@@ -139,7 +139,7 @@
         <div class="category semi">
           {{(MatchLelaki[4].data.description?MatchLelaki[4].data.description:'SemiFinal 1')}}
         </div>
-        <ion-card *ngIf="nozone">
+        <ion-card *ngIf="nozone" (click)="details(MatchLelaki[4].data)">
           <ion-card-content>
             <ion-row>
               <ion-col col-7>
@@ -163,7 +163,7 @@
         <div class="category semi2">
           {{(MatchLelaki[5].data.description?MatchLelaki[5].data.description:'SemiFinal 2')}}
         </div>
-        <ion-card *ngIf="nozone">
+        <ion-card *ngIf="nozone" (click)="details(MatchLelaki[5].data)">
           <ion-card-content>
             <ion-row>
               <ion-col col-7>
@@ -189,7 +189,7 @@
         <div class="category final">
           {{(MatchLelaki[6].data.description?MatchLelaki[6].data.description:'Final')}}
         </div>
-        <ion-card *ngIf="nozone">
+        <ion-card *ngIf="nozone" (click)="details(MatchLelaki[6].data)">
           <ion-card-content>
             <ion-row>
               <ion-col col-7>
@@ -219,7 +219,7 @@
       <div class="category">
         {{(MatchPerempuan[0].data.description?MatchPerempuan[0].data.description:'QuarterFinal 1')}}
       </div>
-      <ion-card *ngIf="nozone">
+      <ion-card *ngIf="nozone" (click)="details(MatchPerempuan[0].data)">
         <ion-card-content>
           <ion-row>
             <ion-col col-7>
@@ -243,7 +243,7 @@
       <div class="category">
           {{(MatchPerempuan[1].data.description?MatchPerempuan[1].data.description:'QuarterFinal 2')}}
       </div>
-      <ion-card *ngIf="nozone && !nodata">
+      <ion-card *ngIf="nozone" (click)="details(MatchPerempuan[1].data)">
         <ion-card-content>
           <ion-row>
             <ion-col col-7>
@@ -267,7 +267,7 @@
       <div class="category">
         {{(MatchPerempuan[2].data.description?MatchPerempuan[2].data.description:'QuarterFinal 3')}}
       </div>
-      <ion-card *ngIf="nozone">
+      <ion-card *ngIf="nozone" (click)="details(MatchPerempuan[2].data)">
         <ion-card-content>
           <ion-row>
             <ion-col col-7>
@@ -291,7 +291,7 @@
       <div class="category">
         {{(MatchPerempuan[3].data.description?MatchPerempuan[3].data.description:'QuarterFinal 4')}}
       </div>
-      <ion-card *ngIf="nozone">
+      <ion-card *ngIf="nozone" (click)="details(MatchPerempuan[3].data)">
         <ion-card-content>
           <ion-row>
             <ion-col col-7>
@@ -317,8 +317,8 @@
       <div class="category semi">
         {{(MatchPerempuan[4].data.description?MatchPerempuan[4].data.description:'SemiFinal 1')}}
       </div>
-      <ion-card *ngIf="nozone">
-        <ion-card-content>
+      <ion-card *ngIf="nozone" (click)="details(MatchPerempuan[4].data)">
+        <ion-card-content >
           <ion-row>
             <ion-col col-7>
               <p>{{(MatchPerempuan[4].data.team1_name?MatchPerempuan[4].data.team1_name.slice(0,5):'')}}<span *ngIf="(MatchPerempuan[4].data.team1_name)?.length > 4 ">...</span></p>
@@ -341,7 +341,7 @@
       <div class="category semi2">
         {{(MatchPerempuan[5].data.description?MatchPerempuan[5].data.description:'SemiFinal 2')}}
       </div>
-      <ion-card *ngIf="nozone">
+      <ion-card *ngIf="nozone" (click)="details(MatchPerempuan[5].data)">
         <ion-card-content>
           <ion-row>
             <ion-col col-7>
@@ -367,7 +367,7 @@
       <div class="category final">
         {{(MatchPerempuan[6].data.description?MatchPerempuan[6].data.description:'Final')}}
       </div>
-      <ion-card *ngIf="nozone">
+      <ion-card *ngIf="nozone" (click)="details(MatchPerempuan[6].data)">
         <ion-card-content>
           <ion-row>
             <ion-col col-7>

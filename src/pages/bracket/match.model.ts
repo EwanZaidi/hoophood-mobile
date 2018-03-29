@@ -8,16 +8,16 @@ export class myMatch{
 }
 
 export class MatchData{
-    category:any = '';
+    category:any = 'TBA';
     datetime:any = '';
     description:any = '';
-    match_no:any = '';
-    team1_id:any = '';
+    match_no:any = 'TBA';
+    team1_id:any = 'TBA';
     team1_name:any = 'TBA';
-    team1_score:any = '';
-    team2_id:any = '';
+    team1_score:any = 0;
+    team2_id:any = 'TBA';
     team2_name:any = 'TBA';
-    team2_score:any = '';
-    venue:any = '';
-    zone:any = '';
+    team2_score:any = 0;
+    venue:any = 'TBA';
+    zone:any = 'TBA';
 }

@@ -7,14 +7,16 @@
 <ion-header>
 
   <ion-navbar color="header">
-    <ion-title text-center>{{data?.team1_name}} @ {{data?.team2_name}}</ion-title>
+    <ion-title *ngIf="tba" text-center></ion-title>
+    <ion-title *ngIf="!tba" text-center>{{data?.team1_name}} @ {{data?.team2_name}}</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content class="content">
-  <ion-card>
+  <h3 *ngIf="tba" class="gray" text-center>No details</h3>
+  <ion-card *ngIf="!tba">
     <ion-card-content>
       <ion-row>
         <ion-col col-12>
@@ -38,7 +40,7 @@
       </ion-row>
     </ion-card-content>
   </ion-card>
-  <ion-card>
+  <ion-card *ngIf="!tba">
     <ion-card-content>
       <ion-row>
         <ion-col col-4>
@@ -71,6 +73,17 @@
         </ion-col>
         <ion-col col-7>
           {{data?.description}}
+        </ion-col>
+      </ion-row>
+      <ion-row *ngIf="data?.group">
+        <ion-col col-4>
+          Group
+        </ion-col>
+        <ion-col col-1>
+          :
+        </ion-col>
+        <ion-col col-7>
+          {{group}}
         </ion-col>
       </ion-row>
       <ion-row>
