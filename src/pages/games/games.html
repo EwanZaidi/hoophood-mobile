@@ -31,7 +31,8 @@
           <p *ngIf="a[i]" class="font-besar-2"><strong>FULL TIME</strong></p>
           <p class="font-kecik">{{m.data.datetime | date : 'E'}}, {{m.data.datetime | date : 'd/M'}}</p>
           <p class="font-kecik">{{m.data.category}}</p>
-          <p class="font-kecik" *ngIf="(m.data)?.group">Group {{m.data.group.substring(2,3)}}</p>
+          <p class="font-kecik" *ngIf="(m.data)?.group.substring(0,2) == 'st'">Group {{m.data.group.substring(2,3)}}</p>
+          <p class="font-kecik" *ngIf="(m.data)?.group.substring(0,2) != 'st'">Group {{m.data.group.substring(3,4)}}</p>
         </ion-col>
         <ion-col col-4 text-center>
           <p *ngIf="a[i]" class="orange"><strong>{{m.data.team2_score}}</strong></p>

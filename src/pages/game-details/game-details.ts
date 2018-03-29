@@ -41,7 +41,12 @@ export class GameDetailsPage {
   }
 
   splitvalue(data){
-    this.group = data.substring(2,3)
+    if(data.substring(0,2) == 'st'){
+      this.group = data.substring(2,3)
+    }else{
+      this.group = data.substring(3,4)
+    }
+    
   }
 
 
