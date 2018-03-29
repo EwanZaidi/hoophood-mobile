@@ -61,7 +61,9 @@ export class GamesPage {
       m.forEach(mt => {
         let i = mt.payload.newIndex;
         let a = mt.payload.doc.data();
-        if(date > a.datetime){
+        let gameDate = a.datetime;
+        gameDate.setMinutes(gameDate.getMinutes() + 30);
+        if(date > gameDate ){
           this.a[i] = true;
         }else{
           this.a[i] = false;
