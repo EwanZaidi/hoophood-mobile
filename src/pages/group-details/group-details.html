@@ -14,5 +14,18 @@
 
 
 <ion-content padding>
-
+  <ion-row>
+    <ion-col col-2></ion-col>
+    <ion-col col-2 *ngFor="let d of detail | async">
+      <p>{{d.data.team_name}}</p>
+    </ion-col> 
+  </ion-row>
+  <ion-row *ngFor="let d of detail | async">
+    <ion-col col-2>
+      <p>{{d.data.team_name}}</p>
+    </ion-col>
+    <ion-col col-2 *ngFor="let dd of d.det | async">
+      <p>{{showScore(d.id,d.det)}}</p>
+    </ion-col>
+  </ion-row>
 </ion-content>
