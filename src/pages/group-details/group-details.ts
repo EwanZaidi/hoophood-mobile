@@ -36,45 +36,17 @@ export class GroupDetailsPage {
         const id = g.payload.doc.id;
         const data = g.payload.doc.data();
 
-        let no = data.pos.replace(/\D/g,'');
-        console.log(no);
-        
-
         let det = this.afs.collection('groups/'+this.id+'/team_list/'+id+'/game_details').snapshotChanges().map(f=> {
-          // f.map(g => {
-          //   const id = g.payload.doc.id;
-          //   const data = g.payload.doc.data();
-          //   return result;
-          // })
+          return f.map(g => {
+            const id = g.payload.doc.id;
+            const data = g.payload.doc.data();
 
-          let result:any = new Array<any>()
-          
-          
-          for (let i=0; i<f.length; i++) {
-            // if(no==(i+1)) result.push({id:id,score:''});
-            result.push({id:f[i].payload.doc.id,score:f[i].payload.doc.data().score})
-          }
-           
-          return result;
-
+            return {id, data}
+          })
         })
-        // let showScore = function(){
-        //   return (det[id]?(det[id].data?(det[id].data.score?det[id].data.score:''):''):'');      
-        // }
         return {id, data, det}
       })
     })
-  }
-
-  showScore = function(id,det){
-    // console.log(id,det);
-    // console.log(det);
-    
-    // det.forEach(x=>{
-    //   console.log(x);
-    // })
-    // return (det[id]?(det[id].data?(det[id].data.score?det[id].data.score:''):''):'');      
-    return det.score;
   }
 
 }

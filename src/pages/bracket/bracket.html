@@ -214,7 +214,7 @@
     </ion-row>
   </div>
   <div *ngSwitchCase = "'Perempuan'">
-    <ion-row>
+    <ion-row *ngIf="nozone">
       <ion-col col-4>
       <div class="category">
         {{(MatchPerempuan[0].data.description?MatchPerempuan[0].data.description:'QuarterFinal 1')}}
