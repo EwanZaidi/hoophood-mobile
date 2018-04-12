@@ -1,0 +1,104 @@
+{
+  "project_info": {
+    "project_number": "442563288082",
+    "firebase_url": "https://ghyred-sweet16.firebaseio.com",
+    "project_id": "ghyred-sweet16",
+    "storage_bucket": "ghyred-sweet16.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:442563288082:android:abb068006a4d41f2",
+        "android_client_info": {
+          "package_name": "com.gethyred.hoophood"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "442563288082-7ttufjab83khsqcjt8jr4tt28p6ssgj7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDW5llQbhN1T-fnLEOtahhNkUKU5Ur0RbI"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:442563288082:android:daa7530472ccd2ce",
+        "android_client_info": {
+          "package_name": "com.hyred.sweetsixteen"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "442563288082-7ttufjab83khsqcjt8jr4tt28p6ssgj7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDW5llQbhN1T-fnLEOtahhNkUKU5Ur0RbI"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:442563288082:android:b4351bb64cf527f5",
+        "android_client_info": {
+          "package_name": "com.rad.tata"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "442563288082-7ttufjab83khsqcjt8jr4tt28p6ssgj7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDW5llQbhN1T-fnLEOtahhNkUKU5Ur0RbI"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
