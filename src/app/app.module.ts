@@ -6,6 +6,7 @@ import { NgModule, ErrorHandler } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
+import { FormsModule } from '@angular/forms';
 
 import { HomePage } from '../pages/home/home';
 import { TabsPage } from '../pages/tabs/tabs';
@@ -15,6 +16,7 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StandingPage } from '../pages/standing/standing';
 
+import { AngularFireAuthModule} from 'angularfire2/auth';
 import { AngularFireDatabaseModule} from 'angularfire2/database';
 import { AngularFirestoreModule} from 'angularfire2/firestore';
 import { AngularFireModule} from 'angularfire2';
@@ -23,6 +25,7 @@ import { FIREBASE_CONFIG } from './firebase.credentials';
 import { SuperTabsModule } from 'ionic2-super-tabs';
 import { BracketPage } from '../pages/bracket/bracket';
 import { GroupDetailsPage } from '../pages/group-details/group-details';
+import { LoginPage } from '../pages/login/login';
 
 @NgModule({
   declarations: [
@@ -36,7 +39,8 @@ import { GroupDetailsPage } from '../pages/group-details/group-details';
     TeamDetailsPage,
     GameDetailsPage,
     BracketPage,
-    GroupDetailsPage
+    GroupDetailsPage,
+    LoginPage,
   ],
   imports: [
     BrowserModule,
@@ -44,7 +48,9 @@ import { GroupDetailsPage } from '../pages/group-details/group-details';
     AngularFireModule.initializeApp(FIREBASE_CONFIG),
     AngularFireDatabaseModule,
     AngularFirestoreModule,
-    SuperTabsModule.forRoot()
+    SuperTabsModule.forRoot(),
+    FormsModule,
+    AngularFireAuthModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -58,12 +64,14 @@ import { GroupDetailsPage } from '../pages/group-details/group-details';
     TeamDetailsPage,
     GameDetailsPage,
     BracketPage,
-    GroupDetailsPage
+    GroupDetailsPage,
+    LoginPage,
   ],
   providers: [
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
+    
   ]
 })
 export class AppModule {}

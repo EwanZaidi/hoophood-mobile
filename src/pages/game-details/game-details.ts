@@ -1,14 +1,9 @@
 
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
-
-
-/**
- * Generated class for the GameDetailsPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+import { AngularFireAuth } from 'angularfire2/auth';
+import { AngularFirestoreDocument, AngularFirestore } from 'angularfire2/firestore';
+import { Observable } from 'rxjs/Observable';
 
 @Component({
   selector: 'page-game-details',
@@ -23,7 +18,9 @@ export class GameDetailsPage {
   tba : Boolean;
   group;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  edit : Boolean = false;
+
+  constructor(public navCtrl: NavController, public navParams: NavParams, private auth : AngularFireAuth, private fs: AngularFirestore) {
   }
 
   ionViewDidLoad() {
@@ -35,6 +32,30 @@ export class GameDetailsPage {
     }else{
       this.tba = false;
     }
+
+    let team_id = window.localStorage.getItem('team_id');
+
+    console.log(team_id);
+
+    if(this.data.team1_id == team_id || this.data.team2_id == team_id){
+      this.edit = true;
+    }else{
+      this.edit = false;
+    }
+
+    // this.auth.authState.subscribe(x => {
+    //   let uid = x.uid;
+    //   let a : AngularFirestoreDocument<any> = this.fs.collection('users').doc(uid);
+    //   let b : Observable<any> = a.valueChanges();
+
+    //   b.subscribe(x => {
+    //     if(this.data.team1_id == x.team_id || this.data.team2_id == x.team_id){
+    //       this.edit = true;
+    //     }else{
+    //       this.edit = false;
+    //     }
+    //   })
+    // })
 
     if(this.data.group != undefined){
     this.splitvalue(this.data.group)}
