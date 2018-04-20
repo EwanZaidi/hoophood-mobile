@@ -1,4 +1,4 @@
-<ion-header>
+<!-- <ion-header>
   <ion-navbar color="login">
   </ion-navbar>
 </ion-header>
@@ -7,7 +7,7 @@
   <ion-row class="logo-row">
     <ion-col></ion-col>
     <ion-col width-67>
-      <img src="../../assets/imgs/icon.png" />
+      <img src="assets/imgs/icon.png" />
     </ion-col>
     <ion-col></ion-col>
   </ion-row>
@@ -18,7 +18,7 @@
           <ion-list inset>
 
             <ion-item>
-              <ion-input type="text" placeholder="Email" name="email" required ngModel></ion-input>
+              <ion-input type="text" placeholder="Team Name" name="teamName" required ngModel></ion-input>
             </ion-item>
 
             <ion-item>
@@ -36,5 +36,60 @@
       </ion-row>
 
     </form>
+  </div>
+</ion-content> -->
+
+<ion-content class="profiles-bg" padding>
+  <div class="fixed-content"></div>
+  <div class="scroll-content">
+    <div class="auth-content">
+      <div padding-horizontal text-center>
+        <div class="logo">
+          <img src="assets/imgs/icon3.png">
+        </div>
+        <h2 class="text-secondary" ion-text no-margin><strong>Hoop Hood</strong></h2>
+      </div>
+      <div padding-vertical></div>
+      <div id="loginForm">
+        <form #loginForm="ngForm" class="list-form">
+          <ion-item>
+            <ion-label floating>
+              <ion-icon item-start name="contact" class="text-white">
+              </ion-icon>
+              Username
+            </ion-label>
+            <ion-input name="teamName" type="email" class="text-white" ngModel required></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label floating>
+              <ion-icon item-start name="lock" class="text-white">
+              </ion-icon>
+              Password
+            </ion-label>
+            <ion-input name="password" type="password" class="text-white" ngModel required></ion-input>
+          </ion-item>
+        </form>
+        <p></p>
+        <div>
+          <ion-grid fixed>
+            <ion-row>
+              <button col col-6 col-md-6 col-lg-6 (click)="login(loginForm)" block color="secondary" icon-start ion-button [disabled]="!loginForm.valid">
+                <span class="button-inner">
+                  <ion-icon name="log-in"></ion-icon>
+                  SIGN IN
+                </span>
+              </button>
+              <button col col-6 col-md-6 col-lg-6 (click)="back()" block color="danger" icon-start ion-button>
+                <span class="button-inner">
+                  <ion-icon name="backspace"></ion-icon>
+                  BACK
+                </span>
+              </button>
+            </ion-row>
+          </ion-grid>
+        </div>
+        <p ion-text text-center class="text-white">Powered by Hyred</p>
+      </div>
+    </div>
   </div>
 </ion-content>

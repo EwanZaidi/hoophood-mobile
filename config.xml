@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="com.hyred.sweetsixteen" version="1.0.12" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+<widget id="com.hyred.sweetsixteen" version="1.0.13" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <name>Hoop Hood - SBP</name>
     <description>Hoop Hood - SBP powered by Hyred</description>
     <author email="ridhwan@gethyred" href="http://gethyred.com.my/">Hyred Developer Team</author>
@@ -80,11 +80,13 @@
     </platform>
     <preference name="SplashScreen" value="screen" />
     <allow-navigation href="http://192.168.0.101:8100" />
-    <engine name="ios" spec="~4.5.4" />
-    <engine name="android" spec="6.4.0" />
     <plugin name="cordova-plugin-whitelist" spec="^1.3.3" />
     <plugin name="cordova-plugin-device" spec="^2.0.1" />
     <plugin name="cordova-plugin-splashscreen" spec="^5.0.2" />
     <plugin name="cordova-plugin-ionic-webview" spec="^1.2.0" />
     <plugin name="cordova-plugin-ionic-keyboard" spec="^2.0.5" />
+    <plugin name="cordova-plugin-camera" spec="^4.0.3" />
+    <plugin name="cordova-plugin-camera-preview" spec="^0.9.0" />
+    <engine name="ios" spec="~4.5.4" />
+    <engine name="android" spec="6.4.0" />
 </widget>

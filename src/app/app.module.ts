@@ -27,6 +27,9 @@ import { BracketPage } from '../pages/bracket/bracket';
 import { GroupDetailsPage } from '../pages/group-details/group-details';
 import { LoginPage } from '../pages/login/login';
 
+import { Camera} from '@ionic-native/camera';
+import { CameraPreview } from '@ionic-native/camera-preview';
+
 @NgModule({
   declarations: [
     MyApp,
@@ -70,7 +73,9 @@ import { LoginPage } from '../pages/login/login';
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    Camera,
+    CameraPreview
     
   ]
 })

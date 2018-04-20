@@ -12,6 +12,7 @@ import { LoginPage } from '../pages/login/login';
 export class MyApp {
   @ViewChild('mycontent') nav: NavController;
   rootPage:any = TabsPage;
+  team_name : any;
 
   constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen) {
     platform.ready().then(() => {
@@ -20,6 +21,8 @@ export class MyApp {
       statusBar.styleDefault();
       splashScreen.hide();
     });
+    
+    this.team_name = window.localStorage.getItem('team_name');
   }
 
   loginPage(){

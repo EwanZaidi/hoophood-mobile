@@ -25,22 +25,14 @@ export class LoginPage {
   }
 
   login(loginForm){
-    // let email = loginForm.value.email;
-    // let password = loginForm.value.password;
 
-    // this.auth.auth.signInWithEmailAndPassword(email,password).then((success)=> {
-    //   this.navCtrl.setRoot(TabsPage);
-    // }, (error)=> {
-    //   this.err = error;
-    //   this.presentAlert();
-    // })
-
-    let a : AngularFirestoreCollection<any> = this.fs.collection('login', ref => ref.where('username', '==', loginForm.value.email));
+    let a : AngularFirestoreCollection<any> = this.fs.collection('login', ref => ref.where('username', '==', loginForm.value.teamName));
     let b : Observable<any> = a.valueChanges();
 
     b.subscribe(x => {
       if(x.length > 0){
         if(x[0].password == loginForm.value.password){
+          window.localStorage.setItem('team_name', x[0].username);
           window.localStorage.setItem('team_id', x[0].team_id);
           this.navCtrl.setRoot(TabsPage);
         }else{
@@ -48,7 +40,7 @@ export class LoginPage {
           this.presentAlert();
         }
       }else{
-        this.err = 'Username is not found !'
+        this.err = 'Team name not found !'
         this.presentAlert();
       }
     })
@@ -56,11 +48,15 @@ export class LoginPage {
 
   presentAlert() {
     let alert = this.alert.create({
-      title: 'Authenticate Failure',
+      title: 'Authentication Failure',
       subTitle: this.err,
       buttons: ['Dismiss']
     });
     alert.present();
+  }
+
+  back(){
+    this.navCtrl.setRoot(TabsPage);
   }
 
 }

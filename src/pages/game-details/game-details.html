@@ -100,7 +100,86 @@
     </ion-card-content>
   </ion-card>
 
-  <ion-buttons *ngIf="edit">
-    <button ion-button block>Edit Statistics</button>
-  </ion-buttons>
+  <ion-card *ngIf="!tba">
+    <ion-card-header>
+      <ion-row>
+        <ion-col col-10 class="col-10">
+          <strong>
+            Statistics
+          </strong>
+        </ion-col>
+        <ion-col col-2 text-right>
+          <ion-icon name="stats" *ngIf="edit"></ion-icon>
+        </ion-col>
+      </ion-row>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-row>
+        <ion-col col-4>
+        </ion-col>
+        <ion-col col-4>
+          <h3 text-center>
+            <strong>SUMMARY</strong>
+          </h3>
+        </ion-col>
+        <ion-col col-4>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col col-4>
+        </ion-col>
+        <ion-col col-4>
+          <p text-center>
+            Field goals
+          </p>
+        </ion-col>
+        <ion-col col-4>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col col-4>
+        </ion-col>
+        <ion-col col-4>
+          <p text-center>
+            3 pointers
+          </p>
+        </ion-col>
+        <ion-col col-4>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col col-4>
+        </ion-col>
+        <ion-col col-4>
+          <p text-center>
+            Free throws
+          </p>
+        </ion-col>
+        <ion-col col-4>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col col-4>
+        </ion-col>
+        <ion-col col-4>
+          <p text-center>
+            Off. rebounds
+          </p>
+        </ion-col>
+        <ion-col col-4>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col col-4>
+        </ion-col>
+        <ion-col col-4>
+          <p text-center>
+            Def. rebounds
+          </p>
+        </ion-col>
+        <ion-col col-4>
+        </ion-col>
+      </ion-row>
+    </ion-card-content>
+  </ion-card>
 </ion-content>
