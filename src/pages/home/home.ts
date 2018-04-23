@@ -67,4 +67,16 @@ export class HomePage {
       console.log(err);
     })
   }
+
+  tengah(){
+    window.open('https://drive.google.com/drive/folders/1Z8Doau-q3OUYTS2iM-zhamSwLdA5nDx2?usp=sharing', '_system')
+  }
+
+  timur(){
+    window.open('https://drive.google.com/drive/folders/1Xv82ny7tLhGGgJaJngcHz8arg4hlmBm4?usp=sharing', '_system')
+  }
+
+  selatan(){
+    window.open('https://drive.google.com/drive/folders/1CXiHwizqZyD8aDIYqioU8kqRYS0y6MEc?usp=sharing', '_system')
+  }
 }
