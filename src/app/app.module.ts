@@ -30,6 +30,8 @@ import { LoginPage } from '../pages/login/login';
 import { Camera} from '@ionic-native/camera';
 import { CameraPreview } from '@ionic-native/camera-preview';
 
+import { ScreenOrientation } from '@ionic-native/screen-orientation';
+
 @NgModule({
   declarations: [
     MyApp,
@@ -44,6 +46,7 @@ import { CameraPreview } from '@ionic-native/camera-preview';
     BracketPage,
     GroupDetailsPage,
     LoginPage,
+    StatisticsPage
   ],
   imports: [
     BrowserModule,
@@ -69,14 +72,15 @@ import { CameraPreview } from '@ionic-native/camera-preview';
     BracketPage,
     GroupDetailsPage,
     LoginPage,
+    StatisticsPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     Camera,
-    CameraPreview
-    
+    CameraPreview,
+    ScreenOrientation
   ]
 })
 export class AppModule {}
