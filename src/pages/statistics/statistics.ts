@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams, Platform } from 'ionic-angular';
+import { NavController, NavParams, Platform, ModalController } from 'ionic-angular';
 import { ScreenOrientation } from '@ionic-native/screen-orientation';
 import { GameDetailsPage } from '../game-details/game-details';
 import { TabsPage } from '../tabs/tabs';
@@ -19,8 +19,7 @@ export class StatisticsPage {
   id: any;
   data: any;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private sc: ScreenOrientation, private platform: Platform) {
-    // sc.lock(sc.ORIENTATIONS.LANDSCAPE)
+  constructor(public navCtrl: NavController, public navParams: NavParams, private sc: ScreenOrientation, private platform: Platform, private modal: ModalController) {
   }
 
   ionViewDidLoad() {
