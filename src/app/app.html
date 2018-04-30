@@ -1,1 +1,37 @@
-<ion-nav [root]="rootPage"></ion-nav>
+<ion-menu [content]="mycontent">
+    <ion-header>
+        <ion-navbar color="header">
+            <ion-title text-center>{{team_name?team_name:'Menu'}}</ion-title>
+        </ion-navbar>
+    </ion-header>
+    <ion-content>
+        <ion-list>
+            <ion-item (click)="zone('Tengah')">
+                <ion-icon name="locate" item-start></ion-icon>
+                Zon Tengah
+            </ion-item>
+            <ion-item (click)="zone('Selatan')">
+                <ion-icon name="locate" item-start></ion-icon>
+                Zon Selatan
+            </ion-item>
+            <ion-item (click)="zone('Timur')">
+                <ion-icon name="locate" item-start></ion-icon>
+                Zon Timur
+            </ion-item>
+            <ion-item (click)="zone('Kebangsaan')">
+                <ion-icon name="locate" item-start></ion-icon>
+                Kebangsaan
+            </ion-item>
+            <ion-item (click)="galleryPage()">
+                <ion-icon name="images" item-start></ion-icon>
+                Gallery
+            </ion-item>
+            <ion-item (click)="loginPage()">
+                <ion-icon name="log-in" item-start></ion-icon>
+                Login
+            </ion-item>
+        </ion-list>
+    </ion-content>
+</ion-menu>
+
+<ion-nav [root]="rootPage" #mycontent></ion-nav>
