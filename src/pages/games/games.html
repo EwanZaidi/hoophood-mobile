@@ -1,43 +1,56 @@
 <ion-header>
   <ion-navbar color="header">
+    <ion-buttons left>
+      <button ion-button icon-only menuToggle>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+    </ion-buttons>
     <ion-title text-center>MATCHES</ion-title>
   </ion-navbar>
-  <ion-toolbar color="zone">
-    <ion-item color="zone">
-      <ion-label color="light">Zone</ion-label>
-      <ion-select interface="action-sheet" (ionChange)="zonechanged($event)">
-        <ion-option value="Tengah">Tengah / Central</ion-option>
-        <ion-option value="Selatan">Selatan / South</ion-option>
-        <ion-option value="Timur">Timur / East</ion-option>
-      </ion-select>
-    </ion-item>
-  </ion-toolbar>
 </ion-header>
 
 
 <ion-content class="content">
-
-  <h3 *ngIf="nozone" class="gray" text-center>Choose zone</h3>
-  
   <ion-card *ngFor="let m of match | async; let i = index" class="game-card">
     <ion-card-content (click)="navigate(m)" class="card-row">
       <ion-row class="card-row" align-items-center>
         <ion-col col-4 text-center>
-          <p *ngIf="a[i]" class="orange"><strong>{{m.data.team1_score}}</strong></p>
-          <p class="orange"><strong>{{m.data.team1_name}}</strong></p>
+          <p *ngIf="a[i]" class="orange">
+            <strong>{{m.data.team1_score}}</strong>
+          </p>
+          <p class="orange">
+            <strong>{{m.data.team1_name}}</strong>
+          </p>
         </ion-col>
         <ion-col col-4 text-center>
-          <p *ngIf="!a[i]" class="font-besar"><strong>{{m.data.datetime | date : 'h:mm'}} </strong><span class="font-kecik"><strong>{{m.data.datetime | date: 'a'}}</strong></span></p>
-          <p *ngIf="a[i]" class="font-besar-2"><strong>FULL TIME</strong></p>
+          <p *ngIf="!a[i]" class="font-besar">
+            <strong>{{m.data.datetime | date : 'h:mm'}} </strong>
+            <span class="font-kecik">
+              <strong>{{m.data.datetime | date: 'a'}}</strong>
+            </span>
+          </p>
+          <p *ngIf="a[i]" class="font-besar-2">
+            <strong>FULL TIME</strong>
+          </p>
           <p class="font-kecik">{{m.data.datetime | date : 'E'}}, {{m.data.datetime | date : 'd/M'}}</p>
           <p class="font-kecik">{{m.data.category}}</p>
           <p class="font-kecik" *ngIf="(m.data.group?m.data.group.substring(0,2) == 'st':'');else content">Group {{m.data.group.substring(2,3)}}</p>
-          <ng-template #content><ng-container *ngIf="(m.data.group?m.data.group.substring(0,2) != 'st':''); else content2"><p class="font-kecik">Group {{m.data.group.substring(3,4)}}</p></ng-container></ng-template>
-          <ng-template #content2><p class="font-kecik">{{m.data.description}}</p></ng-template>
+          <ng-template #content>
+            <ng-container *ngIf="(m.data.group?m.data.group.substring(0,2) != 'st':''); else content2">
+              <p class="font-kecik">Group {{m.data.group.substring(3,4)}}</p>
+            </ng-container>
+          </ng-template>
+          <ng-template #content2>
+            <p class="font-kecik">{{m.data.description}}</p>
+          </ng-template>
         </ion-col>
         <ion-col col-4 text-center>
-          <p *ngIf="a[i]" class="orange"><strong>{{m.data.team2_score}}</strong></p>
-          <p class="orange"><strong>{{m.data.team2_name}}</strong></p>
+          <p *ngIf="a[i]" class="orange">
+            <strong>{{m.data.team2_score}}</strong>
+          </p>
+          <p class="orange">
+            <strong>{{m.data.team2_name}}</strong>
+          </p>
         </ion-col>
       </ion-row>
     </ion-card-content>

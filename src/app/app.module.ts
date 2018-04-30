@@ -1,6 +1,6 @@
 import { GameDetailsPage } from './../pages/game-details/game-details';
 import { TeamDetailsPage } from './../pages/team-details/team-details';
-import { StatisticsPage } from './../pages/statistics/statistics';
+import { StatisticsPage} from './../pages/statistics/statistics';
 import { GamesPage } from './../pages/games/games';
 import { NgModule, ErrorHandler } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
@@ -30,6 +30,12 @@ import { LoginPage } from '../pages/login/login';
 import { Camera} from '@ionic-native/camera';
 import { CameraPreview } from '@ionic-native/camera-preview';
 
+import { ScreenOrientation } from '@ionic-native/screen-orientation';
+import { NewsletterPage } from '../pages/newsletter/newsletter';
+
+import { FCM } from '@ionic-native/fcm';
+import { GalleryPage } from '../pages/gallery/gallery';
+
 @NgModule({
   declarations: [
     MyApp,
@@ -44,6 +50,9 @@ import { CameraPreview } from '@ionic-native/camera-preview';
     BracketPage,
     GroupDetailsPage,
     LoginPage,
+    StatisticsPage,
+    NewsletterPage,
+    GalleryPage
   ],
   imports: [
     BrowserModule,
@@ -69,14 +78,18 @@ import { CameraPreview } from '@ionic-native/camera-preview';
     BracketPage,
     GroupDetailsPage,
     LoginPage,
+    StatisticsPage,
+    NewsletterPage,
+    GalleryPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     Camera,
-    CameraPreview
-    
+    CameraPreview,
+    ScreenOrientation,
+    FCM
   ]
 })
 export class AppModule {}

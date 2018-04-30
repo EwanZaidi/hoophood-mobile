@@ -1,0 +1,54 @@
+page-newsletter {
+
+    .content{
+        background-image: url('../assets/imgs/bg.png');
+        background-repeat: no-repeat;
+        background-size: 110%;
+    }
+
+    .marron{
+        color: #a51e22;
+    }
+
+    .gray{
+        color: #565656;
+    }
+
+    ion-footer button {
+        margin: 0 !important;
+    }
+
+    .white{
+        color: white;
+    }
+    
+    .logo {
+        margin-top:10px;
+        height: auto;
+        max-width: 20%;
+    }
+
+    .laptop{
+        height: auto;
+        max-width: 70%;
+    }
+
+    .item-md, .item-ios{
+        padding:0 !important;
+        border-radius: 5px;
+    }
+
+    h1, h6{
+        margin-top: 3px;
+    }
+
+    .button-full-md, .button-full-ios{
+        border-radius: 5px;
+    }
+
+    .text-input-ios {
+        margin: 11px 8px 11px 8px;
+        padding: 0;
+        width: calc(100% - 8px);
+    }
+}

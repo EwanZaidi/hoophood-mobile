@@ -3,6 +3,11 @@
   <ion-navbar color="header">
     <ion-title *ngIf="tba" text-center></ion-title>
     <ion-title *ngIf="!tba" text-center>{{data?.team1_name}} @ {{data?.team2_name}}</ion-title>
+    <ion-buttons end>
+      <button ion-button small icon-only (click)="statsPage()">
+        <ion-icon name="stats"></ion-icon>
+      </button>
+    </ion-buttons>
   </ion-navbar>
 
 </ion-header>

@@ -1,0 +1,14 @@
+<ion-content padding text-center>
+  <img class="logo" src="assets/imgs/hyred_logo.png">
+  <h1><strong>COMING <span class="marron">SOON</span></strong></h1>
+  <p class="gray"><strong>Find your ideal job at HYRED.MY with over 1000 part-time
+    jobs found in All Malaysia. View all vacancies now with new jobs posted daily!</strong></p>
+  <div><img class="laptop" src="assets/imgs/laptop.png"></div>
+  <h6 class="white"><strong>REGISTER YOUR INTEREST NOW !</strong></h6>
+  <form #emailForm="ngForm">
+    <ion-item>
+      <ion-input type="email" placeholder="Your Email Address" ngModel required name="email"></ion-input>
+    </ion-item>
+  </form>
+  <button ion-button full color="secondary" [disabled]="!emailForm.valid" (click)="submit(emailForm)">Submit</button>
+</ion-content>

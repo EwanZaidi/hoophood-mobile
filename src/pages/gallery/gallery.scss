@@ -1,23 +1,4 @@
-page-home {
-    .customBtn{
-        width: 100%;
-        background-color: #ff5100 !important;
-    }
-
-    img {
-        height: auto;
-        width: 90%;
-        margin: auto;
-        display: block;
-    }
-
-    .content{
-        // background-image: url("../assets/imgs/kebangsaan.jpg");
-        // background-repeat: no-repeat;
-        // background-position: center;
-        // background-size: 85% auto;
-    }
-
+page-gallery {
     .card-background-page {
 
         ion-card {
@@ -43,5 +24,4 @@ page-home {
         }
       
     }
-
 }

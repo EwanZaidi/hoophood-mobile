@@ -1,9 +1,11 @@
 
 import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { NavController, NavParams, Platform, App, ViewController } from 'ionic-angular';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { AngularFirestoreDocument, AngularFirestore } from 'angularfire2/firestore';
 import { Observable } from 'rxjs/Observable';
+import { StatisticsPage } from '../statistics/statistics';
+import { ScreenOrientation } from '@ionic-native/screen-orientation';
 
 @Component({
   selector: 'page-game-details',
@@ -20,7 +22,8 @@ export class GameDetailsPage {
 
   edit : Boolean = false;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private auth : AngularFireAuth, private fs: AngularFirestore) {
+  constructor(public view: ViewController,public navCtrl: NavController, public navParams: NavParams, private auth : AngularFireAuth, private fs: AngularFirestore, private sc: ScreenOrientation, private platform: Platform, private app: App) {
+    
   }
 
   ionViewDidLoad() {
@@ -43,20 +46,6 @@ export class GameDetailsPage {
       this.edit = false;
     }
 
-    // this.auth.authState.subscribe(x => {
-    //   let uid = x.uid;
-    //   let a : AngularFirestoreDocument<any> = this.fs.collection('users').doc(uid);
-    //   let b : Observable<any> = a.valueChanges();
-
-    //   b.subscribe(x => {
-    //     if(this.data.team1_id == x.team_id || this.data.team2_id == x.team_id){
-    //       this.edit = true;
-    //     }else{
-    //       this.edit = false;
-    //     }
-    //   })
-    // })
-
     if(this.data.group != undefined){
     this.splitvalue(this.data.group)}
   }
@@ -68,6 +57,12 @@ export class GameDetailsPage {
       this.group = data.substring(3,4)
     }
     
+  }
+
+  statsPage(){
+    // this.navCtrl.setRoot(StatisticsPage, {id: this.id, data: this.data})
+    this.view.dismiss();
+    this.app.getRootNav().push(StatisticsPage, {id: this.id, data: this.data});
   }
 
 
