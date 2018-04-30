@@ -1,6 +1,6 @@
 
 import { Component } from '@angular/core';
-import { NavController, NavParams, Platform, App } from 'ionic-angular';
+import { NavController, NavParams, Platform, App, ViewController } from 'ionic-angular';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { AngularFirestoreDocument, AngularFirestore } from 'angularfire2/firestore';
 import { Observable } from 'rxjs/Observable';
@@ -22,7 +22,7 @@ export class GameDetailsPage {
 
   edit : Boolean = false;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private auth : AngularFireAuth, private fs: AngularFirestore, private sc: ScreenOrientation, private platform: Platform, private app: App) {
+  constructor(public view: ViewController,public navCtrl: NavController, public navParams: NavParams, private auth : AngularFireAuth, private fs: AngularFirestore, private sc: ScreenOrientation, private platform: Platform, private app: App) {
     
   }
 
@@ -61,7 +61,8 @@ export class GameDetailsPage {
 
   statsPage(){
     // this.navCtrl.setRoot(StatisticsPage, {id: this.id, data: this.data})
-    this.app.getRootNav().setRoot(StatisticsPage, {id: this.id, data: this.data})
+    this.view.dismiss();
+    this.app.getRootNav().push(StatisticsPage, {id: this.id, data: this.data});
   }
 
 

@@ -18,19 +18,19 @@ import { AngularFirestore } from 'angularfire2/firestore';
 export class NewsletterPage {
 
   myParam: string;
-  token: string;
+  uid: string;
 
   constructor(
     public viewCtrl: ViewController,
     params: NavParams,
     private fs: AngularFirestore
   ) {
-    this.token = window.localStorage.getItem('token')
+    this.uid = window.localStorage.getItem('uid')
     this.myParam = params.get('myParam');
   }
 
   submit(form){
-    this.fs.collection('token').doc(this.token).update({
+    this.fs.collection('device').doc(this.uid).update({
       email: form.value.email
     }).then(()=> {
       this.viewCtrl.dismiss();

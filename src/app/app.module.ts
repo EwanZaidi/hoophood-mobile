@@ -34,6 +34,7 @@ import { ScreenOrientation } from '@ionic-native/screen-orientation';
 import { NewsletterPage } from '../pages/newsletter/newsletter';
 
 import { FCM } from '@ionic-native/fcm';
+import { GalleryPage } from '../pages/gallery/gallery';
 
 @NgModule({
   declarations: [
@@ -50,7 +51,8 @@ import { FCM } from '@ionic-native/fcm';
     GroupDetailsPage,
     LoginPage,
     StatisticsPage,
-    NewsletterPage
+    NewsletterPage,
+    GalleryPage
   ],
   imports: [
     BrowserModule,
@@ -77,7 +79,8 @@ import { FCM } from '@ionic-native/fcm';
     GroupDetailsPage,
     LoginPage,
     StatisticsPage,
-    NewsletterPage
+    NewsletterPage,
+    GalleryPage
   ],
   providers: [
     StatusBar,

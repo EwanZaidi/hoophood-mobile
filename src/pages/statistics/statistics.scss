@@ -1,3 +1,48 @@
 page-statistics {
+    .gd1{
+        height: 100%;
+    }
+
+    .content{
+        background: linear-gradient(#ff5100, #ff8000);
+    }
+
+    .button-md{
+        border-radius: 150px;
+        background: none;
+        width: 80px;
+        height: 80px;
+    }
+
+    .button-md-green{
+        border: 1px solid green;
+        background: linear-gradient(#ff5100, #ff8000);
+    }
+
+    .button-md-red{
+        border: 1px solid red;
+        background: linear-gradient(#ff5100, #ff8000);
+    }
+
+    .button-md-blue{
+        border: 1px solid blue;
+        background: linear-gradient(#ff5100, #ff8000);
+        border-radius: 50px;
+        width: 80px;
+        height: 50px;
+    }
+
+    .button-md-white{
+        border: 1px solid white;
+        background: linear-gradient(#ff5100, #ff8000);
+    }
+
+    .button-inner { flex-flow: column; }
+
+    .col-ctr{
+        border: 1px solid white;
+        color: white;
+    }
+
 
 }

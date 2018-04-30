@@ -1,3 +1,144 @@
 <ion-content>
-    <p>Apahakl</p>
+    <ion-grid>
+        <ion-row>
+            <ion-col col-4 class="gd1">
+                <ion-row>
+                    <ion-col col-6>
+                        <button ion-button class="button-md-green">
+                            <h3>
+                                <strong>2PT</strong>
+                            </h3>
+                        </button>
+                    </ion-col>
+                    <ion-col col-6>
+                        <button ion-button class="button-md-red">
+                            <h3>
+                                <strong>2PT</strong>
+                            </h3>
+                        </button>
+                    </ion-col>
+                </ion-row>
+                <ion-row>
+                    <ion-col col-6>
+                        <button ion-button class="button-md-green">
+                            <h3>
+                                <strong>3PT</strong>
+                            </h3>
+                        </button>
+                    </ion-col>
+                    <ion-col col-6>
+                        <button ion-button class="button-md-red">
+                            <h3>
+                                <strong>3PT</strong>
+                            </h3>
+                        </button>
+                    </ion-col>
+                </ion-row>
+                <ion-row>
+                    <ion-col col-6>
+                        <button ion-button class="button-md-green">
+                            <h3>
+                                <strong>1PT</strong>
+                            </h3>
+                        </button>
+                    </ion-col>
+                    <ion-col col-6>
+                        <button ion-button class="button-md-red">
+                            <h3>
+                                <strong>1PT</strong>
+                            </h3>
+                        </button>
+                    </ion-col>
+                </ion-row>
+            </ion-col>
+            <ion-col col-4 text-center>
+                <div class="col-ctr">
+                    <ion-row>
+                        <ion-col col-8 text-left>
+                            <strong>{{data?data.team1_name:'NO TEAM'}}</strong>
+                        </ion-col>
+                        <ion-col col-4 text-right>
+                            <strong>{{data?data.team1_score:'NO TEAM'}}</strong>
+                        </ion-col>
+                    </ion-row>
+                    <ion-row>
+                        <ion-col col-8 text-left>
+                            <strong>{{data?data.team2_name:'NO TEAM'}}</strong>
+                        </ion-col>
+                        <ion-col col-4 text-right>
+                            <strong>{{data?data.team2_score:'NO TEAM'}}</strong>
+                        </ion-col>
+                    </ion-row>
+                </div>
+                <ion-row>
+                    <ion-col col-6>
+                        <button ion-button class="button-md-blue">
+                            <h3>
+                                <strong>SUB</strong>
+                            </h3>
+                        </button>
+                    </ion-col>
+                    <ion-col col-6>
+                        <button ion-button class="button-md-blue" (click)="home()">
+                            <h3>
+                                <strong>DONE</strong>
+                            </h3>
+                        </button>
+                    </ion-col>
+                </ion-row>
+            </ion-col>
+            <ion-col col-4 class="gd1">
+                <ion-row>
+                    <ion-col col-6>
+                        <button ion-button class="button-md-white">
+                            <h3>
+                                <strong>DEF</strong>
+                            </h3>
+                            <strong>reb</strong>
+                        </button>
+                    </ion-col>
+                    <ion-col col-6>
+                        <button ion-button class="button-md-white">
+                            <h3>
+                                <strong>OFF</strong>
+                            </h3>
+                            <strong>reb</strong>
+                        </button>
+                    </ion-col>
+                </ion-row>
+                <ion-row>
+                    <ion-col col-6>
+                        <button ion-button class="button-md-white">
+                            <h3>
+                                <strong>TO</strong>
+                            </h3>
+                        </button>
+                    </ion-col>
+                    <ion-col col-6>
+                        <button ion-button class="button-md-white">
+                            <h3>
+                                <strong>STL</strong>
+                            </h3>
+                        </button>
+                    </ion-col>
+                </ion-row>
+                <ion-row>
+                    <ion-col col-6>
+                        <button ion-button class="button-md-white">
+                            <h3>
+                                <strong>ASST</strong>
+                            </h3>
+                        </button>
+                    </ion-col>
+                    <ion-col col-6>
+                        <button ion-button class="button-md-white">
+                            <h3>
+                                <strong>FOUL</strong>
+                            </h3>
+                        </button>
+                    </ion-col>
+                </ion-row>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
 </ion-content>

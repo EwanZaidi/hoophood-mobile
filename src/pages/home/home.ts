@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Platform } from 'ionic-angular';
+import { Platform, MenuController } from 'ionic-angular';
 import { Camera, CameraOptions } from '@ionic-native/camera';
 import { CameraPreview, CameraPreviewPictureOptions, CameraPreviewOptions, CameraPreviewDimensions } from '@ionic-native/camera-preview';
 
@@ -13,6 +13,8 @@ declare let FCMPlugin: any;
 export class HomePage {
 
   image: String;
+
+  z: any;
 
   options: CameraOptions = {
     quality: 100,
@@ -33,9 +35,16 @@ export class HomePage {
     alpha: 1
   };
 
-  constructor(private camera: Camera,private platform: Platform, private cameraPreview: CameraPreview) {
+  constructor(public menu: MenuController,private camera: Camera,private platform: Platform, private cameraPreview: CameraPreview) {
     this.onNotification();
+    this.platform.ready().then(()=>{
+      let idx = 0;
+      window.localStorage.setItem('index', idx.toString());
+      this.z = window.localStorage.getItem('zone');
+    })
   }
+
+  ionViewDidLoad(){}
 
   async onNotification(){
     try {
@@ -68,15 +77,17 @@ export class HomePage {
     })
   }
 
-  tengah(){
-    window.open('https://drive.google.com/drive/folders/1Z8Doau-q3OUYTS2iM-zhamSwLdA5nDx2?usp=sharing', '_system')
-  }
+  
 
-  timur(){
-    window.open('https://drive.google.com/drive/folders/1Xv82ny7tLhGGgJaJngcHz8arg4hlmBm4?usp=sharing', '_system')
-  }
+  // tengah(){
+  //   window.open('https://drive.google.com/drive/folders/1Z8Doau-q3OUYTS2iM-zhamSwLdA5nDx2?usp=sharing', '_system')
+  // }
 
-  selatan(){
-    window.open('https://drive.google.com/drive/folders/1CXiHwizqZyD8aDIYqioU8kqRYS0y6MEc?usp=sharing', '_system')
-  }
+  // timur(){
+  //   window.open('https://drive.google.com/drive/folders/1Xv82ny7tLhGGgJaJngcHz8arg4hlmBm4?usp=sharing', '_system')
+  // }
+
+  // selatan(){
+  //   window.open('https://drive.google.com/drive/folders/1CXiHwizqZyD8aDIYqioU8kqRYS0y6MEc?usp=sharing', '_system')
+  // }
 }

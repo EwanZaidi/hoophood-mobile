@@ -1,7 +1,7 @@
 import { Observable } from 'rxjs/Observable';
-import { AngularFirestore,AngularFirestoreCollection } from 'angularfire2/firestore';
+import { AngularFirestore, AngularFirestoreCollection } from 'angularfire2/firestore';
 import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { NavController, NavParams, Platform } from 'ionic-angular';
 import { GroupDetailsPage } from '../group-details/group-details';
 /**
  * Generated class for the StandingPage page.
@@ -22,62 +22,68 @@ export class StandingPage {
   groupsP: AngularFirestoreCollection<any>;
   groupP: Observable<any>;
 
-  show : Boolean = false;
-  nozone : Boolean = true;
+  show: Boolean = false;
+  nozone: Boolean = true;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private fs : AngularFirestore) {
+  constructor(platform: Platform, public navCtrl: NavController, public navParams: NavParams, private fs: AngularFirestore) {
+    platform.ready().then(() => {
+      let idx = 2;
+      window.localStorage.setItem('index', idx.toString());
+      let myzone = window.localStorage.getItem('zone');
+      this.nozone = false;
+      this.groupsL = this.fs.collection('groups', ref => ref.where('category', '==', 'Lelaki').where('zone', '==', myzone));
+      this.groupL = this.groupsL.snapshotChanges().map(g => {
+        return g.map(z => {
+          const data = z.payload.doc.data();
+          const id = z.payload.doc.id;
+          let teamList = this.fs.collection('groups/' + id + '/team_list', ref => { return ref.orderBy('points', 'desc').orderBy('gd', 'desc') }).snapshotChanges().map(x => {
+            return x.map(c => {
+              const data = c.payload.doc.data();
+              const id = c.payload.doc.id;
+
+              return { id, data };
+            })
+          })
+
+          return { id, data, teamList }
+        })
+      })
+
+      // this.groupL.subscribe(data => console.log(data))
+
+
+      this.groupsP = this.fs.collection('groups', ref => ref.where('category', '==', 'Perempuan').where('zone', '==', myzone));
+      this.groupP = this.groupsP.snapshotChanges().map(g => {
+        return g.map(z => {
+          const data = z.payload.doc.data();
+          const id = z.payload.doc.id;
+          let teamList = this.fs.collection('groups/' + id + '/team_list', ref => { return ref.orderBy('points', 'desc').orderBy('gd', 'desc') }).snapshotChanges().map(x => {
+            return x.map(c => {
+              const data = c.payload.doc.data();
+              const id = c.payload.doc.id;
+
+              return { id, data };
+            })
+          })
+
+          return { id, data, teamList }
+        })
+      })
+
+      this.show = true;
+    })
   }
 
   ionViewDidLoad() {
-    
+    let idx = 2;
+    window.localStorage.setItem('index', idx.toString());
   }
 
-  detail(group){
-    this.navCtrl.push(GroupDetailsPage, {id:group.id, data:group.data});
+  detail(group) {
+    this.navCtrl.push(GroupDetailsPage, { id: group.id, data: group.data });
   }
 
-  zonechanged(event){
-    this.nozone = false;
-    this.groupsL = this.fs.collection('groups', ref => ref.where('category', '==', 'Lelaki').where('zone', '==', event));
-    this.groupL = this.groupsL.snapshotChanges().map(g => {
-      return g.map(z => {
-        const data = z.payload.doc.data();
-        const id = z.payload.doc.id;
-        let teamList = this.fs.collection('groups/'+id+'/team_list', ref => {return ref.orderBy('points', 'desc').orderBy('gd', 'desc')}).snapshotChanges().map(x=> {
-          return x.map(c=> {
-            const data = c.payload.doc.data();
-            const id = c.payload.doc.id;
-
-            return {id,data};
-          })
-        })
-
-        return {id,data,teamList}
-      })
-    })
-
-    // this.groupL.subscribe(data => console.log(data))
-    
-
-    this.groupsP = this.fs.collection('groups', ref => ref.where('category', '==', 'Perempuan').where('zone', '==', event));
-    this.groupP = this.groupsP.snapshotChanges().map(g => {
-      return g.map(z => {
-        const data = z.payload.doc.data();
-        const id = z.payload.doc.id;
-        let teamList = this.fs.collection('groups/'+id+'/team_list', ref => {return ref.orderBy('points', 'desc').orderBy('gd', 'desc')}).snapshotChanges().map(x=> {
-          return x.map(c=> {
-            const data = c.payload.doc.data();
-            const id = c.payload.doc.id;
-
-            return {id,data};
-          })
-        })
-
-        return {id,data,teamList}
-      })
-    })
-
-    this.show = true;
+  zonechanged(event) {
   }
 
 
