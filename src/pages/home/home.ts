@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Platform, MenuController } from 'ionic-angular';
-import { Camera, CameraOptions } from '@ionic-native/camera';
-import { CameraPreview, CameraPreviewPictureOptions, CameraPreviewOptions, CameraPreviewDimensions } from '@ionic-native/camera-preview';
+// import { Camera, CameraOptions } from '@ionic-native/camera';
+// import { CameraPreview, CameraPreviewPictureOptions, CameraPreviewOptions, CameraPreviewDimensions } from '@ionic-native/camera-preview';
 
 
 declare let FCMPlugin: any;
@@ -16,26 +16,26 @@ export class HomePage {
 
   z: any;
 
-  options: CameraOptions = {
-    quality: 100,
-    destinationType: this.camera.DestinationType.DATA_URL,
-    encodingType: this.camera.EncodingType.JPEG,
-    mediaType: this.camera.MediaType.PICTURE
-  }
+  // options: CameraOptions = {
+  //   quality: 100,
+  //   destinationType: this.camera.DestinationType.DATA_URL,
+  //   encodingType: this.camera.EncodingType.JPEG,
+  //   mediaType: this.camera.MediaType.PICTURE
+  // }
 
-  cameraPreviewOpts: CameraPreviewOptions = {
-    x: 0,
-    y: 0,
-    width: window.screen.width,
-    height: window.screen.height,
-    camera: 'rear',
-    tapPhoto: true,
-    previewDrag: true,
-    toBack: false,
-    alpha: 1
-  };
+  // cameraPreviewOpts: CameraPreviewOptions = {
+  //   x: 0,
+  //   y: 0,
+  //   width: window.screen.width,
+  //   height: window.screen.height,
+  //   camera: 'rear',
+  //   tapPhoto: true,
+  //   previewDrag: true,
+  //   toBack: false,
+  //   alpha: 1
+  // };
 
-  constructor(public menu: MenuController,private camera: Camera,private platform: Platform, private cameraPreview: CameraPreview) {
+  constructor(public menu: MenuController,private platform: Platform) {
     this.onNotification();
     this.platform.ready().then(()=>{
       let idx = 0;
@@ -60,22 +60,22 @@ export class HomePage {
     }
   }
 
-  async takePicture(): Promise<any>{
-    try{
-      this.image = await this.camera.getPicture(this.options)
-    }
-    catch(e){
-      console.log(e);
-    }
-  }
+  // async takePicture(): Promise<any>{
+  //   try{
+  //     this.image = await this.camera.getPicture(this.options)
+  //   }
+  //   catch(e){
+  //     console.log(e);
+  //   }
+  // }
 
-  takePicture2() {
-    this.cameraPreview.startCamera(this.cameraPreviewOpts).then((res)=>{
-      console.log(res);
-    }, (err) => {
-      console.log(err);
-    })
-  }
+  // takePicture2() {
+  //   this.cameraPreview.startCamera(this.cameraPreviewOpts).then((res)=>{
+  //     console.log(res);
+  //   }, (err) => {
+  //     console.log(err);
+  //   })
+  // }
 
   
 
