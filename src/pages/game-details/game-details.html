@@ -3,11 +3,11 @@
   <ion-navbar color="header">
     <ion-title *ngIf="tba" text-center></ion-title>
     <ion-title *ngIf="!tba" text-center>{{data?.team1_name}} @ {{data?.team2_name}}</ion-title>
-    <ion-buttons end>
+    <!-- <ion-buttons end>
       <button ion-button small icon-only (click)="statsPage()">
         <ion-icon name="stats"></ion-icon>
       </button>
-    </ion-buttons>
+    </ion-buttons> -->
   </ion-navbar>
 
 </ion-header>
@@ -96,6 +96,154 @@
           {{data?.category}}
         </ion-col>
       </ion-row>
+    </ion-card-content>
+  </ion-card>
+  <ion-card *ngIf="!tba">
+    <ion-card-content>
+      <div>
+        <ion-row>
+          <ion-col col-6 class="orange">
+            {{data?.team1_name}}
+          </ion-col>
+          <ion-col col-6 text-right class="orange">
+            TOP SCORER
+          </ion-col>
+        </ion-row>
+        <hr/>
+        <ion-row>
+          <ion-col col-2>
+            No.
+          </ion-col>
+          <ion-col col-7>
+            NAME
+          </ion-col>
+          <ion-col col-3 text-right>
+            PTS
+          </ion-col>
+        </ion-row>
+        <hr/>
+        <ion-row *ngFor="let t1 of team1_scorer$|async; let i =index">
+          <ion-col col-2>
+            {{i+1}}
+          </ion-col>
+          <ion-col col-7>
+            {{t1.name}}
+          </ion-col>
+          <ion-col col-3 text-right>
+            {{t1.points}}
+          </ion-col>
+        </ion-row>
+        <hr/>
+      </div>
+
+      <div>
+        <ion-row>
+          <ion-col col-6>
+
+          </ion-col>
+          <ion-col col-6 text-right class="orange">
+            TOP 3 POINTER
+          </ion-col>
+        </ion-row>
+        <hr/>
+        <ion-row>
+          <ion-col col-2>
+            No.
+          </ion-col>
+          <ion-col col-7>
+            NAME
+          </ion-col>
+          <ion-col col-3 text-right> 
+            SHOT
+          </ion-col>
+        </ion-row>
+        <hr/>
+        <ion-row *ngFor="let t1 of team1_3ptr$|async; let i =index">
+          <ion-col col-2>
+            {{i+1}}
+          </ion-col>
+          <ion-col col-7>
+            {{t1.name}}
+          </ion-col>
+          <ion-col col-3 text-right>
+            {{t1.points}}
+          </ion-col>
+        </ion-row>
+      </div>
+    </ion-card-content>
+  </ion-card>
+  <ion-card *ngIf="!tba">
+    <ion-card-content>
+      <div>
+        <ion-row>
+          <ion-col col-6 class="orange">
+            {{data?.team2_name}}
+          </ion-col>
+          <ion-col col-6 text-right class="orange">
+            TOP SCORER
+          </ion-col>
+        </ion-row>
+        <hr/>
+        <ion-row>
+          <ion-col col-2>
+            No.
+          </ion-col>
+          <ion-col col-7>
+            NAME
+          </ion-col>
+          <ion-col col-3 text-right>
+            PTS
+          </ion-col>
+        </ion-row>
+        <hr/>
+        <ion-row *ngFor="let t1 of team2_scorer$|async; let i =index">
+          <ion-col col-2>
+            {{i+1}}
+          </ion-col>
+          <ion-col col-7>
+            {{t1.name}}
+          </ion-col>
+          <ion-col col-3 text-right>
+            {{t1.points}}
+          </ion-col>
+        </ion-row>
+        <hr/>
+      </div>
+
+      <div>
+        <ion-row>
+          <ion-col col-6>
+
+          </ion-col>
+          <ion-col col-6 text-right class="orange">
+            TOP 3 POINTER
+          </ion-col>
+        </ion-row>
+        <hr/>
+        <ion-row>
+          <ion-col col-2>
+            No.
+          </ion-col>
+          <ion-col col-7>
+            NAME
+          </ion-col>
+          <ion-col col-3 text-right>
+            SHOT
+          </ion-col>
+        </ion-row>
+        <hr/>
+        <ion-row *ngFor="let t1 of team2_3ptr$|async; let i =index">
+          <ion-col col-2>
+            {{i+1}}
+          </ion-col>
+          <ion-col col-7>
+            {{t1.name}}
+          </ion-col>
+          <ion-col col-3 text-right>
+            {{t1.points}}
+          </ion-col>
+        </ion-row>
+      </div>
     </ion-card-content>
   </ion-card>
 </ion-content>
