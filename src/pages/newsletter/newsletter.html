@@ -7,7 +7,7 @@
   <h6 class="white"><strong>REGISTER YOUR INTEREST NOW !</strong></h6>
   <form #emailForm="ngForm">
     <ion-item>
-      <ion-input type="email" placeholder="Your Email Address" ngModel required name="email"></ion-input>
+      <ion-input type="email" placeholder="Your Email Address" ngModel required name="email" pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"></ion-input>
     </ion-item>
   </form>
   <button ion-button full color="secondary" [disabled]="!emailForm.valid" (click)="submit(emailForm)">Submit</button>

@@ -37,7 +37,7 @@
           <p class="font-kecik" *ngIf="(m.data.group?m.data.group.substring(0,2) == 'st':'');else content">Group {{m.data.group.substring(2,3)}}</p>
           <ng-template #content>
             <ng-container *ngIf="(m.data.group?m.data.group.substring(0,2) != 'st':''); else content2">
-              <p class="font-kecik">Group {{m.data.group.substring(3,4)}}</p>
+              <p class="font-kecik">Group {{m.data.group.substring(3,5)}}</p>
             </ng-container>
           </ng-template>
           <ng-template #content2>
