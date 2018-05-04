@@ -27,8 +27,8 @@ import { BracketPage } from '../pages/bracket/bracket';
 import { GroupDetailsPage } from '../pages/group-details/group-details';
 import { LoginPage } from '../pages/login/login';
 
-import { Camera} from '@ionic-native/camera';
-import { CameraPreview } from '@ionic-native/camera-preview';
+// import { Camera} from '@ionic-native/camera';
+// import { CameraPreview } from '@ionic-native/camera-preview';
 
 import { ScreenOrientation } from '@ionic-native/screen-orientation';
 import { NewsletterPage } from '../pages/newsletter/newsletter';
@@ -86,8 +86,8 @@ import { GalleryPage } from '../pages/gallery/gallery';
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    Camera,
-    CameraPreview,
+    // Camera,
+    // CameraPreview,
     ScreenOrientation,
     FCM
   ]
