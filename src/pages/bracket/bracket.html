@@ -26,7 +26,7 @@
   <h3 *ngIf="nodata" class="gray" text-center>Choose zone</h3>
   <div *ngSwitchCase="'Lelaki'">
     <ion-row *ngIf="nozone">
-      <ion-col col-4>
+      <ion-col col-4 *ngIf="zone !== 'Kebangsaan'">
         <div class="category">
           {{(MatchLelaki[0].data.description?MatchLelaki[0].data.description:'QuarterFinal 1')}}
         </div>
@@ -232,7 +232,7 @@
   </div>
   <div *ngSwitchCase="'Perempuan'">
     <ion-row *ngIf="nozone">
-      <ion-col col-4>
+      <ion-col col-4 *ngIf="zone !== 'Kebangsaan'">
         <div class="category">
           {{(MatchPerempuan[0].data.description?MatchPerempuan[0].data.description:'QuarterFinal 1')}}
         </div>

@@ -25,9 +25,10 @@ export class BracketPage {
   matchP: Observable<any>;
   MatchLelaki: Array<myMatch> = new Array<myMatch>(7);
   MatchPerempuan: Array<myMatch> = new Array<myMatch>(7);
-  zone = '';
+  zone : any;
   nozone: Boolean;
   nodata: Boolean;
+
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private fs: AngularFirestore, platform: Platform) {
 
@@ -44,6 +45,8 @@ export class BracketPage {
     let idx = 3;
     window.localStorage.setItem('index', idx.toString());
     let myzone = window.localStorage.getItem('zone');
+    this.zone = window.localStorage.getItem('zone');
+    
 
     for (let i = 0; i < this.MatchLelaki.length; i++) {
       this.MatchLelaki[i] = new myMatch();

@@ -36,7 +36,7 @@ export class StandingPage {
         return g.map(z => {
           const data = z.payload.doc.data();
           const id = z.payload.doc.id;
-          let teamList = this.fs.collection('groups/' + id + '/team_list', ref => { return ref.orderBy('pos').orderBy('points', 'desc').orderBy('gd', 'desc') }).snapshotChanges().map(x => {
+          let teamList = this.fs.collection('groups/' + id + '/team_list', ref => { return ref.orderBy('points', 'desc').orderBy('gd', 'desc') }).snapshotChanges().map(x => {
             return x.map(c => {
               const data = c.payload.doc.data();
               const id = c.payload.doc.id;
