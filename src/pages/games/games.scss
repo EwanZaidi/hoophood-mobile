@@ -1,42 +1,48 @@
 page-games{
-    .light {
-        color: #fff !important;
+
+    .content{
+        background-color: white;
+        margin-top: 1.5rem;
     }
 
-    .light-hr{
-        background-color: #ff5100 !important;
+    .mb-4{
+        margin-bottom: 1.5rem;
     }
 
-    .game-card {
-        height: 100px;
+    .game-card{
+        border-top: 3px #ED1C24 solid;
     }
 
-    .card-row{
-        height: 100%;
+    .game-card:nth-of-type(even){
+        background-color: rgb(228, 231, 232);
     }
 
-    .font-kecik{
-        font-size: 1.0rem !important;
+    .score{
+        font-size: 2.7em;
+        font-weight: 500;
     }
 
-    .font-besar{
-        font-size: 2.0rem !important;
+    .team-name{
+        font-size: 1.1em;
     }
 
-    .font-besar-2{
-        font-size: 1.5rem !important;
+    .ft{
+        font-size: 1.5em;
     }
 
-    .orange{
-        color: #e05114;
+    .center{
+        font-size: 1.0em;
     }
 
-    .card-ios{
-        margin-left:0;
-        width: 100%;
+    .center-gray{
+        color:gray;
     }
 
-    .gray{
-        color: #A4ACB0;
+    .red{
+        background-color: #ED1C24;
+    }
+
+    .font-red{
+        color: #ED1C24
     }
 }

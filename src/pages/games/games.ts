@@ -19,6 +19,11 @@ export class GamesPage implements OnChanges {
 
   a: Boolean[] = new Array();
 
+  now_zone;
+
+  home: Boolean[] = new Array();
+  away: Boolean[] = new Array();
+
 
 
   zone = [{ id: 'Central' }, { id: 'South' }, { id: 'North' }, { id: 'East' }];
@@ -30,12 +35,21 @@ export class GamesPage implements OnChanges {
       let myzone = window.localStorage.getItem('zone');
       const date = new Date();
       this.nozone = false;
+      this.now_zone = 'ZON ' + myzone.toUpperCase() + ' - MATCHES';
       this.matches = this.fs.collection('matches', ref => ref.orderBy('match_no').where('zone', '==', myzone));
       this.match = this.matches.snapshotChanges().map(m => {
         m.forEach(mt => {
           let i = mt.payload.newIndex;
           let a = mt.payload.doc.data();
           let gameDate = a.datetime;
+          if(a.team1_score > a.team2_score){
+            this.home[i] = true;
+            this.away[i] = false;
+          }else if(a.team2_score > a.team1_score){
+            this.away[i] = true;
+            this.home[i] = false;
+          }
+          
           gameDate.setMinutes(gameDate.getMinutes() + 30);
           if (date > gameDate) {
             this.a[i] = true;
