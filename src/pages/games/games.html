@@ -7,7 +7,7 @@
     </ion-buttons>
     <ion-title text-center>{{now_zone}}</ion-title>
     <ion-buttons right>
-      <button ion-button icon-only>
+      <button ion-button icon-only (click)="doRefresh()">
         <ion-icon class="font-red" name="refresh"></ion-icon>
       </button>
     </ion-buttons>
@@ -16,14 +16,16 @@
 
 
 <ion-content class="content" padding>
-  <h2 class="font-red mb-4"><b>Matches 2018</b></h2>
+  <h2 class="font-red mb-4">
+    <b>Matches 2018</b>
+  </h2>
   <ion-card *ngFor="let m of match | async; let i = index" class="game-card">
     <ion-card-content (click)="navigate(m)">
       <ion-row class="card-row" align-items-center>
         <ion-col col-4 text-center>
           <p *ngIf="a[i]" class="score">
             <span *ngIf="home[i]" class="font-red">{{m.data.team1_score}}</span>
-            <span *ngIf="!home[i]" >{{m.data.team1_score}}</span>
+            <span *ngIf="!home[i]">{{m.data.team1_score}}</span>
           </p>
           <p class="team-name">
             <strong>{{m.data.team1_name}}</strong>
@@ -31,13 +33,19 @@
         </ion-col>
         <ion-col col-4 text-center>
           <div *ngIf="!a[i]">
-            <p><strong>{{m.data.datetime | date : 'h:mm'}} </strong></p>
-            <p><strong>{{m.data.datetime | date: 'a'}}</strong></p>
+            <p>
+              <strong>{{m.data.datetime | date : 'h:mm'}} </strong>
+            </p>
+            <p>
+              <strong>{{m.data.datetime | date: 'a'}}</strong>
+            </p>
           </div>
           <p *ngIf="a[i]" class="ft">
             <strong>FULL TIME</strong>
           </p>
-          <p><strong>{{m.data.datetime | date : 'E'}}, {{m.data.datetime | date : 'MMM dd'}}</strong></p>
+          <p>
+            <strong>{{m.data.datetime | date : 'E'}}, {{m.data.datetime | date : 'MMM dd'}}</strong>
+          </p>
           <p class="center-gray">{{m.data.category}}</p>
           <p class="center-gray" *ngIf="(m.data.group?m.data.group.substring(0,2) == 'st':'');else content">Group {{m.data.group.substring(2,3)}}</p>
           <ng-template #content>
@@ -52,7 +60,7 @@
         <ion-col col-4 text-center>
           <p *ngIf="a[i]" class="score">
             <span *ngIf="away[i]" class="font-red">{{m.data.team2_score}}</span>
-            <span *ngIf="!away[i]" >{{m.data.team2_score}}</span>
+            <span *ngIf="!away[i]">{{m.data.team2_score}}</span>
           </p>
           <p class="team-name">
             <strong>{{m.data.team2_name}}</strong>

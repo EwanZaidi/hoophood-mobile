@@ -1,19 +1,14 @@
 <ion-header>
 
-  <ion-navbar color="header">
+  <ion-navbar>
     <ion-title *ngIf="tba" text-center></ion-title>
-    <ion-title *ngIf="!tba" text-center>{{data?.team1_name}} @ {{data?.team2_name}}</ion-title>
-    <!-- <ion-buttons end>
-      <button ion-button small icon-only (click)="statsPage()">
-        <ion-icon name="stats"></ion-icon>
-      </button>
-    </ion-buttons> -->
+    <ion-title *ngIf="!tba" text-center>{{data?.team1_name}} <span class="font-red">VS</span> {{data?.team2_name}}</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
-<ion-content class="content">
+<ion-content class="content" padding>
   <h3 *ngIf="tba" class="gray" text-center>No details</h3>
   <ion-card *ngIf="!tba">
     <ion-card-content>
@@ -52,7 +47,7 @@
           {{data?.datetime | date: 'EEEE, d/M'}} ({{data?.datetime | date: 'h:mm a'}})
         </ion-col>
       </ion-row>
-      <ion-row>
+      <ion-row class="card-content-row">
         <ion-col col-4>
           Venue
         </ion-col>
@@ -74,7 +69,7 @@
           {{data?.description}}
         </ion-col>
       </ion-row>
-      <ion-row *ngIf="data?.group">
+      <ion-row *ngIf="data?.group" class="card-content-row">
         <ion-col col-4>
           Group
         </ion-col>
@@ -98,7 +93,7 @@
       </ion-row>
     </ion-card-content>
   </ion-card>
-  <ion-card *ngIf="!tba">
+  <!-- <ion-card *ngIf="!tba">
     <ion-card-content>
       <div>
         <ion-row>
@@ -245,5 +240,5 @@
         </ion-row>
       </div>
     </ion-card-content>
-  </ion-card>
+  </ion-card> -->
 </ion-content>

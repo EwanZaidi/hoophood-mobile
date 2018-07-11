@@ -3,13 +3,6 @@ page-bracket {
         font-size: 11px !important;
     }
 
-    .card-content-md{
-        padding-left:0;
-        padding-right:0;
-        padding-top:8px;
-        padding-bottom:8px;
-    }
-
     .card-ios {
         width: 100%;
         font-size: 1.4rem;
@@ -17,10 +10,8 @@ page-bracket {
     }
 
     .card-content-ios{
-        padding-left:0;
-        padding-right:0;
-        padding-top:8px;
-        padding-bottom:8px;
+        padding:0;
+        background-color: rgb(228,231,232);
     }
 
     .pd50{
@@ -45,11 +36,11 @@ page-bracket {
     }
 
     .semi2{
-        margin-top:130px;
+        margin-top:146px;
     }
 
     .final{
-        margin-top:185px;
+        margin-top:200px;
     }
 
     .gray{
@@ -60,4 +51,20 @@ page-bracket {
         color:#ff5100;
     }
 
+    .top-row-red{
+        border-top: 2px solid #ED1C24;
+    }
+
+    .font-red{
+        color: #ED1C24;
+    }
+
+    .bg-gray{
+        background-color: rgb(187,190,191);
+    }
+
+    .card-content-md {
+        padding:0;
+        background-color: rgb(228,231,232);
+    }
 }

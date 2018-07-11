@@ -37,5 +37,56 @@ page-team {
         height: 1px;
     }
 
+    .font-red{
+        color: #ED1C24;
+    }
+
+    .mb-4{
+        margin-bottom: 1.5rem;
+        margin-left: 1rem;
+    }
+
+    .content{
+        background-color: white;
+    }
+
+    .list:nth-of-type(even){
+        background-color: rgb(228, 231, 232);
+    }
+
+    .trap-left{
+        width: 0;
+        height: 0;
+        border-bottom: 40px solid rgb(66, 67, 69);
+        border-right: 50px solid #ED1C24;
+        font-weight: bold;
+        color: white;
+        padding-left: 30px;
+        line-height: 3;
+        padding-top:0;
+        padding-bottom:0;
+    }
+
+    .trap-right{
+        background-color: #ED1C24;
+        width: 100%;
+        color:rgb(192,195,196);
+        height: 40px;
+        padding-top:0 !important;
+        padding-bottom: 0 !important;
+        line-height: 3;
+        padding-right:30px;
+    }
+
+    .np{
+        padding-top:0;
+        padding-bottom:0;
+    }
+
+    .no-outline{
+        border-color:transparent;
+        margin-top:0;
+    }
+
 
 }

@@ -1,53 +1,73 @@
 <ion-header>
-
-  <ion-navbar color="header">
-    <ion-buttons left>
-      <button ion-button icon-only menuToggle>
-        <ion-icon name="menu"></ion-icon>
-      </button>
-    </ion-buttons>
-    <ion-title text-center>TEAM</ion-title>
-  </ion-navbar>
-
-</ion-header>
-
-
-<ion-content>
-
-  <h3 *ngIf="!show" class="gray" text-center>Choose zone</h3>
-
-  <div padding *ngIf="show" class="category">
-    LELAKI
-  </div>
-
-  <ion-card *ngIf="show">
-    <ion-card-content>
-      <div *ngFor="let t of teamL | async; let i = index">
-        <ion-row (click)="selectteam(t)">
-          <ion-col col-2 text-center class="gray">{{i+1}}</ion-col>
-          <ion-col col-10 text-left class="orange">{{t.data.team_name}}</ion-col>
-        </ion-row>
-        <hr class="hr100">
-      </div>
-    </ion-card-content>
-  </ion-card>
-
-  <div padding *ngIf="show" class="category">
-    PEREMPUAN
-  </div>
-
-  <ion-card *ngIf="show">
-    <ion-card-content>
-      <div *ngFor="let t of teamP | async; let i = index">
-        <ion-row (click)="selectteam(t)">
-          <ion-col col-2 text-center class="gray">{{i+1}}</ion-col>
-          <ion-col col-10 text-left class="orange">{{t.data.team_name}}</ion-col>
-        </ion-row>
-        <hr class="hr100">
-      </div>
-    </ion-card-content>
-  </ion-card>
+    <ion-navbar>
+      <ion-buttons left>
+        <button ion-button icon-only menuToggle>
+          <ion-icon class="font-red" name="menu"></ion-icon>
+        </button>
+      </ion-buttons>
+      <ion-title text-center>{{now_zone}}</ion-title>
+      <ion-buttons right>
+        <button ion-button icon-only (click)="doRefresh()">
+          <ion-icon class="font-red" name="refresh"></ion-icon>
+        </button>
+      </ion-buttons>
+    </ion-navbar>
+  </ion-header>
 
 
+<ion-content class="content">
+
+  <h2 class="font-red mb-4">
+    <b>Teams 2018</b>
+  </h2>
+
+  <ion-row>
+      <ion-col col-5 class="trap-left">
+          LELAKI
+      </ion-col>
+    <ion-col col-7 text-right class="trap-right">
+    </ion-col>
+  </ion-row>
+
+  <ion-list no-lines>
+    <ion-item *ngFor="let t of teamL | async; let i = index" class="list">
+      <ion-row>
+        <ion-col col-6>
+          {{i+1}} {{t.data.team_name}}
+        </ion-col>
+        <ion-col col-6 class="np">
+          <ion-buttons right>
+            <button ion-button outline small icon-only (click)="selectteam(t)" class="no-outline">
+              <ion-icon class="font-red" md="ios-arrow-dropright"></ion-icon>
+            </button>
+          </ion-buttons>
+        </ion-col>
+      </ion-row>
+    </ion-item>
+  </ion-list>
+
+  <ion-row>
+    <ion-col col-5 class="trap-left">
+        PEREMPUAN
+    </ion-col>
+    <ion-col col-7 text-right class="trap-right"></ion-col>
+  </ion-row>
+
+  <ion-list no-lines>
+    <ion-item *ngFor="let t of teamP | async; let i = index" (click)="selectteam(t)" class="list">
+      <ion-row>
+        <ion-col col-6>
+          {{i+1}} {{t.data.team_name}}
+        </ion-col>
+        <ion-col col-6 class="np">
+          <ion-buttons right>
+            <button ion-button outline small icon-only (click)="selectteam(t)" class="no-outline">
+              <ion-icon class="font-red" md="ios-arrow-dropright"></ion-icon>
+            </button>
+          </ion-buttons>
+        </ion-col>
+      </ion-row>
+    </ion-item>  
+  </ion-list>
 
 </ion-content>

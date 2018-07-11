@@ -1,0 +1,75 @@
+page-nba {
+
+    .font-red{
+        color: #ED1C24
+    }
+
+    .profiles-bg{
+        background-image: linear-gradient(135deg,#ED1C24,#96071a)!important;
+      }
+    
+      .scroll-content{
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-align: baseline;
+        -webkit-align-items: baseline;
+        -ms-flex-align: baseline;
+        align-items: baseline;
+        -webkit-box-pack: center;
+        -webkit-justify-content: center;
+        -ms-flex-pack: center;
+        justify-content: center;
+    
+        .auth-content{
+          width: 80%;
+    
+          .logo{
+            width: 100%;
+            height: 80px;
+            margin: 40px auto 0;
+          }
+    
+          .list-form{
+            padding: 0;
+            margin-bottom: 0;
+    
+            ion-item:first-child {
+              border-top:none;
+            }
+    
+            ion-item {
+              background: 0 0;
+              padding: 0;
+            }
+    
+            ion-item.item-md.item-block .item-inner{
+              height: 75px;
+              border-bottom-color: rgba(255,209,215,.5)!important;
+            }
+    
+            ion-item ion-label.label-md{
+              margin-top: 0;
+            }
+    
+            ion-item ion-label{
+              font-size: 1em;
+              color: #ffd1d7;
+            }
+          }
+        }
+      }
+    
+      .text-secondary{
+        color: #ff9e21!important;
+      }
+    
+      .text-white{
+        color: #fff !important;
+      }
+    
+      .text-red{
+        color: #cd1e37 !important;
+      }
+}

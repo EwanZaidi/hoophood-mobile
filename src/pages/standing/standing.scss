@@ -4,7 +4,12 @@ page-standing{
     }
 
     .light-hr{
-        background-color: #ff5100 !important;
+        background-color: rgb(228, 231, 232);
+        margin-bottom:0;
+    }
+
+    .light-hr-2{
+        background-color: rgb(228, 231, 232);
     }
     
     .bgc{
@@ -26,6 +31,59 @@ page-standing{
 
     .gray{
         color: #A4ACB0;
+    }
+
+    .font-red{
+        color: #ED1C24
+    }
+
+    .mb-4{
+        margin-bottom: 1.5rem;
+        margin-left: 1rem;
+    }
+
+    .content{
+        background-color: white;
+    }
+
+    .name{
+        background: black;
+        position: absolute;
+        top: -30px;
+        left: -30px;
+        right: -30px;
+        bottom: -30px;
+        -webkit-transform: skew(-20deg);
+        -moz-transform: skew(-20deg);
+        -o-transform: skew(-20deg);
+    }
+
+    .table-content:nth-of-type(odd){
+        background-color: rgb(228, 231, 232);
+    }
+
+    .trap-left{
+        width: 0;
+        height: 0;
+        border-bottom: 40px solid red;
+        border-right: 50px solid rgb(66, 67, 69);
+        font-weight: bold;
+        color: white;
+        padding-left: 30px;
+        line-height: 3;
+        padding-top:0;
+        padding-bottom:0;
+    }
+
+    .trap-right{
+        background-color: rgb(66, 67, 69);
+        width: 100%;
+        color:rgb(192,195,196);
+        height: 40px;
+        padding-top:0 !important;
+        padding-bottom: 0 !important;
+        line-height: 3;
+        padding-right:30px;
     }
 }
 

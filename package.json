@@ -20,6 +20,7 @@
     "@angular/http": "5.0.3",
     "@angular/platform-browser": "5.0.3",
     "@angular/platform-browser-dynamic": "5.0.3",
+    "@ionic-native/braintree": "^4.9.0",
     "@ionic-native/core": "^4.4.0",
     "@ionic-native/fcm": "^4.7.0",
     "@ionic-native/screen-orientation": "^4.7.0",
@@ -28,7 +29,9 @@
     "@ionic/storage": "2.1.3",
     "angularfire2": "^5.0.0-rc.6",
     "cordova-android": "6.4.0",
+    "cordova-browser": "5.0.3",
     "cordova-ios": "4.5.4",
+    "cordova-plugin-braintree": "git+https://github.com/taracque/cordova-plugin-braintree.git",
     "cordova-plugin-camera": "^4.0.3",
     "cordova-plugin-camera-preview": "^0.9.0",
     "cordova-plugin-device": "^2.0.2",
@@ -60,11 +63,13 @@
       "cordova-plugin-ionic-keyboard": {},
       "cordova-plugin-camera": {},
       "cordova-plugin-camera-preview": {},
-      "cordova-plugin-screen-orientation": {}
+      "cordova-plugin-screen-orientation": {},
+      "cordova-plugin-braintree": {}
     },
     "platforms": [
       "android",
-      "ios"
+      "ios",
+      "browser"
     ]
   }
 }

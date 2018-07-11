@@ -17,6 +17,7 @@ export class TeamPage {
   teamP: Observable<any>;
 
   show: Boolean = false;
+  now_zone;
 
   constructor(platform: Platform, public navCtrl: NavController, public navParams: NavParams, private fs: AngularFirestore) {
 
@@ -24,7 +25,7 @@ export class TeamPage {
       let idx = 4;
       window.localStorage.setItem('index', idx.toString());
       let myzone = window.localStorage.getItem('zone');
-
+      this.now_zone = 'ZON ' + myzone.toUpperCase() + ' - STANDING';
       this.teamsL = this.fs.collection('teams', ref => ref.where('category', '==', 'Lelaki').where('zone', '==', myzone).where('is_confirm', '==', true));
       this.teamL = this.teamsL.snapshotChanges().map(t => {
         return t.map(x => {

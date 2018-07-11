@@ -45,7 +45,8 @@ $colors: (
   tabs:       #dd3900,
   zone:       #ba3100,
   body:       #f0f0f0,
-  login:      #FF8000
+  login:      #FF8000,
+  red:        #ED1C24
 );
 
 //All
@@ -61,8 +62,8 @@ $modal-inset-min-width: 500px;
 // App iOS Variables
 // --------------------------------------------------
 // iOS only Sass variables can go here
-$toolbar-ios-active-color: #ff5100;
-$segment-button-ios-border-color-activated: #ff5100;
+$toolbar-ios-active-color: #ED1C24;
+$segment-button-ios-border-color-activated: #ED1C24;
 
 
 
@@ -72,8 +73,8 @@ $segment-button-ios-border-color-activated: #ff5100;
 // Material Design only Sass variables can go here
 $toolbar-md-title-font-size: 1.5rem;
 $toolbar-md-height: 4.0rem;
-$tabs-md-tab-icon-color-active: #ff5100;
-$tabs-md-tab-text-color-active: #ff5100;
+$tabs-md-tab-icon-color-active: #ED1C24;
+$tabs-md-tab-text-color-active: #ED1C24;
 $tabs-md-tab-min-height: 4.0rem;
 $tabs-md-tab-icon-size: 2.0rem;
 $tabs-md-tab-font-size: 1.0rem;
@@ -82,8 +83,8 @@ $tabs-md-tab-icon-transform-y-active: 0;
 $tabs-md-tab-icon-right-transform-x-active: 0;
 $loading-md-spinner-color: color($colors, main);
 $loading-md-background: #f0f0f0;
-$toolbar-md-active-color: #ff5100;
-$segment-button-md-border-color-activated: #ff5100;
+$toolbar-md-active-color: #ED1C24;
+$segment-button-md-border-color-activated: #ED1C24;
 
 
 

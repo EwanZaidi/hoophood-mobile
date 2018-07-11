@@ -1,4 +1,9 @@
 page-team-details {
+
+    .content{
+        background-color: white;
+    }
+
     .category{
         color: #969798;
     }
@@ -31,5 +36,53 @@ page-team-details {
 
     .gray{
         color: #A4ACB0;
+    }
+
+    .header{
+        color: #ED1C24;
+    }
+
+    .font-red{
+        color: #ED1C24
+    }
+
+    .trap-left{
+        width: 0;
+        height: 0;
+        border-bottom: 30px solid red;
+        border-right: 50px solid rgb(66, 67, 69);
+        font-weight: bold;
+        color: white;
+        padding-left: 30px;
+        line-height: 2;
+        padding-top:0;
+        padding-bottom:0;
+    }
+
+    .trap-right{
+        background-color: rgb(66, 67, 69);
+        width: 100%;
+        color:rgb(192,195,196);
+        height: 30px;
+        padding-top:0 !important;
+        padding-bottom: 0 !important;
+        line-height: 2;
+        padding-right:30px;
+    }
+
+    .table-content{
+        background-color: rgb(228, 231, 232);
+    }
+
+    .row-content:nth-of-type(even){
+        background-color: rgb(228, 231, 232);
+    }
+
+    .mt-4{
+        margin-top:1.5rem;
+    }
+
+    .n-mt-4{
+        margin-top:0;
     }
 }

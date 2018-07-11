@@ -90,4 +90,8 @@ export class GamesPage implements OnChanges {
 
   }
 
+  doRefresh() {
+    this.navCtrl.setRoot(this.navCtrl.getActive().component);
+  }
+
 }

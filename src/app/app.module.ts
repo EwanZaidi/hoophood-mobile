@@ -35,6 +35,11 @@ import { NewsletterPage } from '../pages/newsletter/newsletter';
 
 import { FCM } from '@ionic-native/fcm';
 import { GalleryPage } from '../pages/gallery/gallery';
+import { NbaPage } from '../pages/nba/nba';
+
+import { Braintree } from '@ionic-native/braintree';
+
+// import { SideMenuContentComponent } from '../shared/side-menu-content/side-menu-content.component';
 
 @NgModule({
   declarations: [
@@ -52,7 +57,9 @@ import { GalleryPage } from '../pages/gallery/gallery';
     LoginPage,
     StatisticsPage,
     NewsletterPage,
-    GalleryPage
+    GalleryPage,
+    NbaPage,
+    // SideMenuContentComponent
   ],
   imports: [
     BrowserModule,
@@ -80,7 +87,8 @@ import { GalleryPage } from '../pages/gallery/gallery';
     LoginPage,
     StatisticsPage,
     NewsletterPage,
-    GalleryPage
+    GalleryPage,
+    NbaPage
   ],
   providers: [
     StatusBar,
@@ -89,7 +97,8 @@ import { GalleryPage } from '../pages/gallery/gallery';
     // Camera,
     // CameraPreview,
     ScreenOrientation,
-    FCM
+    FCM,
+    Braintree
   ]
 })
 export class AppModule {}

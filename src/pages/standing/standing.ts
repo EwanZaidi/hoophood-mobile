@@ -25,11 +25,14 @@ export class StandingPage {
   show: Boolean = false;
   nozone: Boolean = true;
 
+  now_zone;
+
   constructor(platform: Platform, public navCtrl: NavController, public navParams: NavParams, private fs: AngularFirestore) {
     platform.ready().then(() => {
       let idx = 2;
       window.localStorage.setItem('index', idx.toString());
       let myzone = window.localStorage.getItem('zone');
+      this.now_zone = 'ZON ' + myzone.toUpperCase() + ' - STANDING';
       this.nozone = false;
       this.groupsL = this.fs.collection('groups', ref => ref.where('category', '==', 'Lelaki').where('zone', '==', myzone));
       this.groupL = this.groupsL.snapshotChanges().map(g => {
@@ -84,6 +87,10 @@ export class StandingPage {
   }
 
   zonechanged(event) {
+  }
+
+  doRefresh() {
+    this.navCtrl.setRoot(this.navCtrl.getActive().component);
   }
 
 

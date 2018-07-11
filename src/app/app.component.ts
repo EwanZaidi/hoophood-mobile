@@ -12,6 +12,8 @@ import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument 
 
 import { Observable } from 'rxjs/Observable';
 import { GalleryPage } from '../pages/gallery/gallery';
+import { HomePage } from '../pages/home/home';
+import { NbaPage } from '../pages/nba/nba';
 
 @Component({
   templateUrl: 'app.html'
@@ -29,6 +31,8 @@ export class MyApp {
   c: Observable<any>;
 
   z:any;
+
+  showSubmenu: boolean = false;
 
   constructor(public app: App,public menu: MenuController,platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen, private modal: ModalController, private fcm: FCM, private fs: AngularFirestore, private alt: AlertController) {
     platform.ready().then(() => {
@@ -62,6 +66,12 @@ export class MyApp {
     })
   }
 
+  nbaPage() {
+    this.nav.setRoot(NbaPage).then(()=>{
+      this.menu.close();
+    })
+  }
+
   zone(zoned){
     window.localStorage.setItem('zone', zoned);
     this.nav.setRoot(TabsPage).then(()=>{
@@ -80,5 +90,17 @@ export class MyApp {
         this.modal.create(NewsletterPage, null, { cssClass: 'inset-modal' }).present();
       })
     })
+  }
+
+  home(){
+    this.nav.push(HomePage).then(() => {
+      this.menu.close();
+    })
+  }
+
+  
+
+  menuItemHandler(): void {
+    this.showSubmenu = !this.showSubmenu;
   }
 }

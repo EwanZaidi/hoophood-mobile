@@ -1,35 +1,40 @@
 <ion-menu [content]="mycontent">
-    <ion-header>
-        <ion-navbar color="header">
-            <ion-title text-center>{{team_name?team_name:'Menu'}}</ion-title>
-        </ion-navbar>
-    </ion-header>
-    <ion-content>
-        <ion-list>
-            <ion-item (click)="zone('Tengah')">
-                <ion-icon name="locate" item-start></ion-icon>
-                Zon Tengah
+    <ion-content class="menu-dark">
+        <ion-list no-lines id="sidenav">
+            <ion-item (click)="home()" class="list-bg">
+                <ion-icon name="ios-home-outline" item-start class="font-red"></ion-icon>
+                HOME
             </ion-item>
-            <ion-item (click)="zone('Selatan')">
-                <ion-icon name="locate" item-start></ion-icon>
-                Zon Selatan
+            <ion-item class="list-bg" (click)="menuItemHandler()">
+                <ion-icon name="ios-basketball-outline" item-start class="font-red"></ion-icon>
+                    TOURNAMENT
+                </ion-item>
+                <ion-item-group submenu [class.visible]="showSubmenu" class="list-bg">
+                    <ion-item submenu-item *ngIf="showSubmenu" (click)="zone('Tengah')" class="list-bg">
+                        Zon Tengah
+                    </ion-item>
+                    <ion-item submenu-item *ngIf="showSubmenu" (click)="zone('Selatan')" class="list-bg">
+                        Zon Selatan
+                    </ion-item>
+                    <ion-item submenu-item *ngIf="showSubmenu" (click)="zone('Timur')" class="list-bg">
+                        Zon Timur
+                    </ion-item>
+                    <ion-item submenu-item *ngIf="showSubmenu" (click)="zone('Kebangsaan')" class="list-bg">
+                        Kebangsaan
+                    </ion-item>
+                </ion-item-group>
+            <ion-item (click)="galleryPage()" class="list-bg">
+                <ion-icon name="ios-image-outline" item-start class="font-red"></ion-icon>
+                GALLERY
             </ion-item>
-            <ion-item (click)="zone('Timur')">
-                <ion-icon name="locate" item-start></ion-icon>
-                Zon Timur
+            <ion-item (click)="nbaPage()" class="list-bg">
+                <ion-icon name="ios-game-controller-b-outline" item-start class="font-red"></ion-icon>
+                NBA 2K18
             </ion-item>
-            <ion-item (click)="zone('Kebangsaan')">
-                <ion-icon name="locate" item-start></ion-icon>
-                Kebangsaan
+            <ion-item (click)="loginPage()" class="list-bg">
+                <ion-icon name="ios-log-in-outline" item-start class="font-red"></ion-icon>
+                LOGIN
             </ion-item>
-            <ion-item (click)="galleryPage()">
-                <ion-icon name="images" item-start></ion-icon>
-                Gallery
-            </ion-item>
-            <!-- <ion-item (click)="loginPage()">
-                <ion-icon name="log-in" item-start></ion-icon>
-                Login
-            </ion-item> -->
         </ion-list>
     </ion-content>
 </ion-menu>

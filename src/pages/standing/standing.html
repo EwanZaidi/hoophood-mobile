@@ -1,45 +1,48 @@
 <ion-header>
-
-  <ion-navbar color="header">
+  <ion-navbar>
     <ion-buttons left>
       <button ion-button icon-only menuToggle>
-        <ion-icon name="menu"></ion-icon>
+        <ion-icon class="font-red" name="menu"></ion-icon>
       </button>
     </ion-buttons>
-    <ion-title text-center>STANDING</ion-title>
+    <ion-title text-center>{{now_zone}}</ion-title>
+    <ion-buttons right>
+      <button ion-button icon-only (click)="doRefresh()">
+        <ion-icon class="font-red" name="refresh"></ion-icon>
+      </button>
+    </ion-buttons>
   </ion-navbar>
 </ion-header>
 
 
-<ion-content>
+<ion-content class="content">
 
-  <h3 *ngIf="nozone" class="gray" text-center>Choose zone</h3>
+  <h2 class="font-red mb-4">
+    <b>Standing 2018</b>
+  </h2>
+
   <div *ngFor="let g of groupL | async; let i=index">
-    <ion-card class="bgc">
-      <ion-card-header color="light">
-        <ion-row>
-          <ion-col col-6>
-            Group {{g.data.group_name}}
-          </ion-col>
-          <ion-col col-6 text-right>
-            <i>{{g.data.category}}</i>
-          </ion-col>
-        </ion-row>
-      </ion-card-header>
-    </ion-card>
+    <ion-row>
+      <ion-col col-5 class="trap-left">
+          Group {{g.data.group_name}}
+      </ion-col>
+      <ion-col col-7 text-right class="trap-right">
+          <i>{{g.data.category}}</i>
+      </ion-col>
+    </ion-row>
 
     <ion-row>
-      <ion-col col-1 text-center>#</ion-col>
-      <ion-col col-4 text-center>Name</ion-col>
-      <ion-col col-1 text-center>P</ion-col>
-      <ion-col col-1 text-center>W</ion-col>
-      <ion-col col-1 text-center>L</ion-col>
-      <ion-col col-2 text-center>GD</ion-col>
-      <ion-col col-2 text-center>Pts</ion-col>
+      <ion-col col-1 text-center></ion-col>
+      <ion-col col-4 text-center><strong>TEAM</strong></ion-col>
+      <ion-col col-1 text-center><strong>P</strong></ion-col>
+      <ion-col col-1 text-center><strong>W</strong></ion-col>
+      <ion-col col-1 text-center><strong>L</strong></ion-col>
+      <ion-col col-2 text-center><strong>GD</strong></ion-col>
+      <ion-col col-2 text-center><strong>PTS</strong></ion-col>
     </ion-row>
     <hr class="light-hr">
-    <ion-row *ngFor="let tl of g.teamList | async; let i=index">
-      <ion-col col-1 text-center>{{i+1}}</ion-col>
+    <ion-row *ngFor="let tl of g.teamList | async; let i=index" class="table-content">
+      <ion-col col-1 text-right>{{i+1}}</ion-col>
       <ion-col col-4 text-center>{{tl.data.team_name}}</ion-col>
       <ion-col col-1 text-center>{{tl.data.played}}</ion-col>
       <ion-col col-1 text-center>{{tl.data.win}}</ion-col>
@@ -47,34 +50,31 @@
       <ion-col col-2 text-center>{{tl.data.gd}}</ion-col>
       <ion-col col-2 text-center>{{tl.data.points}}</ion-col>
     </ion-row>
+    <br>
   </div>
 
   <div *ngFor="let g of groupP | async; let i=index">
-    <ion-card class="bgc2">
-      <ion-card-header color="light">
-        <ion-row>
-          <ion-col col-6>
+      <ion-row>
+        <ion-col col-5 class="trap-left">
             Group {{g.data.group_name}}
-          </ion-col>
-          <ion-col col-6 text-right>
+        </ion-col>
+        <ion-col col-7 text-right class="trap-right">
             <i>{{g.data.category}}</i>
-          </ion-col>
-        </ion-row>
-      </ion-card-header>
-    </ion-card>
+        </ion-col>
+      </ion-row>
 
     <ion-row>
-      <ion-col col-1 text-center>#</ion-col>
-      <ion-col col-4 text-center>Name</ion-col>
-      <ion-col col-1 text-center>P</ion-col>
-      <ion-col col-1 text-center>W</ion-col>
-      <ion-col col-1 text-center>L</ion-col>
-      <ion-col col-2 text-center>GD</ion-col>
-      <ion-col col-2 text-center>Pts</ion-col>
+      <ion-col col-1 text-center></ion-col>
+      <ion-col col-4 text-center><strong>TEAM</strong></ion-col>
+      <ion-col col-1 text-center><strong>P</strong></ion-col>
+      <ion-col col-1 text-center><strong>W</strong></ion-col>
+      <ion-col col-1 text-center><strong>L</strong></ion-col>
+      <ion-col col-2 text-center><strong>GD</strong></ion-col>
+      <ion-col col-2 text-center><strong>PTS</strong></ion-col>
     </ion-row>
     <hr class="light-hr">
-    <ion-row *ngFor="let tl of g.teamList | async; let i=index">
-      <ion-col col-1 text-center>{{i+1}}</ion-col>
+    <ion-row *ngFor="let tl of g.teamList | async; let i=index" class="table-content">
+      <ion-col col-1 text-right>{{i+1}}</ion-col>
       <ion-col col-4 text-center>{{tl.data.team_name}}</ion-col>
       <ion-col col-1 text-center>{{tl.data.played}}</ion-col>
       <ion-col col-1 text-center>{{tl.data.win}}</ion-col>
@@ -82,5 +82,6 @@
       <ion-col col-2 text-center>{{tl.data.gd}}</ion-col>
       <ion-col col-2 text-center>{{tl.data.points}}</ion-col>
     </ion-row>
+    <br>
   </div>
 </ion-content>

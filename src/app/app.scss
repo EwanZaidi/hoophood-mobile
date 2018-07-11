@@ -38,3 +38,46 @@ ion-modal.inset-modal {
     transition: opacity .25s ease-in-out;
     padding: 9vh 5vw;
 }
+
+.menu-dark{
+    background-image: linear-gradient(135deg,rgb(195,100,105),rgb(152,72,110),rgb(92,55,110),rgb(37,49,94),rgb(31,36,64));
+    animation-duration: 20s;
+    animation-iteration-count: infinite;
+    animation-name: gradients;
+}
+
+@keyframes gradients {
+    0%   {background-position: 0 0;}
+    25% {background-position: 50% 0;}
+    50% {background-position: 90% 0;}
+    60% {background-position: 60%;}
+    75% {background-position: 40%;}
+    100%  {background-position: 0 0;}
+}
+
+.list-bg{
+    color: #fff;
+    background-color: rgba(0,0,0,0.3);
+}
+
+.font-red{
+    color:#ED1C24;
+}
+
+#sidenav {
+    ion-item[submenu-item] {
+        padding-left: 75px; // maybe margin-left would work better to move the border as well
+        color: #ED1C24;
+    }
+
+    ion-item-group[sidemenu] {
+        overflow: hidden;
+        display: block;
+        height: 0;
+        transition: height .3s linear;
+        &.visible {
+            height: 300px;
+            // this is just sample value, calculate how much space you need for your menu items
+        }
+      }
+}
