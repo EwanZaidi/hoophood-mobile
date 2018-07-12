@@ -7,22 +7,17 @@
             </ion-item>
             <ion-item class="list-bg" (click)="menuItemHandler()">
                 <ion-icon name="ios-basketball-outline" item-start class="font-red"></ion-icon>
-                    TOURNAMENT
-                </ion-item>
-                <ion-item-group submenu [class.visible]="showSubmenu" class="list-bg">
-                    <ion-item submenu-item *ngIf="showSubmenu" (click)="zone('Tengah')" class="list-bg">
-                        Zon Tengah
+                TOURNAMENT
+                <ion-icon *ngIf="!showSubmenu" name="ios-arrow-forward-outline" item-end class="font-red"></ion-icon>
+                <ion-icon *ngIf="showSubmenu" name="ios-arrow-down-outline" item-end class="font-red"></ion-icon>
+            </ion-item>
+            <ion-item-group submenu [class.visible]="showSubmenu" class="list-bg">
+                <div *ngFor="let z of zone$ | async">
+                    <ion-item submenu-item *ngIf="showSubmenu" (click)="zone('z.zone_name')" class="list-bg">
+                        {{z.zone_name}}
                     </ion-item>
-                    <ion-item submenu-item *ngIf="showSubmenu" (click)="zone('Selatan')" class="list-bg">
-                        Zon Selatan
-                    </ion-item>
-                    <ion-item submenu-item *ngIf="showSubmenu" (click)="zone('Timur')" class="list-bg">
-                        Zon Timur
-                    </ion-item>
-                    <ion-item submenu-item *ngIf="showSubmenu" (click)="zone('Kebangsaan')" class="list-bg">
-                        Kebangsaan
-                    </ion-item>
-                </ion-item-group>
+                </div>
+            </ion-item-group>
             <ion-item (click)="galleryPage()" class="list-bg">
                 <ion-icon name="ios-image-outline" item-start class="font-red"></ion-icon>
                 GALLERY

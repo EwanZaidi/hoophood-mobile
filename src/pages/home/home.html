@@ -1,64 +1,21 @@
 <ion-header>
-  <ion-navbar color="header">
+  <ion-navbar>
     <ion-buttons left>
       <button ion-button icon-only menuToggle>
-        <ion-icon name="menu"></ion-icon>
+        <ion-icon class="font-red" name="menu"></ion-icon>
       </button>
     </ion-buttons>
-
     <ion-title text-center>HOME</ion-title>
   </ion-navbar>
 </ion-header>
 
 
-<ion-content padding>
-  <ion-row *ngIf="z == 'Kebangsaan'">
+<ion-content padding class="bg-white">
+
+  <ion-row>
     <ion-col col-12>
-      <img src="assets/imgs/kebangsaan.jpg" />
+      <img src="assets/imgs/alumni.jpg" />
     </ion-col>
   </ion-row>
 
-  <ion-row *ngIf="z == 'Tengah'">
-    <ion-col col-12>
-      <img src="assets/imgs/banner.jpg" />
-    </ion-col>
-  </ion-row>
-
-  <ion-row *ngIf="z == 'Timur'">
-    <ion-col col-12>
-      <img src="assets/imgs/timur.jpg" />
-    </ion-col>
-  </ion-row>
-
-  <ion-row *ngIf="z == 'Selatan'">
-    <ion-col col-12>
-      <img src="assets/imgs/selatan.jpg" />
-    </ion-col>
-  </ion-row>
-
-  <!-- <div>
-    <p text-justify>
-      Basketball games are actually the second largest sport in the world after the football game. However, the game is better
-      known among the Chinese community in Malaysia.
-    </p>
-    <p text-justify>
-      However, basketball games have actually been ranked amongst other races in Malaysia as it is considered not a game for one
-      race only.
-    </p>
-    <p text-justify>
-      Basketball games have been contested among the Sekolah Berasrama Penuh (SBP) since 1974 by offering the Piala Tun Hamdan
-      Sheikh Tahir for the men's category and Toh Puan Siti Zainab for the women category.
-    </p>
-  
-    <ion-col col-12>
-      <a href="https://gethyred.com.my/assets/pdf/hksbp_rule_book_v2.pdf">
-        <ion-buttons>
-          <button class="customBtn" ion-button icon-start>
-            <ion-icon md="ios-book-outline"></ion-icon>
-            Rules
-          </button>
-        </ion-buttons>
-      </a>
-    </ion-col>
-  </div> -->
 </ion-content>

@@ -34,6 +34,8 @@ export class MyApp {
 
   showSubmenu: boolean = false;
 
+  zone$ : Observable<any>;
+
   constructor(public app: App,public menu: MenuController,platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen, private modal: ModalController, private fcm: FCM, private fs: AngularFirestore, private alt: AlertController) {
     platform.ready().then(() => {
       statusBar.styleDefault();
@@ -44,6 +46,9 @@ export class MyApp {
       } else {
         console.log('dah ada');
       }
+
+      this.zone$ = this.fs.collection('zone').valueChanges();
+      this.zone$.subscribe();
 
       window.localStorage.setItem('zone', 'Kebangsaan');
 
@@ -61,7 +66,7 @@ export class MyApp {
   }
 
   galleryPage() {
-    this.nav.push(GalleryPage).then(()=>{
+    this.nav.setRoot(GalleryPage).then(()=>{
       this.menu.close();
     })
   }
@@ -93,7 +98,7 @@ export class MyApp {
   }
 
   home(){
-    this.nav.push(HomePage).then(() => {
+    this.nav.setRoot(HomePage).then(() => {
       this.menu.close();
     })
   }
