@@ -13,7 +13,7 @@
             </ion-item>
             <ion-item-group submenu [class.visible]="showSubmenu" class="list-bg">
                 <div *ngFor="let z of zone$ | async">
-                    <ion-item submenu-item *ngIf="showSubmenu" (click)="zone('z.zone_name')" class="list-bg">
+                    <ion-item submenu-item *ngIf="showSubmenu" (click)="zone(z.zone_name)" class="list-bg">
                         {{z.zone_name}}
                     </ion-item>
                 </div>
