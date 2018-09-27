@@ -46,7 +46,8 @@
           <p>
             <strong>{{m.data.datetime | date : 'E'}}, {{m.data.datetime | date : 'MMM dd'}}</strong>
           </p>
-          <p class="center-gray">{{m.data.category}}</p>
+          <p class="center-gray" *ngIf="zon !== 'Alumni 2018'">{{m.data.category}}</p>
+          <p class="center-gray" *ngIf="zon == 'Alumni 2018'">Lelaki</p>
           <p class="center-gray" *ngIf="(m.data.group?m.data.group.substring(0,2) == 'st':'');else content">Group {{m.data.group.substring(2,3)}}</p>
           <ng-template #content>
             <ng-container *ngIf="(m.data.group?m.data.group.substring(0,2) != 'st':''); else content2">

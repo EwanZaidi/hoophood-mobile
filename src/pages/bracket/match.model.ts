@@ -1,9 +1,12 @@
 export class myMatch{
     id: any;
     data:any;
+    time:any;
     constructor(){
         this.id='';
         this.data = new MatchData;
+        this.time=null;
+
     }
 }
 

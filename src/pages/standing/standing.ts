@@ -52,7 +52,7 @@ export class StandingPage {
         })
       })
 
-      // this.groupL.subscribe(data => console.log(data))
+      this.groupL.subscribe(data => console.log(data))
 
 
       this.groupsP = this.fs.collection('groups', ref => ref.where('category', '==', 'Perempuan').where('zone', '==', myzone));

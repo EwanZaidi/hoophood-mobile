@@ -87,8 +87,11 @@
         <ion-col col-1>
           :
         </ion-col>
-        <ion-col col-7>
+        <ion-col col-7 *ngIf="!category">
           {{data?.category}}
+        </ion-col>
+        <ion-col col-7 *ngIf="category">
+          Lelaki
         </ion-col>
       </ion-row>
     </ion-card-content>

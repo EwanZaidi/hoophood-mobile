@@ -40,7 +40,7 @@ ion-modal.inset-modal {
 }
 
 .menu-dark{
-    background-image: linear-gradient(135deg,rgb(195,100,105),rgb(152,72,110),rgb(92,55,110),rgb(37,49,94),rgb(31,36,64));
+    background-image: linear-gradient(135deg,#A43931,#1D4350);
     animation-duration: 20s;
     animation-iteration-count: infinite;
     animation-name: gradients;
@@ -60,6 +60,10 @@ ion-modal.inset-modal {
     background-color: rgba(0,0,0,0.3);
 }
 
+.list-inner-bg{
+    background-color: rgba(0,0,0,0);
+}
+
 .font-red{
     color:#ED1C24;
 }
@@ -69,6 +73,12 @@ ion-modal.inset-modal {
         padding-left: 75px; // maybe margin-left would work better to move the border as well
         color: #ED1C24;
     }
+
+    ion-item[subsubmenu-item] {
+        padding-left: 30px; // maybe margin-left would work better to move the border as well
+        color: #ED1C24;
+    }
+
 
     ion-item-group[sidemenu] {
         overflow: hidden;

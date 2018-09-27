@@ -12,9 +12,14 @@
                 <ion-icon *ngIf="showSubmenu" name="ios-arrow-down-outline" item-end class="font-red"></ion-icon>
             </ion-item>
             <ion-item-group submenu [class.visible]="showSubmenu" class="list-bg">
-                <div *ngFor="let z of zone$ | async">
-                    <ion-item submenu-item *ngIf="showSubmenu" (click)="zone(z.zone_name)" class="list-bg">
-                        {{z.zone_name}}
+                <div *ngFor="let z of tour$ | async;let i = index">
+                    <ion-item submenu-item *ngIf="showSubmenu" (click)="menuInsideItemHandler(i)" class="list-bg">
+                        {{z.data.tour_name}}
+                        <div *ngFor="let x of z.a | async; let idx = index">
+                            <ion-item subsubmenu-item *ngIf="showSubSubmenu[i]" (click)="zone(x.data.zone_name)" class="list-inner-bg">
+                                {{x.data.zone_name}}
+                            </ion-item>
+                        </div>
                     </ion-item>
                 </div>
             </ion-item-group>
@@ -26,10 +31,10 @@
                 <ion-icon name="ios-game-controller-b-outline" item-start class="font-red"></ion-icon>
                 NBA 2K18
             </ion-item>
-            <ion-item (click)="loginPage()" class="list-bg">
+            <!-- <ion-item (click)="loginPage()" class="list-bg">
                 <ion-icon name="ios-log-in-outline" item-start class="font-red"></ion-icon>
                 LOGIN
-            </ion-item>
+            </ion-item> -->
         </ion-list>
     </ion-content>
 </ion-menu>

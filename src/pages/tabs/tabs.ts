@@ -10,7 +10,6 @@ import { BracketPage } from '../bracket/bracket';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { AngularFirestore, AngularFirestoreDocument} from 'angularfire2/firestore';
 import { Observable } from 'rxjs/Observable';
-import { ScreenOrientation } from '@ionic-native/screen-orientation';
 import { Platform, NavParams } from 'ionic-angular';
 
 
@@ -27,7 +26,7 @@ export class TabsPage {
 
   public tabsIndex: Number = 0;
 
-  constructor(private auth: AngularFireAuth, private fs: AngularFirestore, public sc: ScreenOrientation, public platform: Platform, private params: NavParams) {
+  constructor(private auth: AngularFireAuth, private fs: AngularFirestore, public platform: Platform, private params: NavParams) {
     this.auth.authState.subscribe(x => {
       if(x){
       let uid = x.uid;

@@ -20,6 +20,7 @@ export class GamesPage implements OnChanges {
   a: Boolean[] = new Array();
 
   now_zone;
+  zon;
 
   home: Boolean[] = new Array();
   away: Boolean[] = new Array();
@@ -33,6 +34,7 @@ export class GamesPage implements OnChanges {
       let idx = 1;
       window.localStorage.setItem('index', idx.toString());
       let myzone = window.localStorage.getItem('zone');
+      this.zon = window.localStorage.getItem('zone');
       const date = new Date();
       this.nozone = false;
       this.now_zone = 'ZON ' + myzone.toUpperCase() + ' - MATCHES';

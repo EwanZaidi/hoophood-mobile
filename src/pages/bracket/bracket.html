@@ -14,12 +14,20 @@
     </ion-buttons>
   </ion-navbar>
   <ion-toolbar>
-    <ion-segment [(ngModel)]="category">
+    <ion-segment *ngIf="zone != 'Alumni 2018'" [(ngModel)]="category">
       <ion-segment-button value="Lelaki">
         <ion-icon name="man"></ion-icon>
       </ion-segment-button>
       <ion-segment-button value="Perempuan">
         <ion-icon name="woman"></ion-icon>
+      </ion-segment-button>
+    </ion-segment>
+    <ion-segment *ngIf="zone == 'Alumni 2018'" [(ngModel)]="category">
+      <ion-segment-button value="Lelaki">
+        UPPER BRACKET
+      </ion-segment-button>
+      <ion-segment-button value="Perempuan">
+        LOWER BRACKET
       </ion-segment-button>
     </ion-segment>
   </ion-toolbar>

@@ -21,6 +21,10 @@ export class GalleryPage {
   ionViewDidLoad() {
   }
 
+  tengah(){
+    window.open('https://drive.google.com/open?id=1Z8Doau-q3OUYTS2iM-zhamSwLdA5nDx2', '_system')
+  }
+
   timur(){
     window.open('https://drive.google.com/drive/folders/1Xv82ny7tLhGGgJaJngcHz8arg4hlmBm4?usp=sharing', '_system')
   }

@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ViewController } from 'ionic-angular';
 import {NgForm} from '@angular/forms';
 import { AngularFirestore } from 'angularfire2/firestore';
+import { NbaRegPage } from '../nba-reg/nba-reg';
 
 /**
  * Generated class for the NewsletterPage page.
@@ -23,7 +24,8 @@ export class NewsletterPage {
   constructor(
     public viewCtrl: ViewController,
     params: NavParams,
-    private fs: AngularFirestore
+    private fs: AngularFirestore,
+    public nav: NavController
   ) {
     this.uid = window.localStorage.getItem('uid')
     this.myParam = params.get('myParam');
@@ -35,6 +37,14 @@ export class NewsletterPage {
     }).then(()=> {
       this.viewCtrl.dismiss();
     })
+  }
+
+  nbaRegistration(){
+    this.nav.push(NbaRegPage);
+  }
+
+  modalDismiss(){
+    this.viewCtrl.dismiss();
   }
 
 }

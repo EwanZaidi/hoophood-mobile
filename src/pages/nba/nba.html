@@ -5,56 +5,24 @@
         <ion-icon class="font-red" name="menu"></ion-icon>
       </button>
     </ion-buttons>
-    <ion-title text-center>NBA 2K18</ion-title>
-    <ion-buttons right>
-      <button ion-button icon-only (click)="doRefresh()">
-        <ion-icon class="font-red" name="refresh"></ion-icon>
-      </button>
-    </ion-buttons>
+    <ion-title text-center>NBA 2K18 TOURNAMENT</ion-title>
   </ion-navbar>
 </ion-header>
 
 
-<ion-content class="profiles-bg" padding>
-  <div class="fixed-content"></div>
-  <div class="scroll-content">
-    <div class="auth-content">
-      <div padding-horizontal text-center>
-        <div class="logo">
-          <img src="assets/imgs/2k18.png">
-        </div>
-      </div>
-      <div padding-vertical></div>
-      <div id="loginForm">
-        <form #loginForm="ngForm" class="list-form">
-          <ion-item>
-            <ion-label floating>
-                Name
-            </ion-label>
-            <ion-input name="name" type="text" class="text-white" ngModel required></ion-input>
-          </ion-item>
-          <ion-item>
-            <ion-label floating>
-                Age
-            </ion-label>
-            <ion-input name="age" type="number" class="text-white" ngModel required></ion-input>
-          </ion-item>
-        </form>
-        <p></p>
-        <div>
-          <ion-grid fixed>
-            <ion-row>
-              <button col col-12 col-md-12 col-lg-12 (click)="login(loginForm)" block color="secondary" icon-start ion-button [disabled]="!loginForm.valid">
-                <span class="button-inner">
-                  <ion-icon name="log-in"></ion-icon>
-                  Make Payment
-                </span>
-              </button>
-            </ion-row>
-          </ion-grid>
-        </div>
-        <p ion-text text-center class="text-white">Powered by Hyred</p>
-      </div>
-    </div>
-  </div>
+<ion-content padding>
+  <ion-row>
+    <ion-col col-12>
+        <img src="assets/imgs/2K18-poster.jpg" />
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col col-12>
+      <ion-buttons>
+        <button ion-button (click)="nbaRegistration()">
+          Click here to register!
+        </button>
+      </ion-buttons>
+    </ion-col>
+  </ion-row>
 </ion-content>

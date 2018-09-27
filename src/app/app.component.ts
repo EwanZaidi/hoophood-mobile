@@ -15,6 +15,7 @@ import { GalleryPage } from '../pages/gallery/gallery';
 import { HomePage } from '../pages/home/home';
 import { NbaPage } from '../pages/nba/nba';
 
+
 @Component({
   templateUrl: 'app.html'
 })
@@ -33,6 +34,14 @@ export class MyApp {
   z:any;
 
   showSubmenu: boolean = false;
+  showSubSubmenu : Array<Boolean> = [];
+
+
+
+
+
+  tournament: AngularFirestoreCollection<any>;
+  tour$ : Observable<any>;
 
   zone$ : Observable<any>;
 
@@ -49,6 +58,34 @@ export class MyApp {
 
       this.zone$ = this.fs.collection('zone').valueChanges();
       this.zone$.subscribe();
+
+      // this.showSubSubmenu[1] = false;
+
+      this.tournament = this.fs.collection('tournaments');
+      this.tour$ = this.tournament.snapshotChanges().map(x => {
+        return x.map(y => {
+          const data = y.payload.doc.data();
+          const key = y.payload.doc.id;
+
+          let a = this.fs.collection('tournaments').doc(key).collection('zone').snapshotChanges().map(z => {
+            return z.map(w => {
+              const key = w.payload.doc.id;
+              const data = w.payload.doc.data();
+
+              return {key, data}
+            })
+          });
+
+          return {data,key,a}
+        })
+      })
+
+      this.tour$.subscribe(x => {
+        x.forEach(y => {
+          this.showSubSubmenu.push(false)
+        })
+
+      });
 
       window.localStorage.setItem('zone', 'Kebangsaan');
 
@@ -107,5 +144,9 @@ export class MyApp {
 
   menuItemHandler(): void {
     this.showSubmenu = !this.showSubmenu;
+  }
+
+  menuInsideItemHandler(i): void{
+    this.showSubSubmenu[i] = !this.showSubSubmenu[i]
   }
 }

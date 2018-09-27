@@ -30,14 +30,15 @@ import { LoginPage } from '../pages/login/login';
 // import { Camera} from '@ionic-native/camera';
 // import { CameraPreview } from '@ionic-native/camera-preview';
 
-import { ScreenOrientation } from '@ionic-native/screen-orientation';
+// import { ScreenOrientation } from '@ionic-native/screen-orientation';
 import { NewsletterPage } from '../pages/newsletter/newsletter';
 
 import { FCM } from '@ionic-native/fcm';
 import { GalleryPage } from '../pages/gallery/gallery';
 import { NbaPage } from '../pages/nba/nba';
+import { NbaRegPage } from '../pages/nba-reg/nba-reg';
 
-import { Braintree } from '@ionic-native/braintree';
+// import { Braintree } from '@ionic-native/braintree';
 
 // import { SideMenuContentComponent } from '../shared/side-menu-content/side-menu-content.component';
 
@@ -59,6 +60,7 @@ import { Braintree } from '@ionic-native/braintree';
     NewsletterPage,
     GalleryPage,
     NbaPage,
+    NbaRegPage
     // SideMenuContentComponent
   ],
   imports: [
@@ -88,7 +90,8 @@ import { Braintree } from '@ionic-native/braintree';
     StatisticsPage,
     NewsletterPage,
     GalleryPage,
-    NbaPage
+    NbaPage,
+    NbaRegPage
   ],
   providers: [
     StatusBar,
@@ -96,9 +99,9 @@ import { Braintree } from '@ionic-native/braintree';
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     // Camera,
     // CameraPreview,
-    ScreenOrientation,
-    FCM,
-    Braintree
+    // ScreenOrientation,
+    FCM
+    // Braintree
   ]
 })
 export class AppModule {}
