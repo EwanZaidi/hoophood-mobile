@@ -12,7 +12,7 @@
                 <ion-icon *ngIf="showSubmenu" name="ios-arrow-down-outline" item-end class="font-red"></ion-icon>
             </ion-item>
             <ion-item-group submenu [class.visible]="showSubmenu" class="list-bg">
-                <div *ngFor="let z of tour$ | async;let i = index">
+                <!-- <div *ngFor="let z of tour$ | async;let i = index">
                     <ion-item submenu-item *ngIf="showSubmenu" (click)="menuInsideItemHandler(i)" class="list-bg">
                         {{z.data.tour_name}}
                         <div *ngFor="let x of z.a | async; let idx = index">
@@ -21,15 +21,16 @@
                             </ion-item>
                         </div>
                     </ion-item>
+                </div> -->
+                <div *ngFor="let t of tour$ | async; let i = index">
+                    <ion-item submenu-item *ngIf="showSubmenu" (click)="sel_tournament(t.key)" class="list-bg">
+                        {{t.data.tournament_name}}
+                    </ion-item>
                 </div>
             </ion-item-group>
             <ion-item (click)="galleryPage()" class="list-bg">
                 <ion-icon name="ios-image-outline" item-start class="font-red"></ion-icon>
                 GALLERY
-            </ion-item>
-            <ion-item (click)="nbaPage()" class="list-bg">
-                <ion-icon name="ios-game-controller-b-outline" item-start class="font-red"></ion-icon>
-                NBA 2K18
             </ion-item>
             <!-- <ion-item (click)="loginPage()" class="list-bg">
                 <ion-icon name="ios-log-in-outline" item-start class="font-red"></ion-icon>

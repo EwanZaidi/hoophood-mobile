@@ -27,7 +27,7 @@
           Group {{g.data.group_name}}
       </ion-col>
       <ion-col col-7 text-right class="trap-right">
-          <i>{{g.data.category}}</i>
+          <i>MALE</i>
       </ion-col>
     </ion-row>
 
@@ -43,7 +43,7 @@
     <hr class="light-hr">
     <ion-row *ngFor="let tl of g.teamList | async; let i=index" class="table-content">
       <ion-col col-1 text-right>{{i+1}}</ion-col>
-      <ion-col col-4 text-center>{{tl.data.team_name}}</ion-col>
+      <ion-col col-4 text-center *ngIf="(tl.name | async) as name">{{name.team_name}}</ion-col>
       <ion-col col-1 text-center>{{tl.data.played}}</ion-col>
       <ion-col col-1 text-center>{{tl.data.win}}</ion-col>
       <ion-col col-1 text-center>{{tl.data.lost}}</ion-col>
@@ -59,7 +59,7 @@
             Group {{g.data.group_name}}
         </ion-col>
         <ion-col col-7 text-right class="trap-right">
-            <i>{{g.data.category}}</i>
+            <i>FEMALE</i>
         </ion-col>
       </ion-row>
 
@@ -75,7 +75,7 @@
     <hr class="light-hr">
     <ion-row *ngFor="let tl of g.teamList | async; let i=index" class="table-content">
       <ion-col col-1 text-right>{{i+1}}</ion-col>
-      <ion-col col-4 text-center>{{tl.data.team_name}}</ion-col>
+      <ion-col col-4 text-center *ngIf="(tl.name | async) as name">{{name.team_name}}</ion-col>
       <ion-col col-1 text-center>{{tl.data.played}}</ion-col>
       <ion-col col-1 text-center>{{tl.data.win}}</ion-col>
       <ion-col col-1 text-center>{{tl.data.lost}}</ion-col>

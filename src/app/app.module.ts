@@ -37,6 +37,7 @@ import { FCM } from '@ionic-native/fcm';
 import { GalleryPage } from '../pages/gallery/gallery';
 import { NbaPage } from '../pages/nba/nba';
 import { NbaRegPage } from '../pages/nba-reg/nba-reg';
+import { StorageProvider } from '../providers/storage/storage';
 
 // import { Braintree } from '@ionic-native/braintree';
 
@@ -100,7 +101,8 @@ import { NbaRegPage } from '../pages/nba-reg/nba-reg';
     // Camera,
     // CameraPreview,
     // ScreenOrientation,
-    FCM
+    FCM,
+    StorageProvider
     // Braintree
   ]
 })

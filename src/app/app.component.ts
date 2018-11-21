@@ -14,6 +14,7 @@ import { Observable } from 'rxjs/Observable';
 import { GalleryPage } from '../pages/gallery/gallery';
 import { HomePage } from '../pages/home/home';
 import { NbaPage } from '../pages/nba/nba';
+import { StorageProvider } from '../providers/storage/storage';
 
 
 @Component({
@@ -45,21 +46,8 @@ export class MyApp {
 
   zone$ : Observable<any>;
 
-  constructor(public app: App,public menu: MenuController,platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen, private modal: ModalController, private fcm: FCM, private fs: AngularFirestore, private alt: AlertController) {
+  constructor(public app: App,public menu: MenuController,platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen, private modal: ModalController, private fcm: FCM, private fs: AngularFirestore, private alt: AlertController, private storage: StorageProvider) {
     platform.ready().then(() => {
-      statusBar.styleDefault();
-      splashScreen.hide();
-
-      if (window.localStorage.getItem('token') == null) {
-        this.triggerToken()
-      } else {
-        console.log('dah ada');
-      }
-
-      this.zone$ = this.fs.collection('zone').valueChanges();
-      this.zone$.subscribe();
-
-      // this.showSubSubmenu[1] = false;
 
       this.tournament = this.fs.collection('tournaments');
       this.tour$ = this.tournament.snapshotChanges().map(x => {
@@ -67,31 +55,16 @@ export class MyApp {
           const data = y.payload.doc.data();
           const key = y.payload.doc.id;
 
-          let a = this.fs.collection('tournaments').doc(key).collection('zone').snapshotChanges().map(z => {
-            return z.map(w => {
-              const key = w.payload.doc.id;
-              const data = w.payload.doc.data();
-
-              return {key, data}
-            })
-          });
-
-          return {data,key,a}
+          return {data,key}
         })
       })
 
-      this.tour$.subscribe(x => {
-        x.forEach(y => {
-          this.showSubSubmenu.push(false)
-        })
-
-      });
-
-      window.localStorage.setItem('zone', 'Kebangsaan');
+      this.nav.setRoot(HomePage);
+      statusBar.styleDefault();
+      splashScreen.hide();
 
     });
 
-    this.team_name = window.localStorage.getItem('team_name');
   }
 
   ionViewDidEnter(){}
@@ -148,5 +121,12 @@ export class MyApp {
 
   menuInsideItemHandler(i): void{
     this.showSubSubmenu[i] = !this.showSubSubmenu[i]
+  }
+
+  sel_tournament(key){
+    this.storage.tournament_key(key);
+    this.nav.setRoot(TabsPage).then(()=>{
+      this.menu.close();
+    })
   }
 }

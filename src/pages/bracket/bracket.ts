@@ -5,6 +5,7 @@ import { AngularFirestoreCollection, AngularFirestore } from 'angularfire2/fires
 import { Observable } from 'rxjs/Observable';
 import { GameDetailsPage } from '../game-details/game-details';
 import 'rxjs/add/operator/take';
+import { StorageProvider } from '../../providers/storage/storage';
 
 /**
  * Generated class for the BracketPage page.
@@ -33,7 +34,7 @@ export class BracketPage {
   a: Boolean[] = new Array();
   b: Boolean[] = new Array();
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private fs: AngularFirestore, platform: Platform) {
+  constructor(public navCtrl: NavController, private storage: StorageProvider, public navParams: NavParams, private fs: AngularFirestore, platform: Platform) {
 
     platform.ready().then(()=>{
       this.getItem();
@@ -45,13 +46,12 @@ export class BracketPage {
     this.nozone = false;
     this.nodata = true;
 
-    let idx = 3;
-    window.localStorage.setItem('index', idx.toString());
-    let myzone = window.localStorage.getItem('zone');
+    let key = this.storage.get_tournament_key();
     
-    this.now_zone = `ZON ${myzone.toUpperCase()} - BRACKET`;
-    this.zone = window.localStorage.getItem('zone');
-    
+    let a = this.storage.get_tournament_name();
+    a.subscribe(x => {
+      this.now_zone = `${x.tournament_name.toUpperCase()} - BRACKET`;
+    })
 
     for (let i = 0; i < this.MatchLelaki.length; i++) {
       this.MatchLelaki[i] = new myMatch();
@@ -80,7 +80,7 @@ export class BracketPage {
       this.MatchPerempuan[j].data = new MatchData();
     }
 
-    let matches: AngularFirestoreCollection<any> = this.fs.collection('matches', ref => ref.where('zone', '==', myzone).where('category', '==', 'Lelaki'));
+    let matches: AngularFirestoreCollection<any> = this.fs.collection('matches', ref => ref.where('tournament_id', '==', key).where('category', '==', 1));
     this.matchL = matches.snapshotChanges().map(mt => {
 
       let matches = mt.filter(f => f.payload.doc.data().description !== "Group")
@@ -220,7 +220,7 @@ export class BracketPage {
 
     this.matchL.subscribe();
 
-    let matchesP: AngularFirestoreCollection<any> = this.fs.collection('matches', ref => ref.where('zone', '==', myzone).where('category', '==', 'Perempuan'))
+    let matchesP: AngularFirestoreCollection<any> = this.fs.collection('matches', ref => ref.where('tournament_id', '==', key).where('category', '==', 2))
     this.matchP = matchesP.snapshotChanges().map(mt => {
 
       let matches = mt.filter(f => f.payload.doc.data().description !== "Group")

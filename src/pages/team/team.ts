@@ -3,6 +3,7 @@ import { Observable } from 'rxjs/Observable';
 import { AngularFirestoreCollection, AngularFirestore } from 'angularfire2/firestore';
 import { Component } from '@angular/core';
 import { NavController, NavParams, Platform } from 'ionic-angular';
+import { StorageProvider } from '../../providers/storage/storage';
 
 @Component({
   selector: 'page-team',
@@ -19,14 +20,17 @@ export class TeamPage {
   show: Boolean = false;
   now_zone;
 
-  constructor(platform: Platform, public navCtrl: NavController, public navParams: NavParams, private fs: AngularFirestore) {
+  constructor(platform: Platform, public navCtrl: NavController, private storage: StorageProvider, public navParams: NavParams, private fs: AngularFirestore) {
 
     platform.ready().then(() => {
-      let idx = 4;
-      window.localStorage.setItem('index', idx.toString());
-      let myzone = window.localStorage.getItem('zone');
-      this.now_zone = 'ZON ' + myzone.toUpperCase() + ' - STANDING';
-      this.teamsL = this.fs.collection('teams', ref => ref.where('category', '==', 'Lelaki').where('zone', '==', myzone).where('is_confirm', '==', true));
+      let key = this.storage.get_tournament_key();
+      let zone = this.storage.get_tournament_name();
+
+      zone.subscribe(x => {
+        this.now_zone = `${x.tournament_name.toUpperCase()} - TEAMS`;
+      })
+
+      this.teamsL = this.fs.collection('teams', ref => ref.where('category', '==', 1).where('tournament_id', '==', key));
       this.teamL = this.teamsL.snapshotChanges().map(t => {
         return t.map(x => {
           const data = x.payload.doc.data();
@@ -36,7 +40,7 @@ export class TeamPage {
         })
       })
 
-      this.teamsP = this.fs.collection('teams', ref => ref.where('category', '==', 'Perempuan').where('zone', '==', myzone).where('is_confirm', '==', true));
+      this.teamsP = this.fs.collection('teams', ref => ref.where('category', '==', 2).where('tournament_id', '==', key));
       this.teamP = this.teamsP.snapshotChanges().map(t => {
         return t.map(x => {
           const data = x.payload.doc.data();
