@@ -5,17 +5,30 @@
         <ion-icon class="font-red" name="menu"></ion-icon>
       </button>
     </ion-buttons>
-    <ion-title text-center>HOME</ion-title>
+    <ion-title text-center>NEWS</ion-title>
   </ion-navbar>
 </ion-header>
 
 
 <ion-content padding class="bg-white">
 
-  <ion-row>
-    <ion-col col-12>
-      <img src="assets/imgs/sweet16_18.jpg" />
-    </ion-col>
-  </ion-row>
+  <ion-spinner *ngIf="loading"></ion-spinner>
+
+  <div *ngIf="(news | async) as news">
+    <div *ngIf="news.length < 1">
+      <h3 style="text-align: center;margin-top: 50px">No news</h3>
+    </div>
+  </div>
+
+  <ion-card *ngFor="let news of news | async; let i=index">
+
+    <img src="{{news.image}}">
+
+    <ion-card-content>
+      <b>{{news.title}}</b>
+      <p>{{news.description}}</p>
+    </ion-card-content>
+
+  </ion-card>
 
 </ion-content>

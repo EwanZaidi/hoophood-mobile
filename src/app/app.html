@@ -1,9 +1,15 @@
 <ion-menu [content]="mycontent">
+    <ion-header class="menu-dark">
+        <div class="profile">
+            <img class="profile-picture" src="assets/imgs/icon_2.png" />
+            <h3 class="name" *ngIf="team_name != null">{{team_name}}</h3>
+        </div>
+    </ion-header>
     <ion-content class="menu-dark">
         <ion-list no-lines id="sidenav">
             <ion-item (click)="home()" class="list-bg">
                 <ion-icon name="ios-home-outline" item-start class="font-red"></ion-icon>
-                HOME
+                NEWS
             </ion-item>
             <ion-item class="list-bg" (click)="menuItemHandler()">
                 <ion-icon name="ios-basketball-outline" item-start class="font-red"></ion-icon>
@@ -12,30 +18,24 @@
                 <ion-icon *ngIf="showSubmenu" name="ios-arrow-down-outline" item-end class="font-red"></ion-icon>
             </ion-item>
             <ion-item-group submenu [class.visible]="showSubmenu" class="list-bg">
-                <!-- <div *ngFor="let z of tour$ | async;let i = index">
-                    <ion-item submenu-item *ngIf="showSubmenu" (click)="menuInsideItemHandler(i)" class="list-bg">
-                        {{z.data.tour_name}}
-                        <div *ngFor="let x of z.a | async; let idx = index">
-                            <ion-item subsubmenu-item *ngIf="showSubSubmenu[i]" (click)="zone(x.data.zone_name)" class="list-inner-bg">
-                                {{x.data.zone_name}}
-                            </ion-item>
-                        </div>
-                    </ion-item>
-                </div> -->
                 <div *ngFor="let t of tour$ | async; let i = index">
                     <ion-item submenu-item *ngIf="showSubmenu" (click)="sel_tournament(t.key)" class="list-bg">
                         {{t.data.tournament_name}}
                     </ion-item>
                 </div>
             </ion-item-group>
-            <ion-item (click)="galleryPage()" class="list-bg">
-                <ion-icon name="ios-image-outline" item-start class="font-red"></ion-icon>
-                GALLERY
+            <ion-item *ngIf="!(isLoggedIn | async)" (click)="login()" class="list-bg">
+                    <ion-icon name="log-in" item-start class="font-red"></ion-icon>
+                    Sign In
+                </ion-item>
+            <ion-item *ngIf="(isLoggedIn | async)" (click)="manage()" class="list-bg">
+                <ion-icon name="people" item-start class="font-red"></ion-icon>
+                MY TEAM
             </ion-item>
-            <!-- <ion-item (click)="loginPage()" class="list-bg">
-                <ion-icon name="ios-log-in-outline" item-start class="font-red"></ion-icon>
-                LOGIN
-            </ion-item> -->
+            <ion-item *ngIf="(isLoggedIn | async)" (click)="logout()" class="list-bg">
+                <ion-icon name="log-out" item-start class="font-red"></ion-icon>
+                LOGOUT
+            </ion-item>
         </ion-list>
     </ion-content>
 </ion-menu>

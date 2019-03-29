@@ -7,6 +7,7 @@ import { AngularFirestoreCollection, AngularFirestore } from 'angularfire2/fires
 import { Observable } from 'rxjs/Observable';
 import { HomePage } from '../home/home';
 import { TabsPage } from '../tabs/tabs';
+import { AuthService } from '../../providers/auth.service';
 
 @IonicPage()
 @Component({
@@ -17,7 +18,7 @@ export class LoginPage {
 
   err : any;
 
-  constructor(private alert: AlertController,public navCtrl: NavController, public navParams: NavParams, private auth:AngularFireAuth, private fs: AngularFirestore) {
+  constructor(private alert: AlertController,public navCtrl: NavController, public navParams: NavParams, private auth:AngularFireAuth, private fs: AngularFirestore, private authSvc: AuthService) {
   }
 
   ionViewDidLoad() {
@@ -32,31 +33,30 @@ export class LoginPage {
     b.subscribe(x => {
       if(x.length > 0){
         if(x[0].password == loginForm.value.password){
-          window.localStorage.setItem('team_name', x[0].username);
-          window.localStorage.setItem('team_id', x[0].team_id);
-          this.navCtrl.setRoot(TabsPage);
+          this.authSvc.login(x[0].username, x[0].team_id);
+          this.navCtrl.setRoot(HomePage);
         }else{
-          this.err = 'Password incorrect, please re-login';
-          this.presentAlert();
+          let err = 'Password incorrect, please re-login';
+          this.presentAlert(err);
         }
       }else{
-        this.err = 'Team name not found !'
-        this.presentAlert();
+        let err = 'Team name not found !'
+        this.presentAlert(err);
       }
     })
   }
 
-  presentAlert() {
+  presentAlert(err : string) {
     let alert = this.alert.create({
       title: 'Authentication Failure',
-      subTitle: this.err,
+      subTitle: err,
       buttons: ['Dismiss']
     });
     alert.present();
   }
 
-  back(){
-    this.navCtrl.setRoot(TabsPage);
+  anonymous(){
+    this.navCtrl.setRoot(HomePage);
   }
 
 }

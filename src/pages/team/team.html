@@ -30,7 +30,7 @@
   </ion-row>
 
   <ion-list no-lines>
-    <ion-item *ngFor="let t of teamL | async; let i = index" class="list">
+    <ion-item *ngFor="let t of teamL | async; let i = index" class="list" (click)="selectteam(t)">
       <ion-row>
         <ion-col col-6>
           {{i+1}} {{t.data.team_name}}

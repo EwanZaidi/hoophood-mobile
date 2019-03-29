@@ -46,7 +46,7 @@
           <p>
             <strong>{{m.data.datetime | date : 'E'}}, {{m.data.datetime | date : 'MMM dd'}}</strong>
           </p>
-          <p class="center-gray" *ngIf="(m.data.category == 1);else female">MALE</p>
+          <p class="center-gray" *ngIf="(m.data.category == 1 || m.data.category == 'Lelaki');else female">MALE</p>
           <ng-template #female>
             <p class="center-gray">FEMALE</p>
           </ng-template>
@@ -72,8 +72,8 @@
         </ion-col>
         <ion-col col-4 text-center>
           <p *ngIf="a[i]" class="score">
-            <span *ngIf="away[i]" class="font-red">{{m.data.team2_score}}</span>
-            <span *ngIf="!away[i]">{{m.data.team2_score}}</span>
+            <span *ngIf="away[i]" class="font-red">{{m.data.away_team_score}}</span>
+            <span *ngIf="!away[i]">{{m.data.away_team_score}}</span>
           </p>
           <p class="team-name" *ngIf="(m.awayName | async) as away">
             <strong>{{away.team_name}}</strong>

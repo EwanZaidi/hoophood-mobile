@@ -1,8 +1,7 @@
 import { Component } from '@angular/core';
 import { Platform, MenuController } from 'ionic-angular';
-// import { Camera, CameraOptions } from '@ionic-native/camera';
-// import { CameraPreview, CameraPreviewPictureOptions, CameraPreviewOptions, CameraPreviewDimensions } from '@ionic-native/camera-preview';
-
+import { AngularFireDatabase } from 'angularfire2/database';
+import { Observable } from 'rxjs/Observable';
 
 declare let FCMPlugin: any;
 
@@ -16,35 +15,20 @@ export class HomePage {
 
   z: any;
 
-  // options: CameraOptions = {
-  //   quality: 100,
-  //   destinationType: this.camera.DestinationType.DATA_URL,
-  //   encodingType: this.camera.EncodingType.JPEG,
-  //   mediaType: this.camera.MediaType.PICTURE
-  // }
+  news: Observable<any>;
 
-  // cameraPreviewOpts: CameraPreviewOptions = {
-  //   x: 0,
-  //   y: 0,
-  //   width: window.screen.width,
-  //   height: window.screen.height,
-  //   camera: 'rear',
-  //   tapPhoto: true,
-  //   previewDrag: true,
-  //   toBack: false,
-  //   alpha: 1
-  // };
+  loading: boolean = true;
 
-  constructor(public menu: MenuController,private platform: Platform) {
-    this.onNotification();
-    this.platform.ready().then(()=>{
-      let idx = 0;
-      window.localStorage.setItem('index', idx.toString());
-      this.z = window.localStorage.getItem('zone');
-    })
+  constructor(public menu: MenuController,private platform: Platform, private db: AngularFireDatabase) {
+    let news = this.db.list('news', ref => ref.orderByChild('created_on'));
+    this.news = news.valueChanges();
   }
 
-  ionViewDidLoad(){}
+  ionViewDidLoad(){
+    this.loading = false;
+  }
+
+
 
   async onNotification(){
     try {
@@ -59,35 +43,4 @@ export class HomePage {
       
     }
   }
-
-  // async takePicture(): Promise<any>{
-  //   try{
-  //     this.image = await this.camera.getPicture(this.options)
-  //   }
-  //   catch(e){
-  //     console.log(e);
-  //   }
-  // }
-
-  // takePicture2() {
-  //   this.cameraPreview.startCamera(this.cameraPreviewOpts).then((res)=>{
-  //     console.log(res);
-  //   }, (err) => {
-  //     console.log(err);
-  //   })
-  // }
-
-  
-
-  // tengah(){
-  //   window.open('https://drive.google.com/drive/folders/1Z8Doau-q3OUYTS2iM-zhamSwLdA5nDx2?usp=sharing', '_system')
-  // }
-
-  // timur(){
-  //   window.open('https://drive.google.com/drive/folders/1Xv82ny7tLhGGgJaJngcHz8arg4hlmBm4?usp=sharing', '_system')
-  // }
-
-  // selatan(){
-  //   window.open('https://drive.google.com/drive/folders/1CXiHwizqZyD8aDIYqioU8kqRYS0y6MEc?usp=sharing', '_system')
-  // }
 }

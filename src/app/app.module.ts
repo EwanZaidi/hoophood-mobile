@@ -23,25 +23,17 @@ import { AngularFireModule} from 'angularfire2';
 import { FIREBASE_CONFIG } from './firebase.credentials';
 
 import { SuperTabsModule } from 'ionic2-super-tabs';
-import { BracketPage } from '../pages/bracket/bracket';
-import { GroupDetailsPage } from '../pages/group-details/group-details';
-import { LoginPage } from '../pages/login/login';
-
-// import { Camera} from '@ionic-native/camera';
-// import { CameraPreview } from '@ionic-native/camera-preview';
-
-// import { ScreenOrientation } from '@ionic-native/screen-orientation';
-import { NewsletterPage } from '../pages/newsletter/newsletter';
 
 import { FCM } from '@ionic-native/fcm';
-import { GalleryPage } from '../pages/gallery/gallery';
-import { NbaPage } from '../pages/nba/nba';
-import { NbaRegPage } from '../pages/nba-reg/nba-reg';
 import { StorageProvider } from '../providers/storage/storage';
-
-// import { Braintree } from '@ionic-native/braintree';
-
-// import { SideMenuContentComponent } from '../shared/side-menu-content/side-menu-content.component';
+import { BracketPageModule } from '../pages/bracket/bracket.module';
+import { GalleryPageModule } from '../pages/gallery/gallery.module';
+import { GroupDetailsPageModule } from '../pages/group-details/group-details.module';
+import { LoginPageModule } from '../pages/login/login.module';
+import { ManageTeamPageModule } from '../pages/manage-team/manage-team.module';
+import { AddPlayerPageModule } from '../pages/add-player/add-player.module';
+import { EditPlayerPageModule } from '../pages/edit-player/edit-player.module';
+import { AuthService } from '../providers/auth.service';
 
 @NgModule({
   declarations: [
@@ -54,15 +46,7 @@ import { StorageProvider } from '../providers/storage/storage';
     StatisticsPage,
     TeamDetailsPage,
     GameDetailsPage,
-    BracketPage,
-    GroupDetailsPage,
-    LoginPage,
-    StatisticsPage,
-    NewsletterPage,
-    GalleryPage,
-    NbaPage,
-    NbaRegPage
-    // SideMenuContentComponent
+    StatisticsPage
   ],
   imports: [
     BrowserModule,
@@ -72,7 +56,14 @@ import { StorageProvider } from '../providers/storage/storage';
     AngularFirestoreModule,
     SuperTabsModule.forRoot(),
     FormsModule,
-    AngularFireAuthModule
+    AngularFireAuthModule,
+    BracketPageModule,
+    GalleryPageModule,
+    GroupDetailsPageModule,
+    LoginPageModule,
+    ManageTeamPageModule,
+    AddPlayerPageModule,
+    EditPlayerPageModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -85,25 +76,15 @@ import { StorageProvider } from '../providers/storage/storage';
     StatisticsPage,
     TeamDetailsPage,
     GameDetailsPage,
-    BracketPage,
-    GroupDetailsPage,
-    LoginPage,
     StatisticsPage,
-    NewsletterPage,
-    GalleryPage,
-    NbaPage,
-    NbaRegPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    // Camera,
-    // CameraPreview,
-    // ScreenOrientation,
     FCM,
-    StorageProvider
-    // Braintree
+    StorageProvider,
+    AuthService
   ]
 })
 export class AppModule {}

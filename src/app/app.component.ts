@@ -1,5 +1,5 @@
 import { Component, ViewChild } from '@angular/core';
-import { Platform, NavController, ModalController, AlertController, MenuController, App} from 'ionic-angular';
+import { Platform, NavController, ModalController, AlertController, MenuController, App } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
@@ -15,6 +15,9 @@ import { GalleryPage } from '../pages/gallery/gallery';
 import { HomePage } from '../pages/home/home';
 import { NbaPage } from '../pages/nba/nba';
 import { StorageProvider } from '../providers/storage/storage';
+import { AngularFireAuth } from 'angularfire2/auth';
+import { ManageTeamPage } from '../pages/manage-team/manage-team';
+import { AuthService } from '../providers/auth.service';
 
 
 @Component({
@@ -32,22 +35,26 @@ export class MyApp {
   check: AngularFirestoreDocument<any>;
   c: Observable<any>;
 
-  z:any;
+  z: any;
 
   showSubmenu: boolean = false;
-  showSubSubmenu : Array<Boolean> = [];
-
-
-
-
+  showSubSubmenu: Array<Boolean> = [];
+  team_id: string;
 
   tournament: AngularFirestoreCollection<any>;
-  tour$ : Observable<any>;
+  tour$: Observable<any>;
 
-  zone$ : Observable<any>;
+  zone$: Observable<any>;
 
-  constructor(public app: App,public menu: MenuController,platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen, private modal: ModalController, private fcm: FCM, private fs: AngularFirestore, private alt: AlertController, private storage: StorageProvider) {
+  isLoggedIn : Observable<boolean>;
+
+  constructor(public app: App, public menu: MenuController, platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen, private modal: ModalController, private fcm: FCM, private fs: AngularFirestore, private alt: AlertController, private storage: StorageProvider, private afAuth: AngularFireAuth, public authService : AuthService) {
     platform.ready().then(() => {
+
+      this.isLoggedIn = this.authService.isLoggedIn();
+     
+      this.team_id = window.localStorage.getItem('team_id');
+      this.team_name = window.localStorage.getItem('team_name');
 
       this.tournament = this.fs.collection('tournaments');
       this.tour$ = this.tournament.snapshotChanges().map(x => {
@@ -55,11 +62,12 @@ export class MyApp {
           const data = y.payload.doc.data();
           const key = y.payload.doc.id;
 
-          return {data,key}
+          return { data, key }
         })
       })
-
+      
       this.nav.setRoot(HomePage);
+
       statusBar.styleDefault();
       splashScreen.hide();
 
@@ -67,29 +75,35 @@ export class MyApp {
 
   }
 
-  ionViewDidEnter(){}
+  ionViewDidEnter() { }
 
   loginPage() {
-    this.nav.push(LoginPage).then(()=>{
+    this.nav.push(LoginPage).then(() => {
       this.menu.close();
     })
   }
 
   galleryPage() {
-    this.nav.setRoot(GalleryPage).then(()=>{
+    this.nav.setRoot(GalleryPage).then(() => {
+      this.menu.close();
+    })
+  }
+
+  manage() {
+    this.nav.setRoot(ManageTeamPage).then(() => {
       this.menu.close();
     })
   }
 
   nbaPage() {
-    this.nav.setRoot(NbaPage).then(()=>{
+    this.nav.setRoot(NbaPage).then(() => {
       this.menu.close();
     })
   }
 
-  zone(zoned){
+  zone(zoned) {
     window.localStorage.setItem('zone', zoned);
-    this.nav.setRoot(TabsPage).then(()=>{
+    this.nav.setRoot(TabsPage).then(() => {
       this.menu.close();
     })
   }
@@ -107,26 +121,40 @@ export class MyApp {
     })
   }
 
-  home(){
+  home() {
     this.nav.setRoot(HomePage).then(() => {
       this.menu.close();
     })
   }
 
-  
+
 
   menuItemHandler(): void {
     this.showSubmenu = !this.showSubmenu;
   }
 
-  menuInsideItemHandler(i): void{
+  menuInsideItemHandler(i): void {
     this.showSubSubmenu[i] = !this.showSubSubmenu[i]
   }
 
-  sel_tournament(key){
+  sel_tournament(key) {
     this.storage.tournament_key(key);
-    this.nav.setRoot(TabsPage).then(()=>{
+    this.nav.setRoot(TabsPage).then(() => {
       this.menu.close();
     })
+  }
+
+  logout() {
+  
+    this.nav.setRoot(LoginPage).then(() => {
+      this.menu.close();
+      this.authService.logout();
+    })
+  }
+
+  login() {
+    this.nav.push(LoginPage).then(() => {
+      this.menu.close();
+    });
   }
 }

@@ -22,5 +22,15 @@ page-home {
         background-color: white;
     }
 
+    ion-card:nth-child(even){
+        ion-card-content{
+            background-color: black;
+            color: white;
+            p {
+                color: white
+            }
+        }
+    }
+
 
 }

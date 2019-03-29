@@ -1,53 +1,12 @@
-<!-- <ion-header>
-  <ion-navbar color="login">
-  </ion-navbar>
-</ion-header>
-
-<ion-content class="login-content" padding>
-  <ion-row class="logo-row">
-    <ion-col></ion-col>
-    <ion-col width-67>
-      <img src="assets/imgs/icon.png" />
-    </ion-col>
-    <ion-col></ion-col>
-  </ion-row>
-  <div class="login-box">
-    <form #loginForm="ngForm">
-      <ion-row>
-        <ion-col>
-          <ion-list inset>
-
-            <ion-item>
-              <ion-input type="text" placeholder="Team Name" name="teamName" required ngModel></ion-input>
-            </ion-item>
-
-            <ion-item>
-              <ion-input type="password" placeholder="Password" name="password" required ngModel></ion-input>
-            </ion-item>
-
-          </ion-list>
-        </ion-col>
-      </ion-row>
-
-      <ion-row>
-        <ion-col class="signup-col">
-          <button ion-button class="submit-btn" full type="submit" [disabled]="!loginForm.valid" (click)="login(loginForm)">Login</button>
-        </ion-col>
-      </ion-row>
-
-    </form>
-  </div>
-</ion-content> -->
-
-<ion-content class="profiles-bg" padding>
+<ion-content class="menu-dark" padding>
   <div class="fixed-content"></div>
   <div class="scroll-content">
     <div class="auth-content">
       <div padding-horizontal text-center>
         <div class="logo">
-          <img src="assets/imgs/icon3.png">
+          <img src="assets/imgs/icon_2.png">
         </div>
-        <h2 class="text-secondary" ion-text no-margin><strong>Hoop Hood</strong></h2>
+        <p ion-text no-margin class="text-white">Have team? Login to manage</p>
       </div>
       <div padding-vertical></div>
       <div id="loginForm">
@@ -73,22 +32,16 @@
         <div>
           <ion-grid fixed>
             <ion-row>
-              <button col col-6 col-md-6 col-lg-6 (click)="login(loginForm)" block color="secondary" icon-start ion-button [disabled]="!loginForm.valid">
+              <button col col-12 col-md-12 col-lg-12 (click)="login(loginForm)" block color="secondary" icon-start ion-button [disabled]="!loginForm.valid">
                 <span class="button-inner">
                   <ion-icon name="log-in"></ion-icon>
                   SIGN IN
                 </span>
               </button>
-              <button col col-6 col-md-6 col-lg-6 (click)="back()" block color="danger" icon-start ion-button>
-                <span class="button-inner">
-                  <ion-icon name="backspace"></ion-icon>
-                  BACK
-                </span>
-              </button>
             </ion-row>
           </ion-grid>
         </div>
-        <p ion-text text-center class="text-white">Powered by Hyred</p>
+        <p ion-text text-center class="text-white">Not a manager? <span (click)="anonymous()">Tap Here</span></p>
       </div>
     </div>
   </div>

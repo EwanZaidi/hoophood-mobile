@@ -5,7 +5,6 @@ import { AngularFireAuth } from 'angularfire2/auth';
 import { AngularFirestoreDocument, AngularFirestore, AngularFirestoreCollection } from 'angularfire2/firestore';
 import { Observable } from 'rxjs/Observable';
 import { StatisticsPage } from '../statistics/statistics';
-// import { ScreenOrientation } from '@ionic-native/screen-orientation';
 
 @Component({
   selector: 'page-game-details',
@@ -75,18 +74,6 @@ export class GameDetailsPage {
     if (this.data.group != undefined) {
       this.splitvalue(this.data.group)
     }
-
-    // this.team1_scorer = this.fs.collection('matches').doc(this.id).collection('team1_scorer', ref => ref.orderBy('points', 'desc'));
-    // this.team1_scorer$ = this.team1_scorer.valueChanges();
-
-    // this.team2_scorer = this.fs.collection('matches').doc(this.id).collection('team2_scorer', ref => ref.orderBy('points', 'desc'));
-    // this.team2_scorer$ = this.team2_scorer.valueChanges();
-
-    // this.team1_3ptr = this.fs.collection('matches').doc(this.id).collection('team1_3ptr', ref => ref.orderBy('points', 'desc'));
-    // this.team1_3ptr$ = this.team1_3ptr.valueChanges();
-
-    // this.team2_3ptr = this.fs.collection('matches').doc(this.id).collection('team2_3ptr', ref => ref.orderBy('points', 'desc'));
-    // this.team2_3ptr$ = this.team2_3ptr.valueChanges();
   }
 
   splitvalue(data) {
@@ -99,7 +86,6 @@ export class GameDetailsPage {
   }
 
   statsPage() {
-    // this.navCtrl.setRoot(StatisticsPage, {id: this.id, data: this.data})
     this.view.dismiss();
     this.app.getRootNav().push(StatisticsPage, { id: this.id, data: this.data });
   }
